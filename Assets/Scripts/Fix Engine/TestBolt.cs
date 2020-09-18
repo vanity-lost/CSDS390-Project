@@ -12,8 +12,6 @@ public class TestBolt : MonoBehaviour
     [SerializeField] private GameObject button;
 
 
-    //bool left;
-    //bool right;
     bool done = false;
 
     [SerializeField] private float distance = 1.2f;
@@ -49,12 +47,6 @@ public class TestBolt : MonoBehaviour
         }
     }
 
-    private void Wrench(Collision collision)
-    {
-
-
-
-    }
 
 
 

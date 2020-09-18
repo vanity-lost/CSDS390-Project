@@ -20,7 +20,7 @@ public class MovableWrentch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(lockPlace);
+        //Debug.Log(lockPlace);
         //Debug.Log(Input.mousePosition);
         //Debug.Log(Camera.main.WorldToScreenPoint(Input.mousePosition));
         //transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime);
@@ -44,7 +44,7 @@ public class MovableWrentch : MonoBehaviour
         }
         else
         {
-            transform.RotateAround(target.transform.position, Vector3.up, 40 * Time.deltaTime);
+            transform.RotateAround(target.transform.position, Vector3.up, 80 * Time.deltaTime);
             if (-1 < transform.rotation.y & transform.rotation.y < 0)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
@@ -52,19 +52,6 @@ public class MovableWrentch : MonoBehaviour
                 //targetNumber = targetNumber + 1;
             }
         }
-    }
-
-    private void OnMouseDown()
-    {
-        //Debug.Log("Happening");
-        //offset = new Vector3(Input.mousePosition.x, transform.position.y, Input.mousePosition.z); //finds mouse position
-        //transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime);
-
-    }
-    private void OnMouseEnter()
-    {
-        //Debug.Log("Over ");
-        //transform.RotateAround(target.transform.position, Vector3.up, 40 * Time.deltaTime);
     }
 
 
