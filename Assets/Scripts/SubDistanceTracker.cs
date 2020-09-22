@@ -18,7 +18,7 @@ public class SubDistanceTracker : MonoBehaviour
     {
         while(engineRun)
         {
-            Thread.Sleep(1000);
+            // yield return new WaitForSeconds(1);
             tDistance += move;
             DistanceMeter.value = tDistance;
 

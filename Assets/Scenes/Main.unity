@@ -835,7 +835,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Sub Distance
 
-    |-----------------------------------------------> 1000 m'
+    |-----------------------------------------------> 1000
+    m'
 --- !u!222 &186678245
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1320,78 +1321,63 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.97
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalPosition.z
       value: -8.9
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: -8679921383154817045, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: d8f74e8a43115cc4d954ea969bc9de4b,
-        type: 3}
+    - target: {fileID: 919132149155446097, guid: d8f74e8a43115cc4d954ea969bc9de4b, type: 3}
       propertyPath: m_Name
       value: SubmarineLayour_v2
       objectReference: {fileID: 0}
@@ -3402,7 +3388,7 @@ RectTransform:
   m_Children:
   - {fileID: 1134394538}
   m_Father: {fileID: 972955524}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3596,12 +3582,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "W - move up\r\nA - move right\r\nS - move down\r\nD - move right\r\nE -
-    interact with objects throughout the submarine to bring up UI screens and go through
-    doors\r\nLeft-click - interact with objects throughout the submarine to bring
-    up UI screens, go through doors, and complete actions to fulfill tasks\r\nRight-click
-    - hold interactable object\r\nEsc - pause game and open options panel\r\nTab -
-    open minimap\r"
+  m_Text: "W - move up\r\nA - move right\r\nS - move down\r\nD - move right\r\nE
+    - interact with objects throughout the submarine to bring up UI screens and go
+    through doors\r\nLeft-click - interact with objects throughout the submarine
+    to bring up UI screens, go through doors, and complete actions to fulfill tasks\r\nRight-click
+    - hold interactable object\r\nEsc - pause game and open options panel\r\nTab
+    - open minimap\r"
 --- !u!222 &895677398
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4502,7 +4488,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 1541402316}]
+  m_Children:
+  - {fileID: 1541402316}
   m_Father: {fileID: 972955524}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5089,7 +5076,6 @@ GameObject:
   - component: {fileID: 1161239944}
   - component: {fileID: 1161239943}
   - component: {fileID: 1161239942}
-  - component: {fileID: 1161239945}
   m_Layer: 5
   m_Name: RadarCanvas
   m_TagString: Untagged
@@ -5107,9 +5093,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 2144034057}]
+  m_Children:
+  - {fileID: 2144034057}
   m_Father: {fileID: 972955524}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5176,20 +5163,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &1161239945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161239940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 512f0afc5b2bafe4dbed4505ced5e124, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DistanceMeter: {fileID: 0}
-  engineRun: 1
 --- !u!1 &1176740752
 GameObject:
   m_ObjectHideFlags: 0
@@ -6074,9 +6047,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 958351547}]
+  m_Children:
+  - {fileID: 958351547}
   m_Father: {fileID: 972955524}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6664,8 +6638,7 @@ AudioSource:
   m_GameObject: {fileID: 1383665849}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: a8efdd2f683e23b4f85b51e8d2591ac6,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a8efdd2f683e23b4f85b51e8d2591ac6, type: 2}
   m_audioClip: {fileID: 8300000, guid: a142fa6739d8f9c4b83d1853560e1075, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -6812,7 +6785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1405282554}
   m_Layer: 0
-  m_Name: '---------UI---------'
+  m_Name: ---------UI---------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7252,7 +7225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1549227266
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7263,9 +7236,10 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: [{fileID: 186678243}]
+  m_Children:
+  - {fileID: 186678243}
   m_Father: {fileID: 972955524}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -8468,8 +8442,7 @@ AudioSource:
   m_GameObject: {fileID: 1713939389}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: a8efdd2f683e23b4f85b51e8d2591ac6,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: a8efdd2f683e23b4f85b51e8d2591ac6, type: 2}
   m_audioClip: {fileID: 8300000, guid: a142fa6739d8f9c4b83d1853560e1075, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -8885,7 +8858,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1777578171}
   m_Layer: 0
-  m_Name: '---------Sound---------'
+  m_Name: ---------Sound---------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10163,7 +10136,8 @@ MonoBehaviour:
 
     |  Radar here! |
 
-    | |
+    |
+    |
 
     ------------------'
 --- !u!222 &2144034059
