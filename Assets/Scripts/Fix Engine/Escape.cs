@@ -3,32 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PressButton : MonoBehaviour
+public class Escape : MonoBehaviour
 {
-    bool buttonPressed;
-    int boltsDone = 0;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Button is " + buttonPressed);
-    }
-
-    public void BoltDone()
-    {
-        boltsDone++;
-    }
-
-    private void OnMouseDown()
-    {
-        if (boltsDone == 3)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            buttonPressed = true;
             SceneManager.LoadScene("Main");
         }
     }
