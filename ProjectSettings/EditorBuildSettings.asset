@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/End Scene.unity
     guid: efcbc33147641704ab795e369f83871e
+  - enabled: 1
+    path: Assets/Scenes/Fix Engine.unity
+    guid: db0b90a01a21ba44da713a3626db823d
+  - enabled: 1
+    path: Assets/Scenes/Connect Wire.unity
+    guid: 1b6c2bd499a363942a3afe3e73567c5f
   m_configObjects: {}
