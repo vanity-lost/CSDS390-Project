@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PressButton : MonoBehaviour
 {
     bool buttonPressed;
+    [SerializeField] private int numBolts = 3;
+
     int boltsDone = 0;
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,7 @@ public class PressButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (boltsDone == 3)
+        if (boltsDone == numBolts)
         {
             buttonPressed = true;
             SceneManager.LoadScene("Main");
