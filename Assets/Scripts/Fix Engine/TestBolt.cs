@@ -27,7 +27,7 @@ public class TestBolt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position + " " + done);
+// Debug.Log(transform.position + " " + done);
         if (done == false)
         {
             Vector3 left = leftWrentch.transform.position;
