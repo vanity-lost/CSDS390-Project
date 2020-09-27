@@ -16,7 +16,7 @@ public class PressButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Button is " + buttonPressed);
+        //Debug.Log("Button is " + buttonPressed);
     }
 
     public void BoltDone()
