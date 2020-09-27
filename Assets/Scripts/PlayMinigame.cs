@@ -23,5 +23,9 @@ public class PlayMinigame : MonoBehaviour
         {
             SceneManager.LoadScene("Connect Wire");
         }
+        if (Input.GetKeyDown("k"))
+        {
+            SceneManager.LoadScene("Storage Room");
+        }
     }
 }
