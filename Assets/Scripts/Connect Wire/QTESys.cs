@@ -1,31 +1,43 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class QTESystem : MonoBehaviour
+public class QTESys : MonoBehaviour
 {
     public GameObject LetterBox;//display the key player needs to press
+    public GameObject LetterBoxOuter;
     public GameObject PassBox;//display if pass or fail the current QTE
     public GameObject NumSuccess;//display number of successed QTE
-    public GameObject FilledBar;
     public GameObject Panel;
-    public GameObject closebutton;
+    public GameObject Bar;
     public int QTEGen;//so far 3 different types of QTE letter, E R T, 4=wrong key pressed
     public int WaitingForKey;//0=is waiting to generate a QTE key
     public int CorrectKey;//1=correct key pressed,2=wrong key pressed,0=reset this state
     public int CountingDown;
     public int numofcorrect;
     public float TimeLeft;
+    public int maxprogress = 4;
+    public Vector3 Loc1;
+    public Vector3 Loc2;
+    public Vector3 Loc3;
 
     // Start is called before the first frame update
     void Start()
     {
+        Loc1 = LetterBoxOuter.GetComponent<RectTransform>().position;
+        Debug.Log(Loc1);
+        Loc2 = new Vector3(Loc1.x + 200, Loc1.y + 80, Loc1.z);
+        Loc3 = new Vector3(Loc1.x - 150, Loc1.y - 40, Loc1.z);
         NumSuccess.GetComponent<Text>().text = "0";
         numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
         Debug.Log(NumSuccess.GetComponent<Text>().text);
-        TimeLeft = FilledBar.GetComponent<Image>().fillAmount;
+        Bar.GetComponent<Slider>().value = 0;
+        //TimeLeft = FilledBar.GetComponent<Image>().fillAmount;
     }
 
     // Update is called once per frame
@@ -48,6 +60,7 @@ public class QTESystem : MonoBehaviour
                 if (QTEGen == 2)
                 {
                     WaitingForKey = 1;
+                    //LetterBoxOuter.GetComponent<RectTransform>().position = Loc2;
                     LetterBox.GetComponent<Text>().text = "[R]";
                 }
                 if (QTEGen == 3)
@@ -111,16 +124,36 @@ public class QTESystem : MonoBehaviour
             numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
             PassBox.GetComponent<Text>().text = "";
         }**/
+        else if (PassBox.GetComponent<Text>().text == "Connected!")
+        {
+            //do nothing, just wait;
+        }
         else if (numofcorrect >= 3 && Panel.activeSelf == true)
         {
             //Debug.Log(numofcorrect);
             //Debug.Log(Panel.activeSelf.ToString());
             PassBox.GetComponent<Text>().text = "Connected!";
+            Debug.Log("Connected");
             StartCoroutine(EndWireConnection());
         }
-
     }
 
+    public void changeLoc()
+    {
+        int num = UnityEngine.Random.Range(1, 4);
+        if (num == 1)
+        {
+            LetterBoxOuter.GetComponent<RectTransform>().position = Loc1;
+        }
+        else if (num == 2)
+        {
+            LetterBoxOuter.GetComponent<RectTransform>().position = Loc2;
+        }
+        else
+        {
+            LetterBoxOuter.GetComponent<RectTransform>().position = Loc3;
+        }
+    }
 
     IEnumerator KeyPressing()
     {
@@ -128,10 +161,11 @@ public class QTESystem : MonoBehaviour
         if (CorrectKey == 1)//done it correctly
         {
             numofcorrect = numofcorrect + 1;
+            Bar.GetComponent<Slider>().value = numofcorrect;
             NumSuccess.GetComponent<Text>().text = "" + numofcorrect + "";
-
             CountingDown = 2;
-            PassBox.GetComponent<Text>().text = "PASS!";
+            //PassBox.GetComponent<Text>().text = "PASS!";
+            Debug.Log("PASS");
             yield return new WaitForSeconds(1.5f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
@@ -143,7 +177,8 @@ public class QTESystem : MonoBehaviour
         if (CorrectKey == 2)//incorrect key pressed
         {
             CountingDown = 2;
-            PassBox.GetComponent<Text>().text = "FAIL!";
+            //PassBox.GetComponent<Text>().text = "FAIL!";
+            Debug.Log("FAIL");
             yield return new WaitForSeconds(1.5f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
@@ -152,6 +187,7 @@ public class QTESystem : MonoBehaviour
             WaitingForKey = 0;
             CountingDown = 1;
         }
+        changeLoc();
     }
 
     IEnumerator CountDown()
@@ -161,7 +197,7 @@ public class QTESystem : MonoBehaviour
         {
             QTEGen = 4;
             CountingDown = 2;
-            PassBox.GetComponent<Text>().text = "FAIL!";
+            //PassBox.GetComponent<Text>().text = "FAIL!";
             yield return new WaitForSeconds(1.5f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
@@ -174,8 +210,10 @@ public class QTESystem : MonoBehaviour
 
     IEnumerator EndWireConnection()
     {
-        yield return new WaitForSecondsRealtime(2);
-        closebutton.GetComponent<Button>().onClick.Invoke();
+        yield return new WaitForSecondsRealtime(1);
+        Debug.Log("Main");
+        SceneManager.LoadScene("Main");
+        //closebutton.GetComponent<Button>().onClick.Invoke();
     }
 
     IEnumerator TimerCountDown()
@@ -184,11 +222,10 @@ public class QTESystem : MonoBehaviour
         while (TimeLeft != 0)
         {
             TimeLeft = TimeLeft - (1 / 3.5f);
-            FilledBar.GetComponent<Image>().fillAmount = TimeLeft;
+            //FilledBar.GetComponent<Image>().fillAmount = TimeLeft;
         }
 
     }
 
+
 }
-
-
