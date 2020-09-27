@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Connect Wire.unity
     guid: 1b6c2bd499a363942a3afe3e73567c5f
+  - enabled: 1
+    path: Assets/Scenes/Storage Room.unity
+    guid: d5bfc46eaab6cde419c096c8578a27f8
   m_configObjects: {}
