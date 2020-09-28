@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PressButton : MonoBehaviour
+public class LeakTracker : MonoBehaviour
 {
-    bool buttonPressed;
-    [SerializeField] private int numBolts = 3;
+    [SerializeField] private int leaks = 4;
 
-    int boltsDone = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,19 +17,14 @@ public class PressButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Button is " + buttonPressed);
+        
     }
 
-    public void BoltDone()
+    public void LeakFilled()
     {
-        boltsDone++;
-    }
-
-    private void OnMouseDown()
-    {
-        if (boltsDone == numBolts)
+        leaks = leaks - 1;
+        if (leaks == 0)
         {
-            buttonPressed = true;
             SceneManager.LoadScene("Main");
         }
     }
