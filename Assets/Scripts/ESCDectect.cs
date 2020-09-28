@@ -14,7 +14,6 @@ public class ESCDectect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(gameIsPaused);
         if (Input.GetKeyDown(KeyCode.Escape)) {
             Panel1.SetActive(!Panel1.activeSelf);
             if (gameIsPaused) {
