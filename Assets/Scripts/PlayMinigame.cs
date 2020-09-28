@@ -27,5 +27,9 @@ public class PlayMinigame : MonoBehaviour
         {
             SceneManager.LoadScene("Storage Room");
         }
+        if (Input.GetKeyDown("e"))
+        {
+            SceneManager.LoadScene("End Scene");
+        }
     }
 }

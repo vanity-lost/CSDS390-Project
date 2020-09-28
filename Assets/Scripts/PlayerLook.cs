@@ -27,6 +27,18 @@ public Rotation rotation = Rotation.x;
     // Update is called once per frame
     void Update()
     {
+        if (ESCDectect.gameIsPaused) {
+            xSensitivity = 0.0f;
+            ySensitivity = 0.0f;
+            lowY = 0.0f;
+            highY = 0.0f;
+        } else {
+            xSensitivity = 8.0f;
+            ySensitivity = 8.0f;
+            lowY = -45.0f;
+            highY = 45.0f;
+        }
+        
         if (rotation == Rotation.x)
         {
             transform.Rotate(0, Input.GetAxis("Mouse X") * xSensitivity, 0);
