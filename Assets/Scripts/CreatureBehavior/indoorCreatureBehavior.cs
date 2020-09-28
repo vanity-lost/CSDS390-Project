@@ -18,7 +18,7 @@ public class indoorCreatureBehavior : MonoBehaviour
         if (getCircuitWorkingStatus())
         {
             if (isWithinSensingRange(getCreatureLocation(), getPlayerLocation()) {
-                moveAway();
+                moveAwayFromPlayer();
             }
             else
             {
@@ -73,5 +73,5 @@ public class indoorCreatureBehavior : MonoBehaviour
         private void moveToCircuits() { }
 
         // Creature runs away from player
-        private void moveAway() { }
+        private void moveAwayFromPlayer() { }
     }
