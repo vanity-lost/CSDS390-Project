@@ -17,6 +17,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ESCDectect.gameIsPaused) {
+            movespeed = 0.0f;
+        } else {
+            movespeed = 4.0f;
+        }
         float xMovement = Input.GetAxis("Horizontal") * movespeed;
         float yMovement = Input.GetAxis("Vertical") * movespeed;
         Vector3 moving = new Vector3(xMovement, 0, yMovement);
