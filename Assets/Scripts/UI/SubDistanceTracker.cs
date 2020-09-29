@@ -8,21 +8,31 @@ public class SubDistanceTracker : MonoBehaviour
 {
     public Slider DistanceMeter;
     public bool engineRun = true;
-    private float tDistance = 0f;
-    private float move = 0.1f;
-    private float maxDistance = 1.0f;
+    private float traveledDistance = 0f;
+    private float move = 1.0f;
+    private float maxDistance = 500.0f;
+    private float elapsedTime = 0f;
 
-
-    // Update is called once per frame
+    void Start()
+    {
+        DistanceMeter.maxValue = maxDistance;
+        DistanceMeter.value = traveledDistance;
+    }
+    
     void Update()
     {
-        while(engineRun)
-        {
-            // yield return new WaitForSeconds(1);
-            tDistance += move;
-            DistanceMeter.value = tDistance;
+        DistanceTracker(DistanceMeter);
+    }
 
-            if(tDistance == maxDistance)
+    private void DistanceTracker (Slider slider)
+    {
+        elapsedTime += Time.deltaTime;
+        if  (engineRun == true && elapsedTime >= 1.0f)
+        {
+            elapsedTime = elapsedTime % 1.0f;
+            traveledDistance += move;
+            slider.value = traveledDistance;
+            if (traveledDistance == maxDistance)
             {
                 engineRun = false;
             }
