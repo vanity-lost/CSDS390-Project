@@ -9,7 +9,7 @@ public class indoorCreatureBehavior : MonoBehaviour
     {
         
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -74,4 +74,5 @@ public class indoorCreatureBehavior : MonoBehaviour
 
         // Creature runs away from player
         private void moveAwayFromPlayer() { }
+        */
     }

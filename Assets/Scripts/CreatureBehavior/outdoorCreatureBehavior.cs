@@ -12,6 +12,7 @@ public class outdoorCreatureBehavior : MonoBehaviour
         
     }
 
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -56,4 +57,5 @@ public class outdoorCreatureBehavior : MonoBehaviour
 
     // Creature idles and searches randomly for submarine
     private void uninformedSearch() { }
+    */
 }
