@@ -28,6 +28,7 @@ public class Movement : MonoBehaviour
         
         moving = Vector3.ClampMagnitude(moving, movespeed);
         moving = moving * Time.deltaTime;
+        moving.y = -9.0f;
         moving = transform.TransformDirection(moving);
 
         character.Move(moving);
