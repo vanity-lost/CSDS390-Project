@@ -3,15 +3,18 @@
 public class MoveFuse : MonoBehaviour
 {
     Vector3 mousePosition;
+    [SerializeField] bool status = true;
     [SerializeField] float distanceLock = 0.2f;
     [SerializeField] bool lockPlace = false;
     GameObject[] fuses;
+    GameObject slot= null;
 
     // Start is called before the first frame update
     void Start()
     {
         fuses = GameObject.FindGameObjectsWithTag("Fuse");
-        Debug.Log(fuses);
+        slot = transform.parent.GetChild(1).gameObject;
+        //Debug.Log(fuses);
     }
 
     // Update is called once per frame
@@ -23,7 +26,12 @@ public class MoveFuse : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (lockPlace == false) {
+        Debug.Log("Fuse Clicked");
+        if (slot != null)
+        {
+            slot.GetComponent<FuseHolder>().InPlace(false);
+        }
+        slot = null;
         //held = true;
         Camera.main.WorldToScreenPoint(transform.position);    
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -31,12 +39,10 @@ public class MoveFuse : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             mousePosition = hit.point;
-            mousePosition.y = 1.0f;
+            mousePosition.y = transform.position.y;
         }
         transform.position = mousePosition;
         //Gizmos.DrawWireSphere(mousePosition, 2.0f);
-
-        }
     }
 
     public void OnMouseUp()
@@ -48,16 +54,17 @@ public class MoveFuse : MonoBehaviour
             //Debug.Log(distance);
             if (distance < distanceLock)
             {
+                slot = fuse;
+                fuse.GetComponent<FuseHolder>().InPlace(status);
                 Debug.Log("In place");
             }
         }
     }
 
-/*
-    public void LockPlace()
+    public void Status(bool status)
     {
-        lockPlace = true;
-        Debug.Log("Lock");
+        this.status = status;
     }
-    */
+
+
 }
