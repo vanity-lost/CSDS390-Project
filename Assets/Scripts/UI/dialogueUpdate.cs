@@ -18,6 +18,8 @@ public class dialogueUpdate : MonoBehaviour
     public string[] messages;
     public int currentMessageIndex = 0;
 
+    public static bool locked = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class dialogueUpdate : MonoBehaviour
     {
         if (currentMessageIndex >= messages.Length - 1) {
             ESCDectect.gameIsPaused = false;
+            locked = false;
             tutorialCanvas.SetActive(false);
         }
 

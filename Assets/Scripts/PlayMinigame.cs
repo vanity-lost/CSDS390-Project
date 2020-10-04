@@ -14,30 +14,32 @@ public class PlayMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("p"))
-        {
-            Debug.Log("fix Engine");
-            SceneManager.LoadScene("Fix Engine");
-        }
-        if (Input.GetKeyDown("l"))
-        {
-            SceneManager.LoadScene("Connect Wire");
-        }
-        if (Input.GetKeyDown("k"))
-        {
-            SceneManager.LoadScene("Storage Room");
-        }
-        if (Input.GetKeyDown("h"))
-        {
-            SceneManager.LoadScene("Fix Hull");
-        }
-        if (Input.GetKeyDown("o"))
-        {
-            SceneManager.LoadScene("Fire Extinguish");
-        }
-        if (Input.GetKeyDown("e"))
-        {
-            SceneManager.LoadScene("End Scene");
+        if (!dialogueUpdate.locked) {
+            if (Input.GetKeyDown("p"))
+            {
+                Debug.Log("fix Engine");
+                SceneManager.LoadScene("Fix Engine");
+            }
+            if (Input.GetKeyDown("l"))
+            {
+                SceneManager.LoadScene("Connect Wire");
+            }
+            if (Input.GetKeyDown("k"))
+            {
+                SceneManager.LoadScene("Storage Room");
+            }
+            if (Input.GetKeyDown("h"))
+            {
+                SceneManager.LoadScene("Fix Hull");
+            }
+            if (Input.GetKeyDown("o"))
+            {
+                SceneManager.LoadScene("Fire Extinguish");
+            }
+            if (Input.GetKeyDown("e"))
+            {
+                SceneManager.LoadScene("End Scene");
+            }
         }
     }
 }
