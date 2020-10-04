@@ -14,19 +14,21 @@ public class ESCDectect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            Panel1.SetActive(!Panel1.activeSelf);
-            if (gameIsPaused) {
-                Resume();
-            } else {
-                Pause();
+        if (!dialogueUpdate.locked) {
+            if (Input.GetKeyDown(KeyCode.Escape)) {
+                Panel1.SetActive(!Panel1.activeSelf);
+                if (gameIsPaused) {
+                    Resume();
+                } else {
+                    Pause();
+                }
+                Panel2.SetActive(false);
+                Panel3.SetActive(false);
             }
-            Panel2.SetActive(false);
-            Panel3.SetActive(false);
         }
     }
 
-    void Resume() 
+    public void Resume() 
     {
         Time.timeScale = 1f;
         gameIsPaused = false;

@@ -21,7 +21,9 @@ public class SubDistanceTracker : MonoBehaviour
     
     void Update()
     {
-        DistanceTracker(DistanceMeter);
+        if (!ESCDectect.gameIsPaused) {
+            DistanceTracker(DistanceMeter);
+        }
     }
 
     private void DistanceTracker (Slider slider)
