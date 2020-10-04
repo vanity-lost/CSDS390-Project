@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fix Hull.unity
     guid: 60255aae8aa00e945b5106d0b899f971
+  - enabled: 1
+    path: Assets/Scenes/Fire Extinguish.unity
+    guid: 573c2ffcaf22f054e8870dd4088c950e
   m_configObjects: {}
