@@ -44,3 +44,6 @@ TagManager:
   - name: UI
     uniqueID: 3594345269
     locked: 0
+  - name: Radar
+    uniqueID: 389960065
+    locked: 0

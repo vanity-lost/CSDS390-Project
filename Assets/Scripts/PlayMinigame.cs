@@ -31,6 +31,10 @@ public class PlayMinigame : MonoBehaviour
         {
             SceneManager.LoadScene("Fix Hull");
         }
+        if (Input.GetKeyDown("o"))
+        {
+            SceneManager.LoadScene("Fire Extinguish");
+        }
         if (Input.GetKeyDown("e"))
         {
             SceneManager.LoadScene("End Scene");
