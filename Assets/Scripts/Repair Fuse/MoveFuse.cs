@@ -13,7 +13,10 @@ public class MoveFuse : MonoBehaviour
     void Start()
     {
         fuses = GameObject.FindGameObjectsWithTag("Fuse");
-        slot = transform.parent.GetChild(1).gameObject;
+        if (transform.parent != null)
+        {
+            slot = transform.parent.GetChild(1).gameObject;
+        }
         //Debug.Log(fuses);
     }
 
