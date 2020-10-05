@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayMinigame : MonoBehaviour
 {
+    [SerializeField] GameObject engine;
+    [SerializeField] float distance = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +17,8 @@ public class PlayMinigame : MonoBehaviour
     void Update()
     {
         if (!dialogueUpdate.locked) {
-            if (Input.GetKeyDown("p"))
+            if (Input.GetKeyDown("q") & (Vector3.Distance(transform.position, engine.transform.position) < distance))
             {
-                Debug.Log("fix Engine");
                 SceneManager.LoadScene("Fix Engine");
             }
             if (Input.GetKeyDown("l"))
