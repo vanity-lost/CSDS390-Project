@@ -19,10 +19,12 @@ public class fullscreenSwitch : MonoBehaviour
     public void toFullscreen() 
     {
         Screen.fullScreen = true;
+        Debug.Log("fullscreen");
     }
 
     public void toWindowed() 
     {
         Screen.fullScreen = false;
+        Debug.Log("windowed");
     }
 }
