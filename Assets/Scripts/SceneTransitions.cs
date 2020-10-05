@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 // taken from https://www.youtube.com/watch?v=Qd2em_ts5vs
 public class SceneTransitions : MonoBehaviour
 {
+    public GameObject transitionPanel;
     public Animator transitionAnim;
     public string sceneName;
     public string sceneName2;
