@@ -76,8 +76,8 @@ public class outdoorCreatureBehavior : MonoBehaviour
     //TODO: Once lights are working, this should be updated
     // True if submarine's engine is on; false otherwise
     private bool isSubEngineOn() 
-    { 
-        return false
+    {
+        return false;
     }
 
     //TODO: Once creature asset has been created and location can be estimated, this should return different numbers
