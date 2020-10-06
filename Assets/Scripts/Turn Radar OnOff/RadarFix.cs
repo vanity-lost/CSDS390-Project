@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class RadarStart : MonoBehaviour // TODO timer needs some work
+public class RadarFix : MonoBehaviour // TODO timer needs some work
 {
+    Dictionary<Button, string> buttons;
+    public Button buttonB;
+    public Button buttonY;
+    public Button buttonR;
     public GameObject Panel;
     //public RadarTimer Timer;
     public string correctCode = "afge";
@@ -16,7 +20,14 @@ public class RadarStart : MonoBehaviour // TODO timer needs some work
     // Start is called before the first frame update
     void Start()
     {
-        numLeft = 4;
+    
+        buttonB.onClick.AddListener(TaskOnClick);
+        buttonY.onClick.AddListener(TaskOnClick);
+        buttonR.onClick.AddListener(TaskOnClick);
+        
+
+
+        numLeft = 3;
         newInputDetected = false;
 
     }
@@ -24,6 +35,11 @@ public class RadarStart : MonoBehaviour // TODO timer needs some work
     // Update is called once per frame
     void Update()
     {
+        if (numLeft == 0) 
+        {
+            StartCoroutine(EndTask());
+        }
+
         if (numClicked <= correctCode.Length) 
         {
             if (newInputDetected == true) 
@@ -49,12 +65,11 @@ public class RadarStart : MonoBehaviour // TODO timer needs some work
         }
     }
 
-    public void btnClickDetected(string btnChar)
+    
+
+    public void TaskOnClick()
     {
-        numClicked++;
-        charClicked = btnChar;
-        newInputDetected = true;
-        Debug.Log("button clicked:" + charClicked);
+        numLeft--;
     }
 
     IEnumerator EndTask()
