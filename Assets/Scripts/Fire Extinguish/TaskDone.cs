@@ -25,6 +25,7 @@ public class TaskDone : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Debug.Log("all fire are put down");
+        GlobalData.fires = false;
         SceneManager.LoadScene("Main");
     }
 }

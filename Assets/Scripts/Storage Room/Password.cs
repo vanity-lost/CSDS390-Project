@@ -77,6 +77,7 @@ public class Password : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Correct Password");
+        GlobalData.storageLocked = false;
         SceneManager.LoadScene("Main");
     }
 

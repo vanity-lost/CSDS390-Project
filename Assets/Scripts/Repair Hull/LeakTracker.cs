@@ -25,6 +25,7 @@ public class LeakTracker : MonoBehaviour
         leaks = leaks - 1;
         if (leaks == 0)
         {
+            GlobalData.hullBroken = false;
             SceneManager.LoadScene("Main");
         }
     }

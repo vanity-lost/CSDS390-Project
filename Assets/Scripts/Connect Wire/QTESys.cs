@@ -211,6 +211,7 @@ public class QTESys : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         Debug.Log("Main");
+        GlobalData.wiresBroken = false;
         SceneManager.LoadScene("Main");
         //closebutton.GetComponent<Button>().onClick.Invoke();
     }
