@@ -7,7 +7,6 @@ using UnityEngine;
 public class outdoorCreatureBehavior : MonoBehaviour
 {
     private const float _ATTACK_RANGE = 1000;
-    private const float _SENSE_RANGE = 50000;
     private const float _DIRECTIONAL_SENSE_RANGE = 50000;
     private GameObject _player; //TODO set these up 
 
@@ -21,8 +20,8 @@ public class outdoorCreatureBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 creatureLocation = getCreatureLocation();
-        Vector3 subLocation = getSubLocation();
+        UnityEngine.Vector3 creatureLocation = getCreatureLocation();
+        UnityEngine.Vector3 subLocation = getSubLocation();
         if (isWithinAttackRange(creatureLocation, subLocation)) {
             attack();
         } else if (isWithinSensingRange(creatureLocation, subLocation, creatureDetectionDistance(isSubLightsOn(), isSubEngineOn()))) {
@@ -34,21 +33,21 @@ public class outdoorCreatureBehavior : MonoBehaviour
     }
 
     // Gets location of creature (from another class)
-    private Vector3 getCreatureLocation() 
+    private UnityEngine.Vector3 getCreatureLocation() 
     {
-        return gameObject.Transform.position;
+        return this.gameObject.transform.position;
     }
 
     // Gets location of submarine (from another class) 
-    private Vector3 getSubLocation() 
+    private UnityEngine.Vector3 getSubLocation() 
     {
-        return _player.Transform.position;
+        return _player.transform.position;
     }
 
     // True if submarine is within attacking range; false otherwise
-    private bool isWithinAttackRange(Vector3 creatureLocation, Vector3 playerLocation) 
+    private bool isWithinAttackRange(UnityEngine.Vector3 creatureLocation, UnityEngine.Vector3 playerLocation) 
     {
-        if ((creatureLocation - playerLocation).magnitude <= ATTACK_RANGE)
+        if ((creatureLocation - playerLocation).magnitude <= _ATTACK_RANGE)
         {
             return true;
         }
@@ -56,10 +55,10 @@ public class outdoorCreatureBehavior : MonoBehaviour
     }
 
     // True if submarine is within sensing range; false otherwise
-    private bool isWithinSensingRange(Vector3 creatureLocation, Vector3 playerLocation) 
+    private bool isWithinSensingRange(UnityEngine.Vector3 creatureLocation, UnityEngine.Vector3 playerLocation, float sensingRange) 
     {
         //TODO: Add different sensing ranges based on player movement/sound
-        if ((creatureLocation - playerLocation).magnitude <= SENSING_RANGE)
+        if ((creatureLocation - playerLocation).magnitude <= sensingRange)
         {
             return true;
         }
@@ -96,7 +95,7 @@ public class outdoorCreatureBehavior : MonoBehaviour
     // Creature moves towards submarine
     private void moveToSub() 
     {
-        directPathing(_player.Transform.position);
+        directPathing(_player.transform.position);
     }
 
     // Creature idles and searches randomly for submarine
@@ -105,7 +104,7 @@ public class outdoorCreatureBehavior : MonoBehaviour
         // TODO: create pathing system
     }
 
-    private void directPathing(Vector3 destination)
+    private void directPathing(UnityEngine.Vector3 destination)
     {
         //TODO: create 3d pathing system
     }

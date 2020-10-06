@@ -47,19 +47,19 @@ public class indoorCreatureBehavior : MonoBehaviour
         // Gets location of creature (from another class)
         private Vector3 getCreatureLocation() 
         {
-            return gameObject.Transform.position;
+            return this.gameObject.transform.position;
         }
 
         // Gets location of player (from another class) 
         private Vector3 getPlayerLocation() 
         {
-            return _player.Transform.position;
+            return _player.transform.position;
         }
 
         // True if player is within attacking range; false otherwise
         private bool isWithinAttackRange(Vector3 creatureLocation, Vector3 playerLocation) 
         { 
-            if ((creatureLocation - playerLocation).magnitude <= ATTACK_RANGE)
+            if ((creatureLocation - playerLocation).magnitude <= _ATTACK_RANGE)
             {
                 return true;
             }
@@ -70,7 +70,7 @@ public class indoorCreatureBehavior : MonoBehaviour
         private bool isWithinSensingRange(Vector3 creatureLocation, Vector3 playerLocation) 
         { 
             //TODO: Add different sensing ranges based on player movement/sound
-            if ((creatureLocation - playerLocation).magnitude <= SENSING_RANGE)
+            if ((creatureLocation - playerLocation).magnitude <= _SENSE_RANGE)
             {
                 return true;
             }
@@ -80,7 +80,7 @@ public class indoorCreatureBehavior : MonoBehaviour
         // True if creature is within range to sabatage circuit; false otherwise
         private bool isWithinCircuitRange(Vector3 creatureLocation) 
         { 
-            if ((creatureLocation - _circuitBox.Transform.position).magnitude <= ATTACK_RANGE)
+            if ((creatureLocation - _circuitBox.transform.position).magnitude <= _ATTACK_RANGE)
             {
                 return true;
             }
@@ -108,7 +108,7 @@ public class indoorCreatureBehavior : MonoBehaviour
         {
             //TODO: Animation will be triggered here
             //GetComponent<Animator>().Play("...");
-            directPathing(_player.Transform.position);
+            directPathing(_player.transform.position);
         }
 
         private void directPathing(Vector3 destination)
@@ -132,7 +132,7 @@ public class indoorCreatureBehavior : MonoBehaviour
         {
             //TODO: Animation will be triggered here
             //GetComponent<Animator>().Play("...");
-            directPathing(_circuitBox.position);
+            directPathing(_circuitBox.transform.position);
         }
 
         // Creature runs away from player
