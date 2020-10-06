@@ -57,12 +57,42 @@ public class PlayMinigame : MonoBehaviour
                 SceneManager.LoadScene("End Scene");
             }
         }
+        //Engines breaks at 30 seconds
         if (Time.time > 30 &  GlobalData.updateEngine == false) 
         {
             Debug.Log("Broke Engine");
             GlobalData.updateEngine = true;
             GlobalData.engineBroken = true;
         }
+        //Fires occur at 60 seconds
+        if (Time.time > 60 & GlobalData.updateFire == false)
+        {
+            Debug.Log("Fire");
+            GlobalData.updateFire = true;
+            GlobalData.fires = true;
+        }
+        //Wires break at 90 seconds
+        if (Time.time > 90 & GlobalData.updateWires == false)
+        {
+            Debug.Log("Broke Wires");
+            GlobalData.updateWires= true;
+            GlobalData.wiresBroken = true;
+        }
+        //Hull break at 120 seconds
+        if (Time.time > 120 & GlobalData.updateHull == false)
+        {
+            Debug.Log("Broke Hull");
+            GlobalData.updateHull = true;
+            GlobalData.hullBroken = true;
+        }
+        //Hull break at 120 seconds
+        if (Time.time > 150 & GlobalData.updateStorage == false)
+        {
+            Debug.Log("Storage Locked");
+            GlobalData.updateStorage = true;
+            GlobalData.storageLocked = true;
+        }
+
     }
     
 

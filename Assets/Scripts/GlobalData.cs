@@ -12,6 +12,10 @@ public class GlobalData : MonoBehaviour
     [SerializeField] static public bool fuseBroken = false;
     [SerializeField] static public bool storageLocked = false;
     [SerializeField] static public bool updateEngine = false;
+    [SerializeField] static public bool updateFire = false;
+    [SerializeField] static public bool updateWires = false;
+    [SerializeField] static public bool updateHull = false;
+    [SerializeField] static public bool updateStorage = false;
 
 
     private void Start()
