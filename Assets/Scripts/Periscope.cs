@@ -13,7 +13,8 @@ public class Periscope : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        bool status = closeness();
+        if (Input.GetMouseButtonDown(1) && status == true)
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -28,12 +29,20 @@ public class Periscope : MonoBehaviour
                 }
             }
         }
+    }
 
-        //if (Physics.Raycast (ray, outhit))
-        //{
-        //    if (hit.transform.name == "Parascope:pCylinder21") {
-        //        SceneManager.LoadScene("Environment");
-        //    }
-        //}
+    private bool closeness()
+    {
+        bool status = false;
+        Vector3 playerVector = GameObject.Find("Player").transform.position;
+        Vector3 periscopeVector = GameObject.Find("periscope").transform.position;
+        float distance = Vector3.Distance(playerVector, periscopeVector);
+
+        if (distance <= 2)
+        {
+            status = true;
+        }
+
+        return status;
     }
 }

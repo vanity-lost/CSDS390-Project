@@ -21,7 +21,7 @@ public class SubDistanceTracker : MonoBehaviour
     
     void Update()
     {
-        if (!ESCDectect.gameIsPaused) {
+        if (!ESCDectect.gameIsPaused && GlobalData.engineBroken == false) {
             DistanceTracker(DistanceMeter);
         }
     }
