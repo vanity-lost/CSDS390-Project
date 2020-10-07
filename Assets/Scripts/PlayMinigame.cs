@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayMinigame : MonoBehaviour
 {
     Text instruction;
+    [SerializeField] GameObject wirebox;
     [SerializeField] GameObject engine;
     [SerializeField] float distance = 5f;
 
@@ -24,23 +25,28 @@ public class PlayMinigame : MonoBehaviour
     {
         engineBroken = true;
         fuseBroken = true;
-        instruction = GameObject.Find("Text").GetComponent<Text>(); 
-        
+        instruction = GameObject.Find("Text").GetComponent<Text>();
+
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(wirebox.GetComponent<WireBoxTrigger>().getStatus());
         if (!dialogueUpdate.locked) {
             if (Input.GetKeyDown("q") & (Vector3.Distance(transform.position, engine.transform.position) < distance) & GlobalData.engineBroken)
             {
                 SceneManager.LoadScene("Fix Engine");
             }
-            if (Input.GetKeyDown("l") & GlobalData.wiresBroken)
+            if (Input.GetKeyDown("l") && GlobalData.wiresBroken && wirebox.GetComponent<WireBoxTrigger>().getStatus())
             {
                 SceneManager.LoadScene("Connect Wire");
             }
+            /**if (wirebox.GetComponent<WireBoxTrigger>().getStatus() && Input.GetKeyDown("f")) 
+            {
+                SceneManager.LoadScene("Connect Wire");
+            }**/
             if (Input.GetKeyDown("k") & GlobalData.storageLocked)
             {
                 SceneManager.LoadScene("Storage Room");

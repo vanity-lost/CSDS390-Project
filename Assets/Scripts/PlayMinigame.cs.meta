@@ -3,7 +3,9 @@ guid: 432a6e7c2feb825489f9db186d77282b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - engine: {fileID: 919132149155446097, guid: e722b3329c03cab498db21912b4401c9, type: 3}
+  - wirebox: {fileID: 919132149155446097, guid: fc8e79f6cbc77f846a0774aac9d14236, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
