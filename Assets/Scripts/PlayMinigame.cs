@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayMinigame : MonoBehaviour
 {
+    Text instruction;
     [SerializeField] GameObject engine;
     [SerializeField] float distance = 5f;
 
@@ -22,6 +24,9 @@ public class PlayMinigame : MonoBehaviour
     {
         engineBroken = true;
         fuseBroken = true;
+        instruction = GameObject.Find("Text").GetComponent<Text>(); 
+        
+        
     }
 
     // Update is called once per frame
@@ -61,6 +66,7 @@ public class PlayMinigame : MonoBehaviour
         if (Time.time > 30 &  GlobalData.updateEngine == false) 
         {
             Debug.Log("Broke Engine");
+            instruction.text="Fix the Broken Engine - Press 'q'";
             GlobalData.updateEngine = true;
             GlobalData.engineBroken = true;
         }
@@ -68,6 +74,7 @@ public class PlayMinigame : MonoBehaviour
         if (Time.time > 60 & GlobalData.updateFire == false)
         {
             Debug.Log("Fire");
+            instruction.text="There's a fire go and Extinguish it - Press 'o'";
             GlobalData.updateFire = true;
             GlobalData.fires = true;
         }
@@ -75,6 +82,7 @@ public class PlayMinigame : MonoBehaviour
         if (Time.time > 90 & GlobalData.updateWires == false)
         {
             Debug.Log("Broke Wires");
+            instruction.text="Wires are Broken, go fix them - Press 'l'";
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
         }
@@ -82,6 +90,7 @@ public class PlayMinigame : MonoBehaviour
         if (Time.time > 120 & GlobalData.updateHull == false)
         {
             Debug.Log("Broke Hull");
+            instruction.text="The Hull is broken, go check it out - Press 'h'";
             GlobalData.updateHull = true;
             GlobalData.hullBroken = true;
         }
@@ -89,6 +98,7 @@ public class PlayMinigame : MonoBehaviour
         if (Time.time > 150 & GlobalData.updateStorage == false)
         {
             Debug.Log("Storage Locked");
+            instruction.text="The storage is locked, go and open it - Press 'k'";
             GlobalData.updateStorage = true;
             GlobalData.storageLocked = true;
         }
