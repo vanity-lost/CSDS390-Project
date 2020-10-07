@@ -63,7 +63,7 @@ public class PlayMinigame : MonoBehaviour
             {
                 SceneManager.LoadScene("Repair Fuse");
             }
-            if (Input.GetKeyDown("e"))
+            if (Input.GetKeyDown("n"))
             {
                 SceneManager.LoadScene("End Scene");
             }
