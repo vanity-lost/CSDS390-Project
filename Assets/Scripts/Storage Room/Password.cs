@@ -29,6 +29,11 @@ public class Password : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main");
+        }
+
         if (numClicked <= correctNum.Length)//during process of inputing
         {
 
