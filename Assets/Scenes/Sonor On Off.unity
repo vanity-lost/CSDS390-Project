@@ -996,6 +996,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 541286754}
+  - component: {fileID: 541286755}
   - component: {fileID: 541286753}
   m_Layer: 0
   m_Name: GameObject
@@ -1013,13 +1014,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 541286752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6322d818055fed14886ad9eea729ab1a, type: 3}
+  m_Script: {fileID: 11500000, guid: d3f04bad73a494e4d8bd0a53347a3920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fire1: {fileID: 0}
-  Fire2: {fileID: 0}
-  Fire3: {fileID: 0}
-  takeBoolText: {fileID: 1651666982}
+  buttonB: {fileID: 174272941}
+  buttonY: {fileID: 143913491}
+  buttonR: {fileID: 1490051285}
+  Panel: {fileID: 270431412}
+  correctCode: afge
+  charClicked: 
+  newInputDetected: 0
+  numClicked: 0
+  numLeft: 0
 --- !u!4 &541286754
 Transform:
   m_ObjectHideFlags: 0
@@ -1034,6 +1040,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &541286755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541286752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ffb70f3a2ae940f3b328669dc76f5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &667428365
 GameObject:
   m_ObjectHideFlags: 0
