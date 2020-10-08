@@ -8,7 +8,7 @@ public class SubDistanceTracker : MonoBehaviour
 {
     public Slider DistanceMeter;
     public bool engineRun = true;
-    private float traveledDistance = 0f;
+    private static float traveledDistance = 0f;
     private float move = 1.0f;
     private float maxDistance = 500.0f;
     private float elapsedTime = 0f;
@@ -21,7 +21,9 @@ public class SubDistanceTracker : MonoBehaviour
     
     void Update()
     {
-        if (!ESCDectect.gameIsPaused && GlobalData.engineBroken == false) {
+        //if (!ESCDectect.gameIsPaused && GlobalData.engineBroken == false) {
+        if (!ESCDectect.gameIsPaused)
+        {
             DistanceTracker(DistanceMeter);
         }
     }
