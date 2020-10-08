@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SceneCounter : MonoBehaviour
 {
-    public GameObject sceneController;
-    int counter = 0;
+    //public GameObject sceneController;
+    static int counter = 0;
 
 
     void Start()
@@ -22,7 +22,5 @@ public class SceneCounter : MonoBehaviour
         {
             GameObject.Find("Dialogue Controller").SetActive(false);
         }
-
-        //DontDestroyOnLoad(sceneController);
     }
 }

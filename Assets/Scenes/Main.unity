@@ -2171,7 +2171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a094af24ee3404c9200204335bda43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneController: {fileID: 0}
 --- !u!4 &532918203
 Transform:
   m_ObjectHideFlags: 0
@@ -4104,8 +4103,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 24.5, y: -75.70001}
-  m_SizeDelta: {x: 3539.6978, y: 119.08276}
+  m_AnchoredPosition: {x: -1, y: -94}
+  m_SizeDelta: {x: 800, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982658288
 MonoBehaviour:
@@ -4129,10 +4128,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 90
+    m_FontSize: 70
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 9
+    m_MinSize: 7
     m_MaxSize: 90
     m_Alignment: 1
     m_AlignByGeometry: 0
