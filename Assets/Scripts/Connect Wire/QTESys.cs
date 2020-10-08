@@ -42,6 +42,11 @@ public class QTESys : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main");
+        }
+
         numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
         if (numofcorrect < 3 && Panel.activeSelf == true)
         {
@@ -211,6 +216,7 @@ public class QTESys : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(1);
         Debug.Log("Main");
+        GlobalData.wiresBroken = false;
         SceneManager.LoadScene("Main");
         //closebutton.GetComponent<Button>().onClick.Invoke();
     }

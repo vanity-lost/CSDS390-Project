@@ -31,6 +31,7 @@ public class PressButton : MonoBehaviour
         if (boltsDone == numBolts)
         {
             buttonPressed = true;
+            GlobalData.engineBroken = false;
             SceneManager.LoadScene("Main");
         }
     }

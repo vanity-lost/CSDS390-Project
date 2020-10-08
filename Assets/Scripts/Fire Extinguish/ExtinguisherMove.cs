@@ -44,6 +44,10 @@ public class ExtinguisherMove : MonoBehaviour
     {
         Vector3 pos = Input.mousePosition + offset;
         pos.z = backgroundPanel.position.z;
-        Extinguisher.position = cam.ScreenToWorldPoint(pos);
+        //pos.z = backgroundPanel.position.z-420;
+        Vector3 temppos = cam.ScreenToWorldPoint(pos);
+        //temppos.z = 10;
+        Extinguisher.position = temppos;
+        //Extinguisher.position = cam.ScreenToViewportPoint(pos);
     }
 }

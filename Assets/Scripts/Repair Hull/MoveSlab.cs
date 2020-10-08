@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveSlab : MonoBehaviour
 {
     Vector3 mousePosition;
+    Vector3 actualPosition;
     bool down = false;
     bool held = false;
     bool check = true;
@@ -54,9 +55,11 @@ public class MoveSlab : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 mousePosition = hit.point;
+                actualPosition = hit.point;
                 mousePosition.y = holdHeight;
             }
             transform.position = mousePosition;
+            //OnDrawGizmos();
         }
         else
         {
@@ -67,5 +70,12 @@ public class MoveSlab : MonoBehaviour
     public void OnMouseUp()
     {
         held = false;
+    }
+
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(actualPosition, 1);
     }
 }

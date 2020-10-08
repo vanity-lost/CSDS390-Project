@@ -39,6 +39,7 @@ public class dialogueUpdate : MonoBehaviour
     void Start()
     {
         ESCDectect.gameIsPaused = true;
+        locked = true;
         _dialogue.SetText(messages[currentMessageIndex]);
     }
 

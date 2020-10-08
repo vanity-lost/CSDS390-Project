@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class energy : MonoBehaviour
 {
-    float energyNum = 100;
+    public static float energyNum = 100;
     public Text energyText;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         energyText.text = "Energy: " + (int)energyNum + "%";
     }
 

@@ -14,6 +14,11 @@ public class TaskDone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main");
+        }
+
         if (!Fire1.activeSelf && !Fire2.activeSelf && !Fire3.activeSelf)
         {
             //takeBoolText.GetComponent<Text>().text = "False";
@@ -25,6 +30,7 @@ public class TaskDone : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Debug.Log("all fire are put down");
+        GlobalData.fires = false;
         SceneManager.LoadScene("Main");
     }
 }

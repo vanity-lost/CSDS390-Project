@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Death Scene.unity
     guid: fba8cca1327bc1243814c104fa9d7537
+  - enabled: 1
+    path: Assets/Scenes/Periscope View.unity
+    guid: c884d6cf653b75b4fbc380484245818a
+  - enabled: 1
+    path: Assets/Scenes/Repair Fuse.unity
+    guid: 605fb669c10c6294a8f6c148b8ae3644
   m_configObjects: {}

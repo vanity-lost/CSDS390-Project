@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 432a6e7c2feb825489f9db186d77282b
+guid: 570d9433a4f7ad842b7637ea67279be7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - wirebox: {instanceID: 0}
-  - engine: {fileID: 919132149155446097, guid: e722b3329c03cab498db21912b4401c9, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

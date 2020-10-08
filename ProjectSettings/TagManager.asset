@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fuse
   - FuseHolder
+  - FixIt
   layers:
   - Default
   - TransparentFX
