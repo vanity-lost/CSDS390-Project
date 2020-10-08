@@ -9,4 +9,12 @@ public class tabONOFF : MonoBehaviour
     public void onClick(){
         Tab.SetActive(!Tab.activeSelf);
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown("tab"))
+        {
+            Tab.SetActive(!Tab.activeSelf);
+        }
+    }
 }

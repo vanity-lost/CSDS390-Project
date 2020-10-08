@@ -25,6 +25,7 @@ public class Periscope : MonoBehaviour
                 {
                     Debug.Log("Periscope Hit");
                     SceneManager.LoadScene("Periscope View");
+                    // GetComponent("Dialogue Controller").enabled = false;
                     Debug.Log("Loading Environment Scene");
                 }
             }
