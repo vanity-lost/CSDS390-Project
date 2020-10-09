@@ -9,24 +9,22 @@ public class PlayMinigame : MonoBehaviour
     Text instruction;
     [SerializeField] GameObject wirebox;
     [SerializeField] GameObject engine;
+    [SerializeField] GameObject fuse;
+    [SerializeField] GameObject lightHolder;
+    [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
 
-    [SerializeField] private bool engineBroken = false;
-    [SerializeField] private bool wiresBroken = false;
-    [SerializeField] private bool hullBroken = false;
-    [SerializeField] private bool fires = false;
-    [SerializeField] private bool fuseBroken = false;
-    [SerializeField] private bool storageLocked = false;
 
     private bool engineUpdate = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        engineBroken = true;
-        fuseBroken = true;
+        GlobalData.fuseBroken = true;
         instruction = GameObject.Find("Text").GetComponent<Text>();
-
+        lights = lightHolder.GetComponentsInChildren<Light>();
+        Debug.Log(lights);
+        Debug.Log(lights.Length);
         
     }
 
@@ -66,6 +64,16 @@ public class PlayMinigame : MonoBehaviour
             if (Input.GetKeyDown("n"))
             {
                 SceneManager.LoadScene("End Scene");
+            }
+            if (Input.GetKeyDown("e") & (Vector3.Distance(transform.position, fuse.transform.position) < distance))
+            {
+                GlobalData.lights = !GlobalData.lights;
+                Debug.Log("Lights Flipped");
+                foreach (Light child in lights)
+                {
+                    Light light = child.GetComponent<Light>();
+                    light.enabled = !light.enabled;
+                }
             }
         }
         //Engines breaks at 30 seconds
