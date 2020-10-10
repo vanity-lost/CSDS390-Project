@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestBolt : MonoBehaviour
+public class Bolt : MonoBehaviour
 {
-    // Start is called before the first frame update
     private Collider[] colliders;
     [SerializeField] private GameObject leftWrentch;
     [SerializeField] private GameObject rightWrentch;
@@ -24,10 +23,8 @@ public class TestBolt : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-// Debug.Log(transform.position + " " + done);
         if (done == false)
         {
             Vector3 left = leftWrentch.transform.position;

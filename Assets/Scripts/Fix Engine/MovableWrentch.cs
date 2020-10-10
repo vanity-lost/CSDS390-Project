@@ -67,24 +67,27 @@ public class MovableWrentch : MonoBehaviour
             //Debug.Log(last);
             //if (notAssigned)
             //{
-              //  last = angle;
-             //   notAssigned = false;
+            //  last = angle;
+            //   notAssigned = false;
             //}
             //else
             //{
-                if (angle > angleWretch)
-                {
-                    //last = angle;
-                    //Debug.Log(difference);
-                    transform.RotateAround(target.transform.position, Vector3.up, 200 * Time.deltaTime);
-                }
+            if (angle > angleWretch)
+            {
                 //last = angle;
-                if (-1 < transform.rotation.y & transform.rotation.y < 0)
-                {
-                    transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
-                    lockPlace = false;
-                    //targetNumber = targetNumber + 1;
-                }
+                //Debug.Log(difference);
+                Vector3 boltPosition = target.transform.position;
+                transform.RotateAround(boltPosition, Vector3.up, 200 * Time.deltaTime);
+                target.transform.position = new Vector3(boltPosition.x, boltPosition.y - 0.002f, boltPosition.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - 0.002f, transform.position.z);
+            }
+            //last = angle;
+            if (-1 < transform.rotation.y & transform.rotation.y < 0)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
+                lockPlace = false;
+                //targetNumber = targetNumber + 1;
+            }
             //}
 
             /*transform.RotateAround(target.transform.position, Vector3.up, 80 * Time.deltaTime);
