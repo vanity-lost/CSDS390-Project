@@ -10,7 +10,9 @@ public class PlayMinigame : MonoBehaviour
     [SerializeField] GameObject wirebox;
     [SerializeField] GameObject engine;
     [SerializeField] GameObject fuse;
+    [SerializeField] GameObject lightSwitchLocation;
     [SerializeField] GameObject lightHolder;
+    [SerializeField] GameObject lightSwitch;
     [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
 
@@ -20,7 +22,9 @@ public class PlayMinigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GlobalData.fuseBroken = true;
+        //GlobalData.fuseBroken = true;
+        //GlobalData.lights = true;
+        //GlobalData.lightsOn = true;
         instruction = GameObject.Find("Text").GetComponent<Text>();
         lights = lightHolder.GetComponentsInChildren<Light>();
         Debug.Log(lights);
@@ -59,22 +63,47 @@ public class PlayMinigame : MonoBehaviour
             }
             if (Input.GetKeyDown("f") & GlobalData.fuseBroken)
             {
+                GlobalData.lights = false;
                 SceneManager.LoadScene("Repair Fuse");
             }
             if (Input.GetKeyDown("n"))
             {
                 SceneManager.LoadScene("End Scene");
             }
-            if (Input.GetKeyDown("e") & (Vector3.Distance(transform.position, fuse.transform.position) < distance))
+            if (Input.GetKeyDown("e") & (Vector3.Distance(transform.position, lightSwitchLocation.transform.position) < distance))
             {
                 GlobalData.lights = !GlobalData.lights;
                 Debug.Log("Lights Flipped");
-                foreach (Light child in lights)
+                if (GlobalData.lights)
                 {
-                    Light light = child.GetComponent<Light>();
-                    light.enabled = !light.enabled;
+                    //Debug.Log("here");
+                    lightSwitch.transform.localPosition = new Vector3(-0.04849097f, 2.208767f, 2.850958f);
+                    lightSwitch.transform.localRotation = new Quaternion(-0.000583283196f, 0.197512761f, -0.00289495266f, 0.980295897f);
+                    //Quaternion(-0.000583283196, 0.197512761, -0.00289495266, 0.980295897);
+                }
+                else
+                {
+                    lightSwitch.transform.localPosition = new Vector3(0.3853737f, 1.660247f, 2.669332f);
+                    lightSwitch.transform.localRotation = new Quaternion(-0.166412354f, 0.106388971f, -0.82593739f, 0.528030097f);
                 }
             }
+            }
+        /*Debug.Log("Lights " + GlobalData.lightsOn);
+        Debug.Log("Switch " + GlobalData.lights);
+        Debug.Log("Wires " + GlobalData.wiresBroken);
+        Debug.Log("Fuses " +GlobalData.fuseBroken);
+        */
+        if (GlobalData.lightsOn != (GlobalData.lights & !GlobalData.wiresBroken & !GlobalData.fuseBroken))
+        {
+            /*
+            Debug.Log("Switch Light Setting");
+            Debug.Log(GlobalData.lightsOn);
+            Debug.Log(GlobalData.lights);
+            Debug.Log(GlobalData.wiresBroken);
+            Debug.Log(GlobalData.fuseBroken);
+            */
+            GlobalData.lightsOn = !GlobalData.lightsOn;
+            LightsFlip();
         }
         //Engines breaks at 30 seconds
         if (Time.time > 30 &  GlobalData.updateEngine == false) 
@@ -119,6 +148,16 @@ public class PlayMinigame : MonoBehaviour
 
     }
     
+
+    public void LightsFlip()
+    {
+        foreach (Light child in lights)
+        {
+            Light light = child.GetComponent<Light>();
+            light.enabled = !light.enabled;
+        }
+    }
+
 
     /*
     public void FuseBroken(bool status)
