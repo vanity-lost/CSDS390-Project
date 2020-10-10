@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class PlayMinigame : MonoBehaviour
 {
     Text instruction;
-    [SerializeField] GameObject wirebox;
+    [SerializeField] GameObject wireboxhead;
+    [SerializeField] GameObject wireboxmid;
+    [SerializeField] GameObject wireboxtail;
     [SerializeField] GameObject engine;
     [SerializeField] GameObject fuse;
     [SerializeField] GameObject lightSwitchLocation;
@@ -30,6 +32,7 @@ public class PlayMinigame : MonoBehaviour
         Debug.Log(lights);
         Debug.Log(lights.Length);
         
+
     }
 
     // Update is called once per frame
@@ -41,14 +44,15 @@ public class PlayMinigame : MonoBehaviour
             {
                 SceneManager.LoadScene("Fix Engine");
             }
-            if (Input.GetKeyDown("l") && GlobalData.wiresBroken && wirebox.GetComponent<WireBoxTrigger>().getStatus())
+            if (Input.GetKeyDown("l") && GlobalData.wiresBroken)
             {
-                SceneManager.LoadScene("Connect Wire");
+                if ((wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus())
+                    ||(wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus())
+                    ||(wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()))
+                {
+                    SceneManager.LoadScene("Connect Wire");
+                }
             }
-            /**if (wirebox.GetComponent<WireBoxTrigger>().getStatus() && Input.GetKeyDown("f")) 
-            {
-                SceneManager.LoadScene("Connect Wire");
-            }**/
             if (Input.GetKeyDown("k") & GlobalData.storageLocked)
             {
                 SceneManager.LoadScene("Storage Room");
@@ -128,6 +132,7 @@ public class PlayMinigame : MonoBehaviour
             instruction.text="Wires are Broken, go fix them - Press 'l'";
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
+            wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
         }
         //Hull break at 120 seconds
         if (Time.time > 120 & GlobalData.updateHull == false)

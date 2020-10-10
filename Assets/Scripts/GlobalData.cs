@@ -24,7 +24,9 @@ public class GlobalData : MonoBehaviour
     private void Start()
     {
         fuseBroken = true;
+        storageLocked = true;
         DontDestroyOnLoad(this.gameObject);
+
     }
 
 }

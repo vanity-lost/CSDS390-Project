@@ -4,38 +4,71 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEditor;
 
 public class WireBoxTrigger : MonoBehaviour
 {
-    public bool status;
+    public bool triggerStatus;
+    public bool isTheBrokenOne;
+    //public GameObject boxCover;
+
+    [SerializeField] GameObject wirebox1;
+    [SerializeField] GameObject wirebox2;
+    [SerializeField] GameObject boxCover;
 
     // Start is called before the first frame update
     void Start()
     {
-        status = false;
+        triggerStatus = false;
+        //isTheBrokenOne = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isTheBrokenOne)
+        {
+            boxCover.SetActive(false);
+        }
+        else
+        {
+            boxCover.SetActive(true) ;
+        }
+    }
+
+    public bool getBrokenStatus()
+    {
+        return isTheBrokenOne;
+    }
+
+    public void setBrokenStatus(bool newBrokenStatus)
+    {
+        if(!wirebox1.GetComponent<WireBoxTrigger>().getBrokenStatus() && !wirebox2.GetComponent<WireBoxTrigger>().getBrokenStatus())
+        {
+            this.isTheBrokenOne = newBrokenStatus;
+        }
+        else
+        {
+            Debug.Log("there is already a broken wirebox exists!");
+        }
         
     }
 
-    public bool getStatus()
+    public bool getTriggerStatus()
     {
-        return status;
+        return triggerStatus;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        status = true;
+        triggerStatus = true;
         //Debug.Log("Is triggering with wire box");
     }
 
     private void OnTriggerExit(Collider other)
     {
 
-        status = false; 
+        triggerStatus = false; 
         //Debug.Log("Left wire box trigger area");
     }
 }
