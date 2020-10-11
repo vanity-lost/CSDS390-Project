@@ -55,7 +55,6 @@ public class QTESys : MonoBehaviour
                 QTEGen = UnityEngine.Random.Range(1, 4);
                 CountingDown = 1;
                 StartCoroutine(CountDown());
-                //StartCoroutine(TimerCountDown());
                 if (QTEGen == 1)
                 {
                     WaitingForKey = 1;
@@ -123,11 +122,6 @@ public class QTESys : MonoBehaviour
                 }
             }
         }
-        /**else if(numofcorrect != Int32.Parse(NumSuccess.GetComponent<Text>().text))
-        {
-            numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
-            PassBox.GetComponent<Text>().text = "";
-        }**/
         else if (PassBox.GetComponent<Text>().text == "Connected!")
         {
             //do nothing, just wait;
@@ -170,11 +164,11 @@ public class QTESys : MonoBehaviour
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "PASS!";
             Debug.Log("PASS");
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
             LetterBox.GetComponent<Text>().text = "";
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
         }
@@ -183,11 +177,11 @@ public class QTESys : MonoBehaviour
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "FAIL!";
             Debug.Log("FAIL");
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
             LetterBox.GetComponent<Text>().text = "";
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
         }
@@ -196,17 +190,17 @@ public class QTESys : MonoBehaviour
 
     IEnumerator CountDown()
     {//wait and refresh everything
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(0.5f);
         if (CountingDown == 1)
         {
             QTEGen = 4;
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "FAIL!";
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
             LetterBox.GetComponent<Text>().text = "";
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
         }
