@@ -40,7 +40,7 @@ public class PlayMinigame : MonoBehaviour
     {
         //Debug.Log(wirebox.GetComponent<WireBoxTrigger>().getStatus());
         if (!dialogueUpdate.locked) {
-            if (Input.GetKeyDown("q") & engine.GetComponent<EngineTrigger>().getTriggerStatus() & GlobalData.engineBroken)
+            if (Input.GetKeyDown("q") & engine.GetComponent<MinigameTrigger>().getTriggerStatus() & GlobalData.engineBroken)
             {
                 SceneManager.LoadScene("Fix Engine");
             }
@@ -65,7 +65,7 @@ public class PlayMinigame : MonoBehaviour
             {
                 SceneManager.LoadScene("Fire Extinguish");
             }
-            if (Input.GetKeyDown("f") & GlobalData.fuseBroken)
+            if (Input.GetKeyDown("f") & GlobalData.fuseBroken & fuse.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 GlobalData.lights = false;
                 SceneManager.LoadScene("Repair Fuse");
@@ -74,7 +74,7 @@ public class PlayMinigame : MonoBehaviour
             {
                 SceneManager.LoadScene("End Scene");
             }
-            if (Input.GetKeyDown("e") & lightSwitch.GetComponent<LightsTrigger>().getTriggerStatus())
+            if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 GlobalData.lights = !GlobalData.lights;
                 Debug.Log("Lights Flipped");

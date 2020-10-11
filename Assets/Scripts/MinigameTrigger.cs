@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EngineTrigger : MonoBehaviour
+public class MinigameTrigger : MonoBehaviour
 {
     public bool triggerStatus;
 
