@@ -40,7 +40,7 @@ public class PlayMinigame : MonoBehaviour
     {
         //Debug.Log(wirebox.GetComponent<WireBoxTrigger>().getStatus());
         if (!dialogueUpdate.locked) {
-            if (Input.GetKeyDown("q") & (Vector3.Distance(transform.position, engine.transform.position) < distance) & GlobalData.engineBroken)
+            if (Input.GetKeyDown("q") & engine.GetComponent<EngineTrigger>().getTriggerStatus() & GlobalData.engineBroken)
             {
                 SceneManager.LoadScene("Fix Engine");
             }
