@@ -74,7 +74,7 @@ public class PlayMinigame : MonoBehaviour
             {
                 SceneManager.LoadScene("End Scene");
             }
-            if (Input.GetKeyDown("e") & (Vector3.Distance(transform.position, lightSwitchLocation.transform.position) < distance))
+            if (Input.GetKeyDown("e") & lightSwitch.GetComponent<LightsTrigger>().getTriggerStatus())
             {
                 GlobalData.lights = !GlobalData.lights;
                 Debug.Log("Lights Flipped");
