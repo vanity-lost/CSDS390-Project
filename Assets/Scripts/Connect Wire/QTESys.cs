@@ -14,29 +14,32 @@ public class QTESys : MonoBehaviour
     public GameObject NumSuccess;//display number of successed QTE
     public GameObject Panel;
     public GameObject Bar;
+    public GameObject CheckFiller;
+    public GameObject BoxCover;
     public int QTEGen;//so far 3 different types of QTE letter, E R T, 4=wrong key pressed
     public int WaitingForKey;//0=is waiting to generate a QTE key
     public int CorrectKey;//1=correct key pressed,2=wrong key pressed,0=reset this state
     public int CountingDown;
     public int numofcorrect;
     public float TimeLeft;
-    public int maxprogress = 4;
-    public Vector3 Loc1;
-    public Vector3 Loc2;
-    public Vector3 Loc3;
+    public int maxprogress = 5;
+    //public Vector3 Loc1;
+    //public Vector3 Loc2;
+    //public Vector3 Loc3;
 
     // Start is called before the first frame update
     void Start()
     {
-        Loc1 = LetterBoxOuter.GetComponent<RectTransform>().position;
-        Debug.Log(Loc1);
-        Loc2 = new Vector3(Loc1.x + 200, Loc1.y + 80, Loc1.z);
-        Loc3 = new Vector3(Loc1.x - 150, Loc1.y - 40, Loc1.z);
+        //Loc1 = LetterBoxOuter.GetComponent<RectTransform>().position;
+        //Debug.Log(Loc1);
+        //Loc2 = new Vector3(200, 80, 0);
+        //Loc3 = new Vector3(-150, -40, 0);
         NumSuccess.GetComponent<Text>().text = "0";
         numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
         Debug.Log(NumSuccess.GetComponent<Text>().text);
         Bar.GetComponent<Slider>().value = 0;
         //TimeLeft = FilledBar.GetComponent<Image>().fillAmount;
+        CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 0);//transparent
     }
 
     // Update is called once per frame
@@ -48,7 +51,7 @@ public class QTESys : MonoBehaviour
         }
 
         numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
-        if (numofcorrect < 3 && Panel.activeSelf == true)
+        if (numofcorrect < 4 && Panel.activeSelf == true)
         {
             if (WaitingForKey == 0)
             {
@@ -77,7 +80,7 @@ public class QTESys : MonoBehaviour
             {
                 if (Input.anyKeyDown)
                 {
-                    if (Input.GetButtonDown("EKey"))
+                    if(Input.GetKeyDown("e"))//if (Input.GetButtonDown("EKey"))
                     {
                         CorrectKey = 1;
                         StartCoroutine(KeyPressing());
@@ -93,7 +96,7 @@ public class QTESys : MonoBehaviour
             {
                 if (Input.anyKeyDown)
                 {
-                    if (Input.GetButtonDown("RKey"))
+                    if (Input.GetKeyDown("r"))
                     {
                         CorrectKey = 1;
                         StartCoroutine(KeyPressing());
@@ -109,7 +112,7 @@ public class QTESys : MonoBehaviour
             {
                 if (Input.anyKeyDown)
                 {
-                    if (Input.GetButtonDown("TKey"))
+                    if (Input.GetKeyDown("t"))
                     {
                         CorrectKey = 1;
                         StartCoroutine(KeyPressing());
@@ -131,12 +134,13 @@ public class QTESys : MonoBehaviour
             //Debug.Log(numofcorrect);
             //Debug.Log(Panel.activeSelf.ToString());
             PassBox.GetComponent<Text>().text = "Connected!";
+            CheckFiller.GetComponent<Image>().color = new Color32(20, 210, 0, 255);//turn green
             Debug.Log("Connected");
             StartCoroutine(EndWireConnection());
         }
     }
 
-    public void changeLoc()
+    /**public void changeLoc()
     {
         int num = UnityEngine.Random.Range(1, 4);
         if (num == 1)
@@ -151,7 +155,7 @@ public class QTESys : MonoBehaviour
         {
             LetterBoxOuter.GetComponent<RectTransform>().position = Loc3;
         }
-    }
+    }**/
 
     IEnumerator KeyPressing()
     {
@@ -177,15 +181,17 @@ public class QTESys : MonoBehaviour
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "FAIL!";
             Debug.Log("FAIL");
+            CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 255);
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
             LetterBox.GetComponent<Text>().text = "";
+            CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 0);
             yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
         }
-        changeLoc();
+        //changeLoc();
     }
 
     IEnumerator CountDown()
@@ -196,10 +202,12 @@ public class QTESys : MonoBehaviour
             QTEGen = 4;
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "FAIL!";
+            CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 255);
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
             LetterBox.GetComponent<Text>().text = "";
+            CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 0);
             yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
@@ -208,7 +216,12 @@ public class QTESys : MonoBehaviour
 
     IEnumerator EndWireConnection()
     {
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSeconds(0.5f);
+        //yield return new WaitForSecondsRealtime(1);
+        Panel.SetActive(false);
+        Debug.Log("animation played");
+        BoxCover.GetComponent<Animator>().Play("BoxCoverSliding");
+        yield return new WaitForSeconds(1f);
         Debug.Log("Main");
         GlobalData.wiresBroken = false;
         SceneManager.LoadScene("Main");
