@@ -10,7 +10,7 @@ public class MoveSlab : MonoBehaviour
     bool held = false;
     bool check = true;
     [SerializeField] private float holdHeight = 7f;
-    [SerializeField] private float dropSpeed = 0.007f;
+    [SerializeField] private float dropSpeed = 0.009f;
     LeakCovered[] leaks;
 
 

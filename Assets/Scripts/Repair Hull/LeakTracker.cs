@@ -25,7 +25,7 @@ public class LeakTracker : MonoBehaviour
         {
             float zPos = Random.Range(minimumZ, maxZ);
             float xPos = Random.Range(minimumX, maxX);
-            float yPos = -0.55f;
+            float yPos = -0.6f;
             Vector3 position = new Vector3(xPos, yPos, zPos);
             bool acceptable = true;
             if (x == 0)
