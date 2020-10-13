@@ -2180,6 +2180,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc8e79f6cbc77f846a0774aac9d14236, type: 3}
   m_PrefabInstance: {fileID: 433371211}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &433371213 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3740386072237777557, guid: fc8e79f6cbc77f846a0774aac9d14236, type: 3}
+  m_PrefabInstance: {fileID: 433371211}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &438155211
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,9 +2309,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerStatus: 0
   isTheBrokenOne: 0
-  wirebox1: {fileID: 0}
-  wirebox2: {fileID: 0}
-  boxCover: {fileID: 0}
+  wirebox1: {fileID: 1134699163}
+  wirebox2: {fileID: 2019823123}
+  boxCover: {fileID: 433371213}
   brokenEffect: {fileID: 0}
 --- !u!1 &473000870
 GameObject:
@@ -5846,9 +5851,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerStatus: 0
   isTheBrokenOne: 0
-  wirebox1: {fileID: 0}
-  wirebox2: {fileID: 0}
-  boxCover: {fileID: 0}
+  wirebox1: {fileID: 448982698}
+  wirebox2: {fileID: 2019823123}
+  boxCover: {fileID: 1134699166}
   brokenEffect: {fileID: 0}
 --- !u!65 &1134699165
 BoxCollider:
@@ -5863,6 +5868,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5893762, y: 0.98277926, z: 0.6327246}
   m_Center: {x: 0.16542444, y: 2.2085023, z: 8.64031}
+--- !u!1 &1134699166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3740386072237777557, guid: fc8e79f6cbc77f846a0774aac9d14236, type: 3}
+  m_PrefabInstance: {fileID: 1134699161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1143301428
 GameObject:
   m_ObjectHideFlags: 0
@@ -11327,9 +11337,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerStatus: 0
   isTheBrokenOne: 0
-  wirebox1: {fileID: 0}
-  wirebox2: {fileID: 0}
-  boxCover: {fileID: 0}
+  wirebox1: {fileID: 1134699163}
+  wirebox2: {fileID: 448982698}
+  boxCover: {fileID: 2019823126}
   brokenEffect: {fileID: 0}
 --- !u!65 &2019823125
 BoxCollider:
@@ -11344,6 +11354,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5893762, y: 0.98277926, z: 0.6327246}
   m_Center: {x: 0.16542444, y: 2.2085023, z: 8.64031}
+--- !u!1 &2019823126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3740386072237777557, guid: fc8e79f6cbc77f846a0774aac9d14236, type: 3}
+  m_PrefabInstance: {fileID: 2019823121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2049266212
 GameObject:
   m_ObjectHideFlags: 0

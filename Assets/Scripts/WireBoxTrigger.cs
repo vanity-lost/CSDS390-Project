@@ -15,7 +15,7 @@ public class WireBoxTrigger : MonoBehaviour
     [SerializeField] GameObject wirebox1;
     [SerializeField] GameObject wirebox2;
     [SerializeField] GameObject boxCover;
-    [SerializeField] GameObject brokenEffect;
+    //[SerializeField] GameObject brokenEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +30,12 @@ public class WireBoxTrigger : MonoBehaviour
         if (isTheBrokenOne)
         {
             boxCover.SetActive(false);
-            brokenEffect.SetActive(true);
+            //brokenEffect.SetActive(true);
         }
         else
         {
             boxCover.SetActive(true) ;
-            brokenEffect.SetActive(false);
+            //brokenEffect.SetActive(false);
         }
     }
 
