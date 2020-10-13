@@ -33,8 +33,10 @@ public class WireBoxTrigger : MonoBehaviour
     {
         if (isTheBrokenOne)
         {
+            //Debug.Log("wire broke");
             boxCover.SetActive(false);
             if (brokenEffect != null){
+                //Debug.Log("wire broke with sparks effect on");
                 brokenEffect.SetActive(true);
             }
             

@@ -132,7 +132,28 @@ public class PlayMinigame : MonoBehaviour
             instruction.text="Wires are Broken, go fix them - Press 'l'";
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
-            wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
+            int ranNum = UnityEngine.Random.Range(1, 4);
+            if(ranNum == 1)
+            {
+                wireboxhead.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
+                Debug.Log("head one broken");
+            }
+            if (ranNum == 2)
+            {
+                wireboxmid.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
+                Debug.Log("mid one broken");
+            }
+            if (ranNum == 3)
+            {
+                wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
+                Debug.Log("tail one broken");
+            }
+            if(ranNum == 4)
+            {
+                Debug.Log("Wire broken with ranNum 4");
+            }
+
+
         }
         //Hull break at 120 seconds
         if (Time.time > 120 & GlobalData.updateHull == false)

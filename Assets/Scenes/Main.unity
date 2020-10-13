@@ -784,10 +784,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightTrigger: 0
-  EmergencyLight1: {fileID: 0}
-  EmergencyLight2: {fileID: 0}
-  EmergencyLight3: {fileID: 0}
-  EmergencyLight4: {fileID: 0}
+  EmergencyLight1: {fileID: 196006393}
+  EmergencyLight2: {fileID: 627365817}
+  EmergencyLight3: {fileID: 1880115282}
+  EmergencyLight4: {fileID: 2135405795}
 --- !u!1 &212787020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,7 +1764,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -6189,9 +6189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 432a6e7c2feb825489f9db186d77282b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wireboxhead: {fileID: 0}
-  wireboxmid: {fileID: 0}
-  wireboxtail: {fileID: 0}
+  wireboxhead: {fileID: 1134699163}
+  wireboxmid: {fileID: 448982698}
+  wireboxtail: {fileID: 2019823123}
   engine: {fileID: 502328508}
   fuse: {fileID: 919132147993530893}
   lightSwitchLocation: {fileID: 0}
@@ -11156,7 +11156,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -18494,7 +18494,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
