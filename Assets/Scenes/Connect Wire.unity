@@ -1031,7 +1031,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 178.04}
+  m_AnchoredPosition: {x: 0, y: 190.4}
   m_SizeDelta: {x: 250, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1364767151
@@ -1622,6 +1622,7 @@ GameObject:
   - component: {fileID: 2007680302}
   - component: {fileID: 2007680304}
   - component: {fileID: 2007680303}
+  - component: {fileID: 2007680305}
   m_Layer: 5
   m_Name: LetterBoxOuter
   m_TagString: Untagged
@@ -1687,6 +1688,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007680301}
   m_CullTransparentMesh: 0
+--- !u!95 &2007680305
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007680301}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24c80dc32a7dd494790a8b82b8801e7c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2059254686
 GameObject:
   m_ObjectHideFlags: 0
