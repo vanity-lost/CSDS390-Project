@@ -21,7 +21,11 @@ public class WireBoxTrigger : MonoBehaviour
     void Start()
     {
         triggerStatus = false;
-        //isTheBrokenOne = false;
+        isTheBrokenOne = false;
+        if (brokenEffect != null)
+        {
+            brokenEffect.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -29,13 +33,21 @@ public class WireBoxTrigger : MonoBehaviour
     {
         if (isTheBrokenOne)
         {
+            //Debug.Log("wire broke");
             boxCover.SetActive(false);
-            brokenEffect.SetActive(true);
+            if (brokenEffect != null){
+                //Debug.Log("wire broke with sparks effect on");
+                brokenEffect.SetActive(true);
+            }
+            
         }
         else
         {
             boxCover.SetActive(true) ;
-            brokenEffect.SetActive(false);
+            if (brokenEffect != null)
+            {
+                brokenEffect.SetActive(false);
+            }
         }
     }
 

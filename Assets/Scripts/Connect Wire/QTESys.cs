@@ -16,6 +16,10 @@ public class QTESys : MonoBehaviour
     public GameObject Bar;
     public GameObject CheckFiller;
     public GameObject BoxCover;
+    public Sprite EKey;
+    public Sprite RKey;
+    public Sprite TKey;
+    public Sprite EmptyKey;
     public int QTEGen;//so far 3 different types of QTE letter, E R T, 4=wrong key pressed
     public int WaitingForKey;//0=is waiting to generate a QTE key
     public int CorrectKey;//1=correct key pressed,2=wrong key pressed,0=reset this state
@@ -23,26 +27,17 @@ public class QTESys : MonoBehaviour
     public int numofcorrect;
     public float TimeLeft;
     public int maxprogress = 5;
-    //public Vector3 Loc1;
-    //public Vector3 Loc2;
-    //public Vector3 Loc3;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //Loc1 = LetterBoxOuter.GetComponent<RectTransform>().position;
-        //Debug.Log(Loc1);
-        //Loc2 = new Vector3(200, 80, 0);
-        //Loc3 = new Vector3(-150, -40, 0);
         NumSuccess.GetComponent<Text>().text = "0";
         numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
         Debug.Log(NumSuccess.GetComponent<Text>().text);
         Bar.GetComponent<Slider>().value = 0;
-        //TimeLeft = FilledBar.GetComponent<Image>().fillAmount;
         CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 0);//transparent
+        LetterBoxOuter.GetComponent<Image>().sprite = EmptyKey;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -61,17 +56,19 @@ public class QTESys : MonoBehaviour
                 if (QTEGen == 1)
                 {
                     WaitingForKey = 1;
+                    LetterBoxOuter.GetComponent<Image>().sprite = EKey;
                     LetterBox.GetComponent<Text>().text = "[E]";
                 }
                 if (QTEGen == 2)
                 {
                     WaitingForKey = 1;
-                    //LetterBoxOuter.GetComponent<RectTransform>().position = Loc2;
+                    LetterBoxOuter.GetComponent<Image>().sprite = RKey;
                     LetterBox.GetComponent<Text>().text = "[R]";
                 }
                 if (QTEGen == 3)
                 {
                     WaitingForKey = 1;
+                    LetterBoxOuter.GetComponent<Image>().sprite = TKey;
                     LetterBox.GetComponent<Text>().text = "[T]";
                 }
             }
@@ -131,31 +128,12 @@ public class QTESys : MonoBehaviour
         }
         else if (numofcorrect >= 3 && Panel.activeSelf == true)
         {
-            //Debug.Log(numofcorrect);
-            //Debug.Log(Panel.activeSelf.ToString());
             PassBox.GetComponent<Text>().text = "Connected!";
             CheckFiller.GetComponent<Image>().color = new Color32(20, 210, 0, 255);//turn green
             Debug.Log("Connected");
             StartCoroutine(EndWireConnection());
         }
     }
-
-    /**public void changeLoc()
-    {
-        int num = UnityEngine.Random.Range(1, 4);
-        if (num == 1)
-        {
-            LetterBoxOuter.GetComponent<RectTransform>().position = Loc1;
-        }
-        else if (num == 2)
-        {
-            LetterBoxOuter.GetComponent<RectTransform>().position = Loc2;
-        }
-        else
-        {
-            LetterBoxOuter.GetComponent<RectTransform>().position = Loc3;
-        }
-    }**/
 
     IEnumerator KeyPressing()
     {
@@ -168,10 +146,15 @@ public class QTESys : MonoBehaviour
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "PASS!";
             Debug.Log("PASS");
+            LetterBoxOuter.GetComponent<Image>().color = new Color32(215, 215, 215, 255);//pressed effect
+            //BoxCover.GetComponent<Animator>().Play("BoxCoverSliding");
+            LetterBoxOuter.GetComponent<Animator>().Play("ButtonShifting");
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
+            LetterBoxOuter.GetComponent<Image>().sprite = EmptyKey;
             LetterBox.GetComponent<Text>().text = "";
+            LetterBoxOuter.GetComponent<Image>().color = new Color32(255, 255, 255, 255);//release effect
             yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
@@ -185,13 +168,13 @@ public class QTESys : MonoBehaviour
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
+            LetterBoxOuter.GetComponent<Image>().sprite = EmptyKey;
             LetterBox.GetComponent<Text>().text = "";
             CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 0);
             yield return new WaitForSeconds(0.5f);
             WaitingForKey = 0;
             CountingDown = 1;
         }
-        //changeLoc();
     }
 
     IEnumerator CountDown()
@@ -206,6 +189,7 @@ public class QTESys : MonoBehaviour
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
+            LetterBoxOuter.GetComponent<Image>().sprite = EmptyKey;
             LetterBox.GetComponent<Text>().text = "";
             CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 0);
             yield return new WaitForSeconds(0.5f);
@@ -217,7 +201,6 @@ public class QTESys : MonoBehaviour
     IEnumerator EndWireConnection()
     {
         yield return new WaitForSeconds(0.5f);
-        //yield return new WaitForSecondsRealtime(1);
         Panel.SetActive(false);
         Debug.Log("animation played");
         BoxCover.GetComponent<Animator>().Play("BoxCoverSliding");
@@ -225,19 +208,6 @@ public class QTESys : MonoBehaviour
         Debug.Log("Main");
         GlobalData.wiresBroken = false;
         SceneManager.LoadScene("Main");
-        //closebutton.GetComponent<Button>().onClick.Invoke();
     }
-
-    IEnumerator TimerCountDown()
-    {
-        yield return new WaitForSeconds(3.5f);
-        while (TimeLeft != 0)
-        {
-            TimeLeft = TimeLeft - (1 / 3.5f);
-            //FilledBar.GetComponent<Image>().fillAmount = TimeLeft;
-        }
-
-    }
-
 
 }

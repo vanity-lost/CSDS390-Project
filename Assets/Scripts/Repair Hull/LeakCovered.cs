@@ -23,17 +23,10 @@ public class LeakCovered : MonoBehaviour
     {
         if (!covered)
         {
-            //Debug.Log(transform.position);
-            //Debug.Log(slab.transform.position);
             float slabX = Mathf.Abs(slab.transform.position.x);
             float slabZ = Mathf.Abs(slab.transform.position.z);
             float leakZ = Mathf.Abs(transform.position.z);
             float leakX = Mathf.Abs(transform.position.x);
-            //Debug.Log(slabZ + " " + slabX + " " + leakZ + " " + leakX);
-            ///Debug.Log(slabZ - leakZ);
-            //Debug.Log(Mathf.Abs(slabZ - leakZ));
-            //Debug.Log(Mathf.Abs(slabX - leakX));
-
             if ((Mathf.Abs(slabZ - leakZ)) < slabSize && (Mathf.Abs(slabX - leakX)) < slabSize)
             {
                 Debug.Log("True");
@@ -43,7 +36,6 @@ public class LeakCovered : MonoBehaviour
             else
             {
                 Debug.Log("False");
-                //return false;
             }
         }
     }

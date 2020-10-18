@@ -10,14 +10,15 @@ public class MoveSlab : MonoBehaviour
     bool held = false;
     bool check = true;
     [SerializeField] private float holdHeight = 7f;
-    [SerializeField] private float dropSpeed = 0.007f;
+    [SerializeField] private float dropSpeed = 0.009f;
     LeakCovered[] leaks;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        leaks = GameObject.FindObjectsOfType<LeakCovered>();
+        StartCoroutine(LateStart(0.5f));
+        //leaks = GameObject.FindObjectsOfType<LeakCovered>();
         //Debug.Log(leaks[0].transform.position);
     }
 
@@ -28,6 +29,7 @@ public class MoveSlab : MonoBehaviour
         {
             down = true;
             holdHeight -= dropSpeed;
+            transform.localScale = transform.localScale * 0.999f;
             //Debug.Log("Down");
         }
         if(Input.GetKeyUp("q"))
@@ -42,6 +44,12 @@ public class MoveSlab : MonoBehaviour
                 leak.GetComponent<LeakCovered>().CloseEnough(gameObject);
             }
         }
+    }
+
+    IEnumerator LateStart(float wait)
+    {
+        yield return new WaitForSeconds(wait);
+        leaks = GameObject.FindObjectsOfType<LeakCovered>();
     }
 
     private void OnMouseDrag()
@@ -75,7 +83,7 @@ public class MoveSlab : MonoBehaviour
     void OnDrawGizmos()
     {
         // Draw a yellow sphere at the transform's position
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawSphere(actualPosition, 1);
+        //Gizmos.color = Color.yellow;
+        //Gizmos.DrawSphere(actualPosition, 1);
     }
 }
