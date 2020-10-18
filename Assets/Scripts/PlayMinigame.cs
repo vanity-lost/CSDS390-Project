@@ -15,6 +15,8 @@ public class PlayMinigame : MonoBehaviour
     [SerializeField] GameObject lightSwitchLocation;
     [SerializeField] GameObject lightHolder;
     [SerializeField] GameObject lightSwitch;
+    [SerializeField] GameObject storage;
+    [SerializeField] GameObject fireExtinguisher;
     [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
 
@@ -58,7 +60,7 @@ public class PlayMinigame : MonoBehaviour
                     SceneManager.LoadScene("Connect Wire");
                 }
             }
-            if (Input.GetKeyDown("k") & GlobalData.storageLocked)
+            if (Input.GetKeyDown("k") & GlobalData.storageLocked & storage.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 SceneManager.LoadScene("Storage Room");
             }
@@ -66,7 +68,7 @@ public class PlayMinigame : MonoBehaviour
             {
                 SceneManager.LoadScene("Fix Hull");
             }
-            if (Input.GetKeyDown("o") & GlobalData.fires)
+            if (Input.GetKeyDown("o") & GlobalData.fires & fireExtinguisher.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 SceneManager.LoadScene("Fire Extinguish");
             }

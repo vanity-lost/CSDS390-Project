@@ -10,8 +10,11 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject takeBoolText;
     public GameObject filler;
     public GameObject currentFire;
+    public GameObject currentEffect;
     public float holdTimeSet;
     public UnityEvent holdClick;
+    public ParticleSystem fireParticle;
+    
 
     private bool mouseHold;
     private float holdTimeSoFar;
@@ -20,6 +23,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     void Start()
     {
         filler.GetComponent<Image>().fillAmount = 0;
+        fireParticle = currentEffect.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,9 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                     }
                     //inactive the filler image
                 }
+                var mainvalue = fireParticle.main;
                 filler.GetComponent<Image>().fillAmount = holdTimeSoFar / holdTimeSet;
+                mainvalue.startSize = (1 - filler.GetComponent<Image>().fillAmount) * 2.39f;
             }
             else
             {
@@ -84,23 +90,19 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         holdTimeSoFar -= Time.deltaTime / 10;
         //Debug.Log("is reducing filler amount");
+        var mainvalue = fireParticle.main;
         filler.GetComponent<Image>().fillAmount = holdTimeSoFar / holdTimeSet;
+        mainvalue.startSize = (1 - filler.GetComponent<Image>().fillAmount) * 2.39f;
         //Debug.Log(filler.GetComponent<Image>().fillAmount);
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         mouseHold = true;
-        //Debug.Log("OnPointerDown()");
-        //if scale <= 0, then do nothing
-        //else add filler amount
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         mouseHold = false;
-        //Debug.Log("OnPointerUp()");
-        //if scale <= 0, then setactive = false
-        //else reduce filler amount
     }
 }
