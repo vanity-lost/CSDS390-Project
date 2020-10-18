@@ -28,7 +28,7 @@ public class TaskDone : MonoBehaviour
 
     IEnumerator EndTask()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         Debug.Log("all fire are put down");
         GlobalData.fires = false;
         SceneManager.LoadScene("Main");
