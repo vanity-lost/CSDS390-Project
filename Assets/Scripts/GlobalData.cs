@@ -17,7 +17,6 @@ public class GlobalData : MonoBehaviour
     [SerializeField] static public bool updateFire = false;
     [SerializeField] static public bool updateWires = false;
     [SerializeField] static public bool updateHull = false;
-    [SerializeField] static public bool updateStorage = true;
 
     [SerializeField] static public bool storageLocked = true;
 
@@ -26,7 +25,6 @@ public class GlobalData : MonoBehaviour
     {
         fuseBroken = true;
         DontDestroyOnLoad(this.gameObject);
-
     }
 
 }

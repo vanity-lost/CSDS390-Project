@@ -21,6 +21,7 @@ public class PlayMinigame : MonoBehaviour
     [SerializeField] float distance = 5f;
 
     public GameObject storageHint;
+    public GameObject FireEffect;
     private bool engineUpdate = false;
 
     // Start is called before the first frame update
@@ -42,7 +43,7 @@ public class PlayMinigame : MonoBehaviour
     {
         //Debug.Log(wirebox.GetComponent<WireBoxTrigger>().getStatus());
         if (!dialogueUpdate.locked) {
-            if (Input.GetKeyDown("q") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken)
+            if (Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken)
             {
                 if (GlobalData.storageLocked) {
                     storageHint.SetActive(true);
@@ -51,7 +52,7 @@ public class PlayMinigame : MonoBehaviour
                     SceneManager.LoadScene("Fix Engine");
                 }
             }
-            if (Input.GetKeyDown("l") && GlobalData.wiresBroken)
+            if (Input.GetKeyDown("e") && GlobalData.wiresBroken)
             {
                 if ((wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus())
                     ||(wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus())
@@ -60,19 +61,19 @@ public class PlayMinigame : MonoBehaviour
                     SceneManager.LoadScene("Connect Wire");
                 }
             }
-            if (Input.GetKeyDown("k") & GlobalData.storageLocked & storage.GetComponent<MinigameTrigger>().getTriggerStatus())
+            if (Input.GetKeyDown("e") & GlobalData.storageLocked & storage.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 SceneManager.LoadScene("Storage Room");
             }
-            if (Input.GetKeyDown("h") & GlobalData.hullBroken)
+            if (Input.GetKeyDown("e") & GlobalData.hullBroken)
             {
                 SceneManager.LoadScene("Fix Hull");
             }
-            if (Input.GetKeyDown("o") & GlobalData.fires & fireExtinguisher.GetComponent<MinigameTrigger>().getTriggerStatus())
+            if (Input.GetKeyDown("e") & GlobalData.fires & fireExtinguisher.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 SceneManager.LoadScene("Fire Extinguish");
             }
-            if (Input.GetKeyDown("f") & GlobalData.fuseBroken & fuse.GetComponent<MinigameTrigger>().getTriggerStatus())
+            if (Input.GetKeyDown("e") & GlobalData.fuseBroken & fuse.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 GlobalData.lights = false;
                 SceneManager.LoadScene("Repair Fuse");
@@ -117,26 +118,30 @@ public class PlayMinigame : MonoBehaviour
             LightsFlip();
         }
         //Engines breaks at 30 seconds
-        if (Time.time > 30 &  GlobalData.updateEngine == false) 
+        if (GlobalData.updateEngine == false) 
         {
             Debug.Log("Broke Engine");
-            instruction.text="Fix the Broken Engine - Press 'q'";
+            instruction.text="Fix the Broken Engine - Press 'e'";
             GlobalData.updateEngine = true;
             GlobalData.engineBroken = true;
         }
         //Fires occur at 60 seconds
-        if (Time.time > 60 & GlobalData.updateFire == false)
+        if (GlobalData.updateFire == false)
         {
             Debug.Log("Fire");
-            instruction.text="There's a fire go and Extinguish it - Press 'o'";
+            instruction.text="There's a fire go and Extinguish it - Press 'e'";
+            FireEffect.SetActive(true);
             GlobalData.updateFire = true;
             GlobalData.fires = true;
         }
+        if (!GlobalData.updateFire) {
+            FireEffect.SetActive(false);
+        }
         //Wires break at 90 seconds
-        if (Time.time > 90 & GlobalData.updateWires == false)
+        if (GlobalData.updateWires == false)
         {
             Debug.Log("Broke Wires");
-            instruction.text="Wires are Broken, go fix them - Press 'l'";
+            instruction.text="Wires are Broken, go fix them - Press 'e'";
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
             int ranNum = UnityEngine.Random.Range(1, 4);
@@ -163,20 +168,12 @@ public class PlayMinigame : MonoBehaviour
 
         }
         //Hull break at 120 seconds
-        if (Time.time > 120 & GlobalData.updateHull == false)
+        if (false && GlobalData.updateHull == false)
         {
             Debug.Log("Broke Hull");
             instruction.text="The Hull is broken, go check it out - Press 'h'";
             GlobalData.updateHull = true;
             GlobalData.hullBroken = true;
-        }
-        //Hull break at 120 seconds
-        if (Time.time > 150 & GlobalData.updateStorage == false)
-        {
-            Debug.Log("Storage Locked");
-            instruction.text="The storage is locked, go and open it - Press 'k'";
-            GlobalData.updateStorage = true;
-            GlobalData.storageLocked = true;
         }
 
     }

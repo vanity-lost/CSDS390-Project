@@ -207,6 +207,7 @@ public class QTESys : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("Main");
         GlobalData.wiresBroken = false;
+        GlobalData.updateWires = false;
         SceneManager.LoadScene("Main");
     }
 
