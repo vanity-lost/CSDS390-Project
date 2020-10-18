@@ -12,6 +12,7 @@ public class SubDistanceTracker : MonoBehaviour
     private float move = 1.0f;
     private float maxDistance = 500.0f;
     private float elapsedTime = 0f;
+    public static bool isMoving = true;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class SubDistanceTracker : MonoBehaviour
     
     void Update()
     {
-        if (!ESCDectect.gameIsPaused && GlobalData.engineBroken == false)
+        if (!ESCDectect.gameIsPaused && isMoving)
         //if (!ESCDectect.gameIsPaused)
         {
             DistanceTracker(DistanceMeter);

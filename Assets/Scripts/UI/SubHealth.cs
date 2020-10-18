@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SubHealth : MonoBehaviour
 {
-    public static int healthNum = 100;
+    public static float healthNum = 100;
     public Text healthText;
     public int monsterAttack = 0;
     public int hullBreach = 0;
@@ -13,7 +13,7 @@ public class SubHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthText.text = "Health: " + healthNum + "%";
+        healthText.text = "Health: " + (int)healthNum + "%";
     }
 
     // Update is called once per frame
@@ -30,6 +30,6 @@ public class SubHealth : MonoBehaviour
             healthNum -= 5;
         }
 
-        healthText.text = "Health: " + healthNum + "%";
+        healthText.text = "Health: " + (int)healthNum + "%";
     }
 }

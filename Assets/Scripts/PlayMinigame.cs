@@ -18,7 +18,7 @@ public class PlayMinigame : MonoBehaviour
     [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
 
-
+    public GameObject storageHint;
     private bool engineUpdate = false;
 
     // Start is called before the first frame update
@@ -40,9 +40,14 @@ public class PlayMinigame : MonoBehaviour
     {
         //Debug.Log(wirebox.GetComponent<WireBoxTrigger>().getStatus());
         if (!dialogueUpdate.locked) {
-            if (Input.GetKeyDown("q") & engine.GetComponent<MinigameTrigger>().getTriggerStatus() & GlobalData.engineBroken)
+            if (Input.GetKeyDown("q") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken)
             {
-                SceneManager.LoadScene("Fix Engine");
+                if (GlobalData.storageLocked) {
+                    storageHint.SetActive(true);
+                    TaskSystem.hint = true;
+                } else {
+                    SceneManager.LoadScene("Fix Engine");
+                }
             }
             if (Input.GetKeyDown("l") && GlobalData.wiresBroken)
             {
@@ -133,7 +138,7 @@ public class PlayMinigame : MonoBehaviour
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
             int ranNum = UnityEngine.Random.Range(1, 4);
-            if(ranNum == 1)
+            if (ranNum == 1)
             {
                 wireboxhead.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
                 Debug.Log("head one broken");

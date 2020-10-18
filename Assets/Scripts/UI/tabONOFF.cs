@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class tabONOFF : MonoBehaviour
 {
-    public GameObject Tab;
-    
+    public GameObject TaskPanel;
+
     public void onClick(){
-        Tab.SetActive(!Tab.activeSelf);
+        TaskPanel.SetActive(!TaskPanel.activeSelf);
     }
 
     void Update()
     {
         if (Input.GetKeyDown("tab"))
         {
-            Tab.SetActive(!Tab.activeSelf);
+            onClick();
         }
     }
 }
