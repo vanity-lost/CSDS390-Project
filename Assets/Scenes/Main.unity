@@ -764,7 +764,6 @@ GameObject:
   - component: {fileID: 196006396}
   - component: {fileID: 196006395}
   - component: {fileID: 196006394}
-  - component: {fileID: 196006397}
   m_Layer: 0
   m_Name: Emergency Light
   m_TagString: Untagged
@@ -866,23 +865,6 @@ Transform:
   m_Father: {fileID: 1572074203}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &196006397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196006393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e46efcacc543064795056553534ed5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lightTrigger: 0
-  EmergencyLight1: {fileID: 0}
-  EmergencyLight2: {fileID: 0}
-  EmergencyLight3: {fileID: 0}
-  EmergencyLight4: {fileID: 0}
 --- !u!1 &212787020
 GameObject:
   m_ObjectHideFlags: 0
