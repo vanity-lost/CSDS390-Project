@@ -889,7 +889,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLeaks: 4
-  leak: {fileID: 1327103315360551701, guid: ddcda932825897646b3ca2f3522efeac, type: 3}
+  leak1: {fileID: 3918355204263820934, guid: 196740dba8418ae4da0d75a155006863, type: 3}
+  leak2: {fileID: 1669381652998656488, guid: f5574695c37a0074d974b39fa2aec4a1, type: 3}
   distance: 0.5
 --- !u!114 &1023808288
 MonoBehaviour:

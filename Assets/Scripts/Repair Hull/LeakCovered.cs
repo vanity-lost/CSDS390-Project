@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeakCovered : MonoBehaviour
 {
-    [SerializeField] private float slabSize = 0.55f;
+    [SerializeField] private float slabSize = 0.3f;
     [SerializeField] private bool covered = false;
 
     // Start is called before the first frame update
@@ -32,6 +32,7 @@ public class LeakCovered : MonoBehaviour
                 Debug.Log("True");
                 FindObjectOfType<LeakTracker>().GetComponent<LeakTracker>().LeakFilled();
                 covered = true;
+                GetComponent<ParticleSystem>().Stop();
             }
             else
             {

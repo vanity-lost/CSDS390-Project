@@ -7,14 +7,15 @@ using System.Collections.Generic;
 public class LeakTracker : MonoBehaviour
 {
     [SerializeField] private int numLeaks = 4;
-    [SerializeField] private GameObject leak;
-    [SerializeField] private float distance = 0.5f;
+    [SerializeField] private GameObject leak1;
+    [SerializeField] private GameObject leak2;
+    [SerializeField] private float distance = 1f;
     private List<GameObject> leaks = new List<GameObject>();
     private GameObject newLeak;
-    private float minimumZ = -6.5f;
-    private float maxZ = 6.5f;
-    private float minimumX = -11.5f;
-    private float maxX = 11.5f;
+    private float minimumZ = -5.5f;
+    private float maxZ = 5.5f;
+    private float minimumX = -10.5f;
+    private float maxX = 10.5f;
 
 
     // Start is called before the first frame update
@@ -25,14 +26,23 @@ public class LeakTracker : MonoBehaviour
         {
             float zPos = Random.Range(minimumZ, maxZ);
             float xPos = Random.Range(minimumX, maxX);
-            float yPos = -0.6f;
+            float yPos = 0.01f;
             Vector3 position = new Vector3(xPos, yPos, zPos);
             bool acceptable = true;
             if (x == 0)
             {
                 x = x + 1;
-                newLeak = Instantiate(leak);
+                if (Random.Range(0, 2) == 1)
+                {
+                    newLeak = Instantiate(leak1);
+                }
+                else
+                {
+                    newLeak = Instantiate(leak2);
+                }
+                Debug.Log(newLeak);
                 newLeak.transform.position = position;
+                newLeak.transform.Rotate(0, Random.Range(0, 360), 0);
                 Debug.Log(leaks);
                 leaks.Add(newLeak);
                 Debug.Log(leaks);
@@ -49,7 +59,16 @@ public class LeakTracker : MonoBehaviour
                 if (acceptable)
                 {
                     x = x + 1;
-                    newLeak = Instantiate(leak);
+                    if (Random.Range(0, 2) == 1)
+                    {
+                        newLeak = Instantiate(leak1);
+                    }
+                    else
+                    {
+                        newLeak = Instantiate(leak2);
+                    }
+                    newLeak.transform.position = position;
+                    newLeak.transform.Rotate(0, Random.Range(0, 360), 0);
                     newLeak.transform.position = position;
                     leaks.Add(newLeak);
                 }
