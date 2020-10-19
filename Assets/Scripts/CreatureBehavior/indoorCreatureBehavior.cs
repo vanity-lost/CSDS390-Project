@@ -2,33 +2,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class indoorCreatureBehavior : MonoBehaviour
 {
+    public GameObject _player; //TODO set these up 
+    public GameObject _fuseBox; //TODO set these up
+
     private const float _ATTACK_RANGE = 10;
     private const float _SENSE_RANGE = 500;
     private const float _DIRECTIONAL_SENSE_RANGE = 500;
-    private GameObject _player; //TODO set these up 
-    private GameObject _circuitBox; //TODO set these up 
+    private NavMeshAgent agent;
 
-    void Start() { }
+    void Start() 
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
 
     void Update()
     {
         // Decides creature's actions
-        if (getCircuitWorkingStatus())
+        if (getFuseBoxWorkingStatus())
         {
             if (isWithinSensingRange(getCreatureLocation(), getPlayerLocation())) {
                 moveAway();
             }
             else
             {
-                if (isWithinCircuitRange(getCreatureLocation())) {
-                    breakCircuits();
+                if (isWithingFuseBoxRange(getCreatureLocation())) {
+                    breakFuseBox();
                 }
                 else
                 {
-                    moveToCircuits();
+                    moveToFuseBox();
                 }
             }
         }
@@ -40,6 +46,7 @@ public class indoorCreatureBehavior : MonoBehaviour
             else
             {
                 moveToPlayer();
+                Console.WriteLine("reached.");
             }
         }
     }
@@ -77,10 +84,10 @@ public class indoorCreatureBehavior : MonoBehaviour
             return false;
         }
 
-        // True if creature is within range to sabatage circuit; false otherwise
-        private bool isWithinCircuitRange(Vector3 creatureLocation) 
+        // True if creature is within range to sabatage fuse box; false otherwise
+        private bool isWithingFuseBoxRange(Vector3 creatureLocation) 
         { 
-            if ((creatureLocation - _circuitBox.transform.position).magnitude <= _ATTACK_RANGE)
+            if ((creatureLocation - _fuseBox.transform.position).magnitude <= _ATTACK_RANGE)
             {
                 return true;
             }
@@ -89,7 +96,7 @@ public class indoorCreatureBehavior : MonoBehaviour
 
         //TODO: Get status of circuits. Temp solution is that they are always considered broken
         // Gets status of circuits (from another class)
-        private bool getCircuitWorkingStatus() 
+        private bool getFuseBoxWorkingStatus() 
         {
             return false;
         }
@@ -108,12 +115,7 @@ public class indoorCreatureBehavior : MonoBehaviour
         {
             //TODO: Animation will be triggered here
             //GetComponent<Animator>().Play("...");
-            directPathing(_player.transform.position);
-        }
-
-        private void directPathing(Vector3 destination)
-        {
-            //TODO: create 3d pathing system
+            agent.destination = _player.transform.position;
         }
 
         private void rovingPathing(Vector3 destination)
@@ -121,18 +123,18 @@ public class indoorCreatureBehavior : MonoBehaviour
             //TODO: create 3d pathing system
         }
 
-        // Creature breaks circuits
-        private void breakCircuits() 
+        // Creature breaks fuse box
+        private void breakFuseBox() 
         { 
             //TODO: Trigger circuits/fuses to break
         }
 
-        // Creature moves towards circuits
-        private void moveToCircuits() 
+        // Creature moves towards fuse box
+        private void moveToFuseBox() 
         {
             //TODO: Animation will be triggered here
             //GetComponent<Animator>().Play("...");
-            directPathing(_circuitBox.transform.position);
+            agent.destination = _fuseBox.transform.position;
         }
 
         // Creature runs away from player
