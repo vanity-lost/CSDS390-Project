@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayMinigame : MonoBehaviour
 {
-    Text instruction;
     [SerializeField] GameObject wireboxhead;
     [SerializeField] GameObject wireboxmid;
     [SerializeField] GameObject wireboxtail;
@@ -23,6 +22,8 @@ public class PlayMinigame : MonoBehaviour
     public GameObject storageHint;
     public GameObject FireEffect;
     private bool engineUpdate = false;
+    public float timer = 0f;
+    public static bool engineTrigger = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,12 +31,9 @@ public class PlayMinigame : MonoBehaviour
         //GlobalData.fuseBroken = true;
         //GlobalData.lights = true;
         //GlobalData.lightsOn = true;
-        instruction = GameObject.Find("Text").GetComponent<Text>();
         lights = lightHolder.GetComponentsInChildren<Light>();
         Debug.Log(lights);
         Debug.Log(lights.Length);
-        
-
     }
 
     // Update is called once per frame
@@ -48,7 +46,8 @@ public class PlayMinigame : MonoBehaviour
                 if (GlobalData.storageLocked) {
                     storageHint.SetActive(true);
                     TaskSystem.hint = true;
-                } else {
+                }
+                if (!GlobalData.storageLocked && engineTrigger) {
                     SceneManager.LoadScene("Fix Engine");
                 }
             }
@@ -99,7 +98,8 @@ public class PlayMinigame : MonoBehaviour
                     lightSwitch.transform.localRotation = new Quaternion(-0.166412354f, 0.106388971f, -0.82593739f, 0.528030097f);
                 }
             }
-            }
+        }
+        timer += Time.deltaTime;
         /*Debug.Log("Lights " + GlobalData.lightsOn);
         Debug.Log("Switch " + GlobalData.lights);
         Debug.Log("Wires " + GlobalData.wiresBroken);
@@ -118,18 +118,16 @@ public class PlayMinigame : MonoBehaviour
             LightsFlip();
         }
         //Engines breaks at 30 seconds
-        if (GlobalData.updateEngine == false) 
+        if (timer > 5 && GlobalData.updateEngine == false) 
         {
             Debug.Log("Broke Engine");
-            instruction.text="Fix the Broken Engine - Press 'e'";
             GlobalData.updateEngine = true;
             GlobalData.engineBroken = true;
         }
         //Fires occur at 60 seconds
-        if (GlobalData.updateFire == false)
+        if (timer > 10 && GlobalData.updateFire == false)
         {
             Debug.Log("Fire");
-            instruction.text="There's a fire go and Extinguish it - Press 'e'";
             FireEffect.SetActive(true);
             GlobalData.updateFire = true;
             GlobalData.fires = true;
@@ -138,10 +136,9 @@ public class PlayMinigame : MonoBehaviour
             FireEffect.SetActive(false);
         }
         //Wires break at 90 seconds
-        if (GlobalData.updateWires == false)
+        if (timer > 15 && GlobalData.updateWires == false)
         {
             Debug.Log("Broke Wires");
-            instruction.text="Wires are Broken, go fix them - Press 'e'";
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
             int ranNum = UnityEngine.Random.Range(1, 4);
@@ -168,10 +165,9 @@ public class PlayMinigame : MonoBehaviour
 
         }
         //Hull break at 120 seconds
-        if (false && GlobalData.updateHull == false)
+        if (timer > 20 && GlobalData.updateHull == false)
         {
             Debug.Log("Broke Hull");
-            instruction.text="The Hull is broken, go check it out - Press 'h'";
             GlobalData.updateHull = true;
             GlobalData.hullBroken = true;
         }
