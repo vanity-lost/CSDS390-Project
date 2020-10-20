@@ -9,6 +9,7 @@ public class pressToConti : MonoBehaviour
     void Update()
     {
         if (Input.anyKeyDown) {
+            PlayMinigame.engineTrigger = true;
             this.gameObject.SetActive(false);
         }
     }

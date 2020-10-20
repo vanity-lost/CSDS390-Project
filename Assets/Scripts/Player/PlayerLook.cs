@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour
 {
-    float ySensitivity = 8.0f;
-    float xSensitivity = 8.0f;
+    float ySensitivity;
+    float xSensitivity;
     public float highY = 45.0f;
     public float lowY = -45.0f;
 
@@ -33,8 +33,8 @@ public Rotation rotation = Rotation.x;
             lowY = 0.0f;
             highY = 0.0f;
         } else {
-            xSensitivity = 8.0f;
-            ySensitivity = 8.0f;
+            xSensitivity = 4.0f;
+            ySensitivity = 4.0f;
             lowY = -45.0f;
             highY = 45.0f;
         }
