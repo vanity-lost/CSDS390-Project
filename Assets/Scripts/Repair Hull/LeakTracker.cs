@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public class LeakTracker : MonoBehaviour
 {
     [SerializeField] private int numLeaks = 4;
+    [SerializeField] private int numSlabs = 5;
     [SerializeField] private GameObject leak1;
     [SerializeField] private GameObject leak2;
     [SerializeField] private float distance = 1f;
@@ -18,7 +19,6 @@ public class LeakTracker : MonoBehaviour
     private float maxX = 10.5f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         int x = 0;
@@ -76,18 +76,22 @@ public class LeakTracker : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void LeakFilled()
     {
         numLeaks = numLeaks - 1;
         if (numLeaks == 0)
         {
             GlobalData.hullBroken = false;
+            SceneManager.LoadScene("Main");
+        }
+    }
+
+    public void OutofSlabs()
+    {
+        numSlabs = numSlabs - 1;
+        if (numSlabs == 0 && numLeaks != 0)
+        {
+            Debug.Log("Out of Slabs");
             SceneManager.LoadScene("Main");
         }
     }
