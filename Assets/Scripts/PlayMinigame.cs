@@ -119,7 +119,7 @@ public class PlayMinigame : MonoBehaviour
             GlobalData.updateFire = true;
             GlobalData.fires = true;
         }
-        if (!GlobalData.updateFire) {
+        if (!GlobalData.fires) {
             FireEffect.SetActive(false);
         }
         //Wires break at 90 seconds
@@ -128,23 +128,25 @@ public class PlayMinigame : MonoBehaviour
             Debug.Log("Broke Wires");
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
-            int ranNum = UnityEngine.Random.Range(1, 4);
-            if (ranNum == 1)
+            //int ranNum = UnityEngine.Random.Range(1, 4);
+            //GlobalData.brokenWireboxLoc = ranNum;
+            Debug.Log("global datat brokwn wire box loc = " + GlobalData.brokenWireboxLoc);
+            if (GlobalData.brokenWireboxLoc == 1)
             {
                 wireboxhead.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
                 Debug.Log("head one broken");
             }
-            if (ranNum == 2)
+            if (GlobalData.brokenWireboxLoc == 2)
             {
                 wireboxmid.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
                 Debug.Log("mid one broken");
             }
-            if (ranNum == 3)
+            if (GlobalData.brokenWireboxLoc == 3)
             {
                 wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
                 Debug.Log("tail one broken");
             }
-            if(ranNum == 4)
+            if(GlobalData.brokenWireboxLoc == 4)
             {
                 Debug.Log("Wire broken with ranNum 4");
             }
