@@ -48,8 +48,13 @@ public class PlayMinigame : MonoBehaviour
                     storageHint.SetActive(true);
                     TaskSystem.hint = true;
                 }
-                if (!GlobalData.storageLocked && engineTrigger) {
+                else{
                     SceneManager.LoadScene("Fix Engine");
+                    //if (engineTrigger)
+                    //{
+                    //    SceneManager.LoadScene("Fix Engine");
+                    //}
+
                 }
             }
             if (Input.GetKeyDown("e") && GlobalData.wiresBroken)
@@ -115,15 +120,19 @@ public class PlayMinigame : MonoBehaviour
         if (timer > 10 && GlobalData.updateFire == false)
         {
             Debug.Log("Fire");
-            FireEffect.SetActive(true);
+            //FireEffect.SetActive(true);
             GlobalData.updateFire = true;
             GlobalData.fires = true;
         }
         if (!GlobalData.fires) {
             FireEffect.SetActive(false);
         }
+        else
+        {
+            FireEffect.SetActive(true);
+        }
         //Wires break at 90 seconds
-        if (timer > 15 && GlobalData.updateWires == false)
+        if ((timer > 15 && GlobalData.updateWires == false) || GlobalData.wiresBroken)
         {
             Debug.Log("Broke Wires");
             GlobalData.updateWires= true;
