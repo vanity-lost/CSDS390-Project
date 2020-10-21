@@ -140,6 +140,14 @@ public class PlayMinigame : MonoBehaviour
         {
             FireEffect.SetActive(true);
         }
+        if (!GlobalData.hullBroken)
+        {
+            hull.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+        }
+        else
+        {
+            hull.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
+        }
         //Wires break at 90 seconds
         if ((timer > 15 && GlobalData.updateWires == false) || GlobalData.wiresBroken)
         {
