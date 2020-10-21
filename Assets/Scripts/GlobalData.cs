@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GlobalData : MonoBehaviour
 { 
-    [SerializeField] static public bool lights = true;  // all lights of submarine
-    [SerializeField] static public bool lightsOn = true;
+    [SerializeField] static public bool lightSwitch = true; 
+    [SerializeField] static public bool lightsOn = true;     // all light of submarine
 
     [SerializeField] static public bool engineBroken = false;
     [SerializeField] static public bool wiresBroken = false;

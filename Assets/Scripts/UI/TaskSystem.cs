@@ -23,7 +23,7 @@ public class TaskSystem : MonoBehaviour
     void Update()
     {   
         taskInfo = title;
-        GlobalData.lights = true;
+        GlobalData.lightsOn = true;
         SubDistanceTracker.isMoving = true;
         if (hint) {
             taskInfo += "-    The storage closet may have a wrench. Have a look!!\n";
@@ -47,7 +47,7 @@ public class TaskSystem : MonoBehaviour
         if (GlobalData.wiresBroken && GlobalData.updateWires) {
             taskInfo += "-    Wires Broken!\n";
             newTaskHint.SetActive(true);
-            GlobalData.lights = false;
+            //GlobalData.lightsOn = false;
             energy.energyNum -= Time.deltaTime * 0.5f;
         }
         if (GlobalData.hullBroken && GlobalData.updateHull) {
@@ -58,7 +58,7 @@ public class TaskSystem : MonoBehaviour
         if (GlobalData.fuseBroken) {
             taskInfo += "-    Something wrong in the fuse!\n";
             newTaskHint.SetActive(true);
-            GlobalData.lights = false;
+            //GlobalData.lightsOn = false;
         }
         if (!GlobalData.engineBroken && !GlobalData.wiresBroken && !GlobalData.hullBroken && !GlobalData.fires && !GlobalData.fuseBroken && !GlobalData.storageLocked) {
             newTaskHint.SetActive(false);

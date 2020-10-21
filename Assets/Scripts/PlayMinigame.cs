@@ -31,7 +31,7 @@ public class PlayMinigame : MonoBehaviour
     {
         //GlobalData.fuseBroken = true;
         //GlobalData.lights = true;
-        //GlobalData.lightsOn = true;
+        GlobalData.lightsOn = true;
         lights = lightHolder.GetComponentsInChildren<Light>();
         //Debug.Log(lights);
         //Debug.Log(lights.Length);
@@ -80,7 +80,7 @@ public class PlayMinigame : MonoBehaviour
             }
             if (Input.GetKeyDown("e") & GlobalData.fuseBroken & fuse.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
-                GlobalData.lights = false;
+                //GlobalData.lightsOn = false;
                 SceneManager.LoadScene("Repair Fuse");
             }
             if (Input.GetKeyDown("n"))
@@ -89,25 +89,33 @@ public class PlayMinigame : MonoBehaviour
             }
             if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
-                GlobalData.lights = !GlobalData.lights;
+                Debug.Log(GlobalData.lightSwitch);
+                GlobalData.lightSwitch = !GlobalData.lightSwitch;
                 Debug.Log("Lights Flipped");
-                if (GlobalData.lights)
-                {
-                    lightSwitch.transform.localPosition = new Vector3(-0.04849097f, 2.208767f, 2.850958f);
-                    lightSwitch.transform.localRotation = new Quaternion(-0.000583283196f, 0.197512761f, -0.00289495266f, 0.980295897f);
-                }
-                else
-                {
-                    lightSwitch.transform.localPosition = new Vector3(0.3853737f, 1.660247f, 2.669332f);
-                    lightSwitch.transform.localRotation = new Quaternion(-0.166412354f, 0.106388971f, -0.82593739f, 0.528030097f);
-                }
+                Debug.Log(GlobalData.lightSwitch);
             }
         }
         timer += Time.deltaTime;
-        if (GlobalData.lightsOn != (GlobalData.lights & !GlobalData.wiresBroken & !GlobalData.fuseBroken))
+        Debug.Log(GlobalData.lightSwitch);
+        if (GlobalData.lightsOn != (!GlobalData.wiresBroken && !GlobalData.fuseBroken)) //(GlobalData.lights &&
         {
-            GlobalData.lightsOn = !GlobalData.lightsOn;
-            LightsFlip();
+            if (GlobalData.lightsOn == !GlobalData.lightSwitch)
+            {
+                Debug.Log("In Here");
+                GlobalData.lightsOn = !GlobalData.lightsOn;
+                LightsFlip();
+            }
+        }
+        Debug.Log(GlobalData.lightSwitch);
+        if (GlobalData.lightSwitch)
+        {
+            lightSwitch.transform.localPosition = new Vector3(-0.04849097f, 2.208767f, 2.850958f);
+            lightSwitch.transform.localRotation = new Quaternion(-0.000583283196f, 0.197512761f, -0.00289495266f, 0.980295897f);
+        }
+        else
+        {
+            lightSwitch.transform.localPosition = new Vector3(0.3853737f, 1.660247f, 2.669332f);
+            lightSwitch.transform.localRotation = new Quaternion(-0.166412354f, 0.106388971f, -0.82593739f, 0.528030097f);
         }
         //Engines breaks at 30 seconds
         if (timer > 5 && GlobalData.updateEngine == false) 
