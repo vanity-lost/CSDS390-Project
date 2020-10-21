@@ -23,7 +23,7 @@ public class TaskSystem : MonoBehaviour
     void Update()
     {   
         taskInfo = title;
-        GlobalData.lightsOn = true;
+        //GlobalData.lightsOn = true;
         SubDistanceTracker.isMoving = true;
         if (hint) {
             taskInfo += "-    The storage closet may have a wrench. Have a look!!\n";

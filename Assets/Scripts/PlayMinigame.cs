@@ -31,7 +31,7 @@ public class PlayMinigame : MonoBehaviour
     {
         //GlobalData.fuseBroken = true;
         //GlobalData.lights = true;
-        GlobalData.lightsOn = true;
+        //GlobalData.lightsOn = true;
         lights = lightHolder.GetComponentsInChildren<Light>();
         //Debug.Log(lights);
         //Debug.Log(lights.Length);
@@ -96,17 +96,18 @@ public class PlayMinigame : MonoBehaviour
             }
         }
         timer += Time.deltaTime;
-        Debug.Log(GlobalData.lightSwitch);
-        if (GlobalData.lightsOn != (!GlobalData.wiresBroken && !GlobalData.fuseBroken)) //(GlobalData.lights &&
+        //Debug.Log(GlobalData.lightSwitch);
+        if (GlobalData.lightsOn != lights[0].enabled)
         {
-            if (GlobalData.lightsOn == !GlobalData.lightSwitch)
-            {
+            GlobalData.lightsOn = !GlobalData.lightsOn;
+        }
+            if (GlobalData.lightsOn != (GlobalData.lightSwitch && !GlobalData.wiresBroken && !GlobalData.fuseBroken))
+        {
                 Debug.Log("In Here");
                 GlobalData.lightsOn = !GlobalData.lightsOn;
                 LightsFlip();
-            }
         }
-        Debug.Log(GlobalData.lightSwitch);
+        //Debug.Log(GlobalData.lightSwitch);
         if (GlobalData.lightSwitch)
         {
             lightSwitch.transform.localPosition = new Vector3(-0.04849097f, 2.208767f, 2.850958f);
