@@ -21,7 +21,6 @@ public class dialogueUpdate : MonoBehaviour
     public GameObject ImageD;
 
     public GameObject ImageE;
-    public GameObject ImageRightClick;
 
     public GameObject ImageEsc;
     public GameObject ImageTab;
@@ -90,12 +89,8 @@ public class dialogueUpdate : MonoBehaviour
         if (currentMessageIndex == 9 && ImageE.active && Input.GetKeyDown(KeyCode.E)) {
             ImageE.SetActive(false);
         }    
-        
-        if (currentMessageIndex == 9 && ImageRightClick.active && Input.GetKeyDown(KeyCode.Mouse1)) {
-            ImageRightClick.SetActive(false);
-        } 
 
-        if (currentMessageIndex == 9 && !ImageE.active && !ImageRightClick.active) {
+        if (currentMessageIndex == 9 && !ImageE.active) {
             checkAll = true;
         }
 
@@ -138,7 +133,6 @@ public class dialogueUpdate : MonoBehaviour
             } else if (currentMessageIndex == 9) {
                 checkAll = false;
                 ImageE.SetActive(true);
-                ImageRightClick.SetActive(true);
             } else if (currentMessageIndex == 10) {
                 checkAll = false;
                 ImageEsc.SetActive(true);

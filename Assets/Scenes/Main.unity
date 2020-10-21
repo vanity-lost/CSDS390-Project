@@ -716,7 +716,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.4
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -6074,7 +6074,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1300049982}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7652,7 +7652,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -55, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530216283
@@ -8877,81 +8877,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 703998427}
-  m_CullTransparentMesh: 0
---- !u!1 &724827817
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 724827818}
-  - component: {fileID: 724827820}
-  - component: {fileID: 724827819}
-  m_Layer: 0
-  m_Name: KeyRightClick
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &724827818
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724827817}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1300049982}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &724827819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724827817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1d26538bfd952ce4db9c92c8e55b36b3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &724827820
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 724827817}
   m_CullTransparentMesh: 0
 --- !u!1 &739539510
 GameObject:
@@ -17135,7 +17060,6 @@ RectTransform:
   - {fileID: 1952532150}
   - {fileID: 1709061585}
   - {fileID: 530216282}
-  - {fileID: 724827818}
   - {fileID: 2100084604}
   - {fileID: 313553565}
   m_Father: {fileID: 0}
@@ -17950,17 +17874,16 @@ MonoBehaviour:
   ImageS: {fileID: 1952532149}
   ImageD: {fileID: 1709061584}
   ImageE: {fileID: 530216281}
-  ImageRightClick: {fileID: 724827817}
   ImageEsc: {fileID: 2100084603}
   ImageTab: {fileID: 313553564}
   messages:
   - Hey, are you sleeping? You should not do that! We are doing important research...
   - OK, I know a new engineer is inexperienced. Oh, god! Who send you here...
   - Look at your interface. I sent you some information about this submarine.
-  - The top left is the submarine energy percentage. If it is exhausted, you know
-    what will happen, right? Haha...
-  - The top right is the radar, it will show any lives around the submarine. Wu...
-    Maybe any lives will be bad news for you...
+  - The top left is the submarine energy percentage and health percentage. If it
+    is exhausted, you know what will happen, right? Haha...
+  - 'The top right is the mini map of the submarine, it will guide you to each room
+    in the submarine. '
   - I posted some task reminders to your left side and you should check the task
     bar very often...
   - We have arrived at the research destination. The Zzzz... there is critical to
@@ -17969,7 +17892,7 @@ MonoBehaviour:
   - What? You don't know how to move? W,A,S,D to move. Shouldn't parents teach you
     this? (Press W,A,S,D)
   - God. I suppose you also don't know how to interact and hold staff. Press E to
-    interact with objects and Right-click to hold staffs. (Press E, RightClick)
+    interact with each task. (Press E)
   - Oh. Press Escape to open ESC panel and Tab to open minimap. Both are important
     tools for you. (Press Esc,Tab)
   - 
@@ -31833,7 +31756,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1300049982}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
