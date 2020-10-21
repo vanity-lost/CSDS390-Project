@@ -26,27 +26,31 @@ public class TaskSystem : MonoBehaviour
         GlobalData.lights = true;
         SubDistanceTracker.isMoving = true;
         if (hint) {
-            taskInfo += "-    Maybe I should open storage room and have a look!!\n";
+            taskInfo += "-    The storage closet may have a wrench. Have a look!!\n";
             newTaskHint.SetActive(true);
         }
+        if (!GlobalData.storageLocked)
+        {
+            hint = false;
+        }
 
-        if (GlobalData.engineBroken) {
+        if (GlobalData.engineBroken && GlobalData.updateEngine) {
             taskInfo += "-    Engine Broken!\n";
             newTaskHint.SetActive(true);
             SubDistanceTracker.isMoving = false;
         }
-        if (GlobalData.fires) {
+        if (GlobalData.fires && GlobalData.updateFire) {
             taskInfo += "-    Fires in the submarine!\n";
             newTaskHint.SetActive(true);
             SubHealth.healthNum -= Time.deltaTime * 2f;
         }
-        if (GlobalData.wiresBroken) {
+        if (GlobalData.wiresBroken && GlobalData.updateWires) {
             taskInfo += "-    Wires Broken!\n";
             newTaskHint.SetActive(true);
             GlobalData.lights = false;
             energy.energyNum -= Time.deltaTime * 0.5f;
         }
-        if (GlobalData.hullBroken) {
+        if (GlobalData.hullBroken && GlobalData.updateHull) {
             taskInfo += "-    Hull Broken!\n";
             newTaskHint.SetActive(true);
             SubHealth.healthNum -= Time.deltaTime * 2f;

@@ -48,8 +48,13 @@ public class PlayMinigame : MonoBehaviour
                     storageHint.SetActive(true);
                     TaskSystem.hint = true;
                 }
-                if (!GlobalData.storageLocked && engineTrigger) {
+                else{
                     SceneManager.LoadScene("Fix Engine");
+                    //if (engineTrigger)
+                    //{
+                    //    SceneManager.LoadScene("Fix Engine");
+                    //}
+
                 }
             }
             if (Input.GetKeyDown("e") && GlobalData.wiresBroken)
@@ -115,36 +120,42 @@ public class PlayMinigame : MonoBehaviour
         if (timer > 10 && GlobalData.updateFire == false)
         {
             Debug.Log("Fire");
-            FireEffect.SetActive(true);
+            //FireEffect.SetActive(true);
             GlobalData.updateFire = true;
             GlobalData.fires = true;
         }
-        if (!GlobalData.updateFire) {
+        if (!GlobalData.fires) {
             FireEffect.SetActive(false);
         }
+        else
+        {
+            FireEffect.SetActive(true);
+        }
         //Wires break at 90 seconds
-        if (timer > 15 && GlobalData.updateWires == false)
+        if ((timer > 15 && GlobalData.updateWires == false) || GlobalData.wiresBroken)
         {
             Debug.Log("Broke Wires");
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
-            int ranNum = UnityEngine.Random.Range(1, 4);
-            if (ranNum == 1)
+            //int ranNum = UnityEngine.Random.Range(1, 4);
+            //GlobalData.brokenWireboxLoc = ranNum;
+            Debug.Log("global datat brokwn wire box loc = " + GlobalData.brokenWireboxLoc);
+            if (GlobalData.brokenWireboxLoc == 1)
             {
                 wireboxhead.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
                 Debug.Log("head one broken");
             }
-            if (ranNum == 2)
+            if (GlobalData.brokenWireboxLoc == 2)
             {
                 wireboxmid.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
                 Debug.Log("mid one broken");
             }
-            if (ranNum == 3)
+            if (GlobalData.brokenWireboxLoc == 3)
             {
                 wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
                 Debug.Log("tail one broken");
             }
-            if(ranNum == 4)
+            if(GlobalData.brokenWireboxLoc == 4)
             {
                 Debug.Log("Wire broken with ranNum 4");
             }
