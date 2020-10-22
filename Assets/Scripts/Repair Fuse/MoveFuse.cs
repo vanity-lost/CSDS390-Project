@@ -8,6 +8,7 @@ public class MoveFuse : MonoBehaviour
     [SerializeField] bool lockPlace = false;
     GameObject[] fuses;
     GameObject slot= null;
+    private bool taskDone = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,37 +30,43 @@ public class MoveFuse : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Debug.Log("Fuse Clicked");
-        if (slot != null)
+        if (Creator.finished == false)
         {
-            slot.GetComponent<FuseHolder>().InPlace(false);
+            //Debug.Log("Fuse Clicked");
+            if (slot != null)
+            {
+                slot.GetComponent<FuseHolder>().InPlace(false);
+            }
+            slot = null;
+            //held = true;
+            Camera.main.WorldToScreenPoint(transform.position);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                mousePosition = hit.point;
+                mousePosition.y = transform.position.y;
+            }
+            transform.position = mousePosition;
+            //Gizmos.DrawWireSphere(mousePosition, 2.0f);
         }
-        slot = null;
-        //held = true;
-        Camera.main.WorldToScreenPoint(transform.position);    
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
-        {
-            mousePosition = hit.point;
-            mousePosition.y = transform.position.y;
-        }
-        transform.position = mousePosition;
-        //Gizmos.DrawWireSphere(mousePosition, 2.0f);
     }
 
     public void OnMouseUp()
     {
-        //Debug.Log("Mouse Up");
-        foreach (GameObject fuse in fuses)
+        if (Creator.finished == false)
         {
-            float distance = Vector3.Distance(transform.position, fuse.transform.position);
-            //Debug.Log(distance);
-            if (distance < distanceLock)
+            //Debug.Log("Mouse Up");
+            foreach (GameObject fuse in fuses)
             {
-                slot = fuse;
-                fuse.GetComponent<FuseHolder>().InPlace(status);
-                Debug.Log("In place");
+                float distance = Vector3.Distance(transform.position, fuse.transform.position);
+                //Debug.Log(distance);
+                if (distance < distanceLock)
+                {
+                    slot = fuse;
+                    fuse.GetComponent<FuseHolder>().InPlace(status);
+                    Debug.Log("In place");
+                }
             }
         }
     }
