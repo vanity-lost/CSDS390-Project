@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeakCovered : MonoBehaviour
 {
-    [SerializeField] private float slabSize = 0.3f;
+    [SerializeField] private float slabSize = 1f;
     [SerializeField] private bool covered = false;
 
 
