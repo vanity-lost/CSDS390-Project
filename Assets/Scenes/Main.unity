@@ -7358,8 +7358,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 174.70807, y: 802.36145, z: 397.15866}
-  m_Center: {x: 39.18459, y: 149.24841, z: 2.6669598}
+  m_Size: {x: 507.73758, y: 802.36145, z: 397.15866}
+  m_Center: {x: 205.69987, y: 149.24841, z: 2.6669712}
 --- !u!114 &484860809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23818,7 +23818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!199 &1466636751
 ParticleSystemRenderer:
   serializedVersion: 6
