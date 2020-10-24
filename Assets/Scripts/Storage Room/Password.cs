@@ -11,6 +11,7 @@ public class Password : MonoBehaviour
     public GameObject Panel;
     public GameObject ProgressBar;
     public GameObject BarFiller;
+    public GameObject WrenchPanel;
     public string correctPIN = "eurydice";//the correct password
     public char inputChar;//the inputing character
     public int numClicked;//the number of btns being clicked so far
@@ -19,6 +20,7 @@ public class Password : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        WrenchPanel.SetActive(false);
         numClicked = 0;
         newinputdetected = false;
         ProgressBar.GetComponent<Slider>().value = 0;
@@ -79,7 +81,8 @@ public class Password : MonoBehaviour
 
     IEnumerator EndTask()
     {
-        yield return new WaitForSeconds(0.5f);
+        WrenchPanel.SetActive(true);
+        yield return new WaitForSeconds(1f);
         Debug.Log("Correct Password");
         GlobalData.storageLocked = false;
         SceneManager.LoadScene("Main");
