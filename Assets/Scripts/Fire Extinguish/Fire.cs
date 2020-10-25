@@ -11,6 +11,8 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public GameObject filler;
     public GameObject currentFire;
     public GameObject currentEffect;
+    public GameObject extinguisher;
+    //public AudioSource spraySound;
     public float holdTimeSet;
     public UnityEvent holdClick;
     public ParticleSystem fireParticle;
@@ -32,6 +34,12 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (filler.GetComponent<Image>().fillAmount >= 1)
         {
             currentFire.SetActive(false);
+            if (extinguisher.GetComponent<AudioSource>().isPlaying)
+            {
+                Debug.Log("still playing when fill amount >=1");
+                //extinguisher.GetComponent<AudioSource>().Stop();
+            }
+            
         }
 
         if (checkTakeStatus())//is holding an extinguisher
@@ -88,6 +96,7 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void releaseHold()
     {
 
+        
         holdTimeSoFar -= Time.deltaTime / 10;
         //Debug.Log("is reducing filler amount");
         var mainvalue = fireParticle.main;
@@ -99,10 +108,12 @@ public class Fire : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         mouseHold = true;
+        extinguisher.GetComponent<AudioSource>().Play();
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
         mouseHold = false;
+        extinguisher.GetComponent<AudioSource>().Stop();
     }
 }
