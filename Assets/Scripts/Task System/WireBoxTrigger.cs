@@ -16,6 +16,7 @@ public class WireBoxTrigger : MonoBehaviour
     [SerializeField] GameObject wirebox2;
     [SerializeField] GameObject boxCover;
     [SerializeField] GameObject brokenEffect;
+    [SerializeField] GameObject displayName;
 
     // Start is called before the first frame update
     void Start()
@@ -77,13 +78,15 @@ public class WireBoxTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         triggerStatus = true;
+        displayName.SetActive(true);
         //Debug.Log("Is triggering with wire box");
     }
 
     private void OnTriggerExit(Collider other)
     {
 
-        triggerStatus = false; 
+        triggerStatus = false;
+        displayName.SetActive(false);
         //Debug.Log("Left wire box trigger area");
     }
 }
