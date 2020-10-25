@@ -44,6 +44,7 @@ public class Password : MonoBehaviour
                 {
                     //Debug.Log("correctPW[i]: " + correctNum[numClicked-1]);
                     //Debug.Log("inputPW: " + inputNum);
+                    Panel.GetComponent<AudioSource>().Play();
                     if (inputChar == correctPIN[numClicked - 1])//if current input is correct
                     {
 
@@ -52,6 +53,10 @@ public class Password : MonoBehaviour
                     }
                     else
                     {
+                        Panel.GetComponent<AudioSource>().pitch = 2.83f;
+                        Panel.GetComponent<AudioSource>().Play();
+                        Panel.GetComponent<AudioSource>().Play();
+                        //Panel.GetComponent<AudioSource>().pitch = 1f;
                         //progress bar +1 and turn red
                         ProgressBar.GetComponent<Slider>().value++;//progress bar +1
                         BarFiller.GetComponent<Image>().color = new Color32(246, 59, 82, 255);

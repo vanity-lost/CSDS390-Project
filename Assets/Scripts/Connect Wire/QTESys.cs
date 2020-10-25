@@ -149,6 +149,7 @@ public class QTESys : MonoBehaviour
             LetterBoxOuter.GetComponent<Image>().color = new Color32(215, 215, 215, 255);//pressed effect
             //BoxCover.GetComponent<Animator>().Play("BoxCoverSliding");
             LetterBoxOuter.GetComponent<Animator>().Play("ButtonShifting");
+            LetterBoxOuter.GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
