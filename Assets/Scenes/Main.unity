@@ -6405,6 +6405,7 @@ MonoBehaviour:
   lightSwitch: {fileID: 152623066879760931}
   storage: {fileID: 405723493}
   fireExtinguisher: {fileID: 484860807}
+  radarConsole: {fileID: 919132149288545847}
   lights: []
   distance: 4
   storageHint: {fileID: 2099398684}
@@ -28514,7 +28515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 34.80005, y: 277.41}
+  m_AnchoredPosition: {x: 34.80078, y: 277.41}
   m_SizeDelta: {x: 120, y: 60}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1541402317
@@ -28745,7 +28746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -132.31, y: 439}
+  m_AnchoredPosition: {x: -132.31055, y: 439}
   m_SizeDelta: {x: 160, y: 160}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1564841131
@@ -34350,6 +34351,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450653474452621}
+  - component: {fileID: 919132149288545849}
+  - component: {fileID: 919132149288545848}
   m_Layer: 0
   m_Name: Control Consol
   m_TagString: Untagged
@@ -34357,6 +34360,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &919132149288545848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149288545847}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &919132149288545849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149288545847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65136ade84118dc498de0d06ea37c16f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerStatus: 0
 --- !u!1 &919132149466253553
 GameObject:
   m_ObjectHideFlags: 0
