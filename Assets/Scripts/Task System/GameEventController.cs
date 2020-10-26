@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameEventController : MonoBehaviour
 {
-    public float MENACE_START = 10000.0f;
-    [SerializeField] static public float menaceMeter = 10000.0f; 
+    public float MENACE_START = 100000.0f;
+    [SerializeField] static public float menaceMeter = 100000.0f; 
 
     void Start() {
         menaceMeter = MENACE_START;
