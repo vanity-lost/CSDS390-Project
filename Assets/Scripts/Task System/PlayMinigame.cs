@@ -17,6 +17,7 @@ public class PlayMinigame : MonoBehaviour
     [SerializeField] GameObject storage;
     [SerializeField] GameObject fireExtinguisher;
 
+    [SerializeField] GameObject radarConsole;
     [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
 
@@ -57,6 +58,15 @@ public class PlayMinigame : MonoBehaviour
                     //}
 
                 }
+            }
+            // if the engine is not broken, can be silenced anytime TODO make engine silence fit desired behavior (outside cant attack etc)
+            else if (Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineOn) 
+            {
+                SceneManager.LoadScene("SilenceEngine");
+            }
+            if (Input.GetKeyDown("e") && radarConsole.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.radarOn) 
+            {
+                SceneManager.LoadScene("Sonor On Off");
             }
             if (Input.GetKeyDown("e") && GlobalData.wiresBroken)
             {

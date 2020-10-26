@@ -15,6 +15,7 @@ public class Creator : MonoBehaviour
 
     void Start()
     {
+        finished = false;
         fuseHolder = GameObject.FindGameObjectsWithTag("FuseHolder");
         float randNum;
         foreach (GameObject holder in fuseHolder) {
