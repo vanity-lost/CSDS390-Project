@@ -18,6 +18,7 @@ public class LeakCovered : MonoBehaviour
             float leakX = Mathf.Abs(transform.position.x);
             if ((Mathf.Abs(slabZ - leakZ)) < slabSize && (Mathf.Abs(slabX - leakX)) < slabSize)
             {
+                //GetComponent<AudioSource>().Play();
                 Debug.Log("True");
                 FindObjectOfType<LeakTracker>().GetComponent<LeakTracker>().LeakFilled();
                 covered = true;
