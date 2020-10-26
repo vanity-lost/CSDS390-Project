@@ -90,6 +90,7 @@ public class Password : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("Correct Password");
         GlobalData.storageLocked = false;
+        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 

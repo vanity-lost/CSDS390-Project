@@ -27,6 +27,10 @@ public Rotation rotation = Rotation.x;
     // Update is called once per frame
     void Update()
     {
+        if (ESCDectect.gameIsPaused)
+            Screen.lockCursor = false;
+         else
+            Screen.lockCursor = true;
         if (ESCDectect.gameIsPaused) {
             xSensitivity = 0.0f;
             ySensitivity = 0.0f;
