@@ -32,7 +32,6 @@ public class PressButton : MonoBehaviour
         {
             buttonPressed = true;
             GlobalData.engineBroken = false;
-            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
     }

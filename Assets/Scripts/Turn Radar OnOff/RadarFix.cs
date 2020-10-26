@@ -17,9 +17,6 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
     public bool newInputDetected;
     public int numClicked; // can be randomly generated along w/ code
     public int numLeft;
-    float totalTime = 15f;
-    public GameObject TimerTextObject;
-    Text timer;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +24,7 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
         buttonB.onClick.AddListener(TaskOnClick);
         buttonY.onClick.AddListener(TaskOnClick);
         buttonR.onClick.AddListener(TaskOnClick);
-        TimerTextObject = GameObject.Find("TimerText");
-        timer = TimerTextObject.GetComponent<Text>();
+        
 
 
         numLeft = 3;
@@ -44,16 +40,6 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
             StartCoroutine(EndTask());
         }
 
-        totalTime -= Time.deltaTime;
-        UpdateLevelTimer(totalTime );
-
-        if (totalTime <= 0f)
-            {
-                StartCoroutine(EndTaskFail());
-                //StartCoroutine(reload this scene); 
-            }
-                
-
         if (numClicked <= correctCode.Length) 
         {
             if (newInputDetected == true) 
@@ -64,9 +50,10 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
                     Debug.Log("Correct character clicked");
                     numLeft--;
                 }
-                else
+                else 
                 {
-                     StartCoroutine(ReloadTask());
+                    StartCoroutine(ReloadTask());
+                    //StartCoroutine(reload this scene); 
                 }
                 newInputDetected = false;
             }
@@ -92,33 +79,10 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
         SceneManager.LoadScene("Main");
     }
 
-     IEnumerator EndTaskFail()
-    {
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("Correct Characters");
-        SceneManager.LoadScene("Main");
-    }
-
     IEnumerator ReloadTask()
     {
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Time Ran Out!!!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void UpdateLevelTimer(float totalSeconds)
-    {
-             int minutes = Mathf.FloorToInt(totalSeconds / 60f);
-             int seconds = Mathf.RoundToInt(totalSeconds % 60f);
- 
-             string formatedSeconds = seconds.ToString();
- 
-             if (seconds == 60)
-             {
-                 seconds = 0;
-                 minutes += 1;
-             }
- 
-             timer.text = minutes.ToString("00") + ":" + seconds.ToString("00");
     }
 }

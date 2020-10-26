@@ -17,7 +17,6 @@ public class PlayMinigame : MonoBehaviour
     [SerializeField] GameObject storage;
     [SerializeField] GameObject fireExtinguisher;
 
-    [SerializeField] GameObject radarConsole;
     [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
 
@@ -50,7 +49,6 @@ public class PlayMinigame : MonoBehaviour
                     TaskSystem.hint = true;
                 }
                 else{
-                    ESCDectect.gameIsPaused = true;
                     SceneManager.LoadScene("Fix Engine");
                     //if (engineTrigger)
                     //{
@@ -59,45 +57,35 @@ public class PlayMinigame : MonoBehaviour
 
                 }
             }
-            // if the engine is not broken, can be silenced anytime TODO make engine silence fit desired behavior (outside cant attack etc)
-            else if (Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineOn) 
-            {
-                SceneManager.LoadScene("SilenceEngine");
-            }
-            if (Input.GetKeyDown("e") && radarConsole.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.radarOn) 
-            {
-                SceneManager.LoadScene("Sonor On Off");
-            }
             if (Input.GetKeyDown("e") && GlobalData.wiresBroken)
             {
                 if ((wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus())
                     ||(wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus())
                     ||(wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()))
                 {
-                    ESCDectect.gameIsPaused = true;
                     SceneManager.LoadScene("Connect Wire");
                 }
             }
             if (Input.GetKeyDown("e") & GlobalData.storageLocked & storage.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
-                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Storage Room");
             }
             if (Input.GetKeyDown("e") & GlobalData.hullBroken && hull.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
-                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fix Hull");
             }
             if (Input.GetKeyDown("e") & GlobalData.fires & fireExtinguisher.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
-                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fire Extinguish");
             }
             if (Input.GetKeyDown("e") & GlobalData.fuseBroken & fuse.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
                 //GlobalData.lightsOn = false;
-                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Repair Fuse");
+            }
+            if (Input.GetKeyDown("n"))
+            {
+                SceneManager.LoadScene("End Scene");
             }
             if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
@@ -131,14 +119,14 @@ public class PlayMinigame : MonoBehaviour
             lightSwitch.transform.localRotation = new Quaternion(-0.166412354f, 0.106388971f, -0.82593739f, 0.528030097f);
         }
         //Engines breaks at 30 seconds
-        if (GlobalData.updateEngine == false) 
+        if (timer > 5 && GlobalData.updateEngine == false) 
         {
             Debug.Log("Broke Engine");
             GlobalData.updateEngine = true;
             GlobalData.engineBroken = true;
         }
         //Fires occur at 60 seconds
-        if (GlobalData.updateFire == false)
+        if (timer > 10 && GlobalData.updateFire == false)
         {
             Debug.Log("Fire");
             //FireEffect.SetActive(true);
@@ -161,7 +149,7 @@ public class PlayMinigame : MonoBehaviour
             hull.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         }
         //Wires break at 90 seconds
-        if ((GlobalData.updateWires == false) || GlobalData.wiresBroken)
+        if ((timer > 15 && GlobalData.updateWires == false) || GlobalData.wiresBroken)
         {
             Debug.Log("Broke Wires");
             GlobalData.updateWires= true;
@@ -192,7 +180,7 @@ public class PlayMinigame : MonoBehaviour
 
         }
         //Hull break at 120 seconds
-        if (GlobalData.updateHull == false)
+        if (timer > 20 && GlobalData.updateHull == false)
         {
             Debug.Log("Broke Hull");
             GlobalData.updateHull = true;

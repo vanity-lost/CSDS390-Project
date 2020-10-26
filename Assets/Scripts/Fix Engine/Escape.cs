@@ -16,7 +16,6 @@ public class Escape : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
     }
