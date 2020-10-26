@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class LeakTracker : MonoBehaviour
 {
@@ -10,13 +9,14 @@ public class LeakTracker : MonoBehaviour
     [SerializeField] private int numSlabs = 5;
     [SerializeField] private GameObject leak1;
     [SerializeField] private GameObject leak2;
-    [SerializeField] private float distance = 1f;
+    [SerializeField] private float distance = 5f;
     private List<GameObject> leaks = new List<GameObject>();
     private GameObject newLeak;
     private float minimumZ = -5.5f;
     private float maxZ = 5.5f;
     private float minimumX = -10.5f;
     private float maxX = 10.5f;
+    ParticleSystem ps;
 
 
     void Start()
@@ -40,12 +40,14 @@ public class LeakTracker : MonoBehaviour
                 {
                     newLeak = Instantiate(leak2);
                 }
-                Debug.Log(newLeak);
+                //Debug.Log(newLeak);
+                var e = newLeak.GetComponent<ParticleSystem>().emission;
+                e.rateOverTime = Random.Range(0, 20);
                 newLeak.transform.position = position;
                 newLeak.transform.Rotate(0, Random.Range(0, 360), 0);
-                Debug.Log(leaks);
+                //Debug.Log(leaks);
                 leaks.Add(newLeak);
-                Debug.Log(leaks);
+                //Debug.Log(leaks);
             }
             else
             {
@@ -67,6 +69,8 @@ public class LeakTracker : MonoBehaviour
                     {
                         newLeak = Instantiate(leak2);
                     }
+                    var e = newLeak.GetComponent<ParticleSystem>().emission;
+                    e.rateOverTime = Random.Range(0, 20);
                     newLeak.transform.position = position;
                     newLeak.transform.Rotate(0, Random.Range(0, 360), 0);
                     newLeak.transform.position = position;
@@ -82,6 +86,7 @@ public class LeakTracker : MonoBehaviour
         if (numLeaks == 0)
         {
             GlobalData.hullBroken = false;
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
     }
@@ -92,6 +97,7 @@ public class LeakTracker : MonoBehaviour
         if (numSlabs == 0 && numLeaks != 0)
         {
             Debug.Log("Out of Slabs");
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
     }

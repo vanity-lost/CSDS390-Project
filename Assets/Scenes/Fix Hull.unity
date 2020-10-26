@@ -215,7 +215,7 @@ Transform:
   m_GameObject: {fileID: 101438150}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.239342, y: 27.704174, z: -40.162487}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 1.5, z: 0.6}
   m_Children: []
   m_Father: {fileID: 569683239}
   m_RootOrder: 0
@@ -233,8 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.007
-  deltaTimeCancel: 333
+  dropSpeed: 0.009
 --- !u!1 &279454152
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,7 +263,7 @@ Transform:
   m_GameObject: {fileID: 279454152}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.239342, y: 27.704174, z: -40.162487}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_Children: []
   m_Father: {fileID: 569683239}
   m_RootOrder: 3
@@ -282,8 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.007
-  deltaTimeCancel: 200
+  dropSpeed: 0.009
 --- !u!64 &279454155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -507,7 +505,7 @@ Transform:
   m_GameObject: {fileID: 602715670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.239342, y: 27.704174, z: -40.162487}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_Children: []
   m_Father: {fileID: 569683239}
   m_RootOrder: 1
@@ -525,8 +523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.007
-  deltaTimeCancel: 333
+  dropSpeed: 0.009
 --- !u!64 &602715673
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -619,7 +616,7 @@ Transform:
   m_GameObject: {fileID: 764125250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.239342, y: 27.704174, z: -40.162487}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_Children: []
   m_Father: {fileID: 569683239}
   m_RootOrder: 4
@@ -637,8 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.007
-  deltaTimeCancel: 333
+  dropSpeed: 0.009
 --- !u!64 &764125253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -719,7 +715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &857602296
 RectTransform:
   m_ObjectHideFlags: 0
@@ -781,6 +777,86 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857602295}
+  m_CullTransparentMesh: 0
+--- !u!1 &964311028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 964311029}
+  - component: {fileID: 964311031}
+  - component: {fileID: 964311030}
+  m_Layer: 5
+  m_Name: Instruction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &964311029
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964311028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1758209073}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 166.1}
+  m_SizeDelta: {x: 576.1, y: 116.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &964311030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964311028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8a2b9e2a607dd2143b58c44bc32410b4, type: 3}
+    m_FontSize: 18
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 40
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Drag a slab to each leak. Hold the left mouse, and use Q to lower the
+    slab. '
+--- !u!222 &964311031
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964311028}
   m_CullTransparentMesh: 0
 --- !u!1 &1023808282
 GameObject:
@@ -893,6 +969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numLeaks: 4
+  numSlabs: 5
   leak1: {fileID: 3918355204263820934, guid: 196740dba8418ae4da0d75a155006863, type: 3}
   leak2: {fileID: 1669381652998656488, guid: f5574695c37a0074d974b39fa2aec4a1, type: 3}
   distance: 0.5
@@ -1174,6 +1251,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 857602296}
+  - {fileID: 964311029}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1211,7 +1289,7 @@ Transform:
   m_GameObject: {fileID: 1864910823}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 9.239342, y: 27.704174, z: -40.162487}
-  m_LocalScale: {x: 0.4, y: 1, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 1, z: 0.6}
   m_Children: []
   m_Father: {fileID: 569683239}
   m_RootOrder: 2
@@ -1229,8 +1307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.007
-  deltaTimeCancel: 333
+  dropSpeed: 0.009
 --- !u!64 &1864910826
 MeshCollider:
   m_ObjectHideFlags: 0

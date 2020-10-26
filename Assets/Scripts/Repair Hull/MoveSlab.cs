@@ -10,7 +10,7 @@ public class MoveSlab : MonoBehaviour
     bool held = false;
     bool check = true;
     [SerializeField] private float holdHeight = 7f;
-    [SerializeField] private float dropSpeed = 9;
+    [SerializeField] private float dropSpeed = 0.009f;
     //[SerializeField] private float deltaTimeCancel = 2f;
     LeakCovered[] leaks;
 
@@ -26,7 +26,7 @@ public class MoveSlab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Time.deltaTime);
+        //Debug.Log(Time.deltaTime);
         if((Input.GetKeyDown("q") || down) && held)             // if q down or not up, and slab in held
         {
             down = true;
@@ -41,6 +41,7 @@ public class MoveSlab : MonoBehaviour
         }
         if ((transform.position.y <= 0.4) && check)
         {
+            GetComponent<AudioSource>().Play(); 
             check = false;
             foreach (LeakCovered leak in leaks)
             {

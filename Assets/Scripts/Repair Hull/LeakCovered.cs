@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LeakCovered : MonoBehaviour
 {
-    [SerializeField] private float slabSize = 0.3f;
+    [SerializeField] private float slabSize = 1f;
     [SerializeField] private bool covered = false;
 
 
@@ -18,6 +18,7 @@ public class LeakCovered : MonoBehaviour
             float leakX = Mathf.Abs(transform.position.x);
             if ((Mathf.Abs(slabZ - leakZ)) < slabSize && (Mathf.Abs(slabX - leakX)) < slabSize)
             {
+                //GetComponent<AudioSource>().Play();
                 Debug.Log("True");
                 FindObjectOfType<LeakTracker>().GetComponent<LeakTracker>().LeakFilled();
                 covered = true;

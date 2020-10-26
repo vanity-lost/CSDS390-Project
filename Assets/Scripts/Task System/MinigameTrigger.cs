@@ -5,10 +5,12 @@ using UnityEngine;
 public class MinigameTrigger : MonoBehaviour
 {
     public bool triggerStatus;
+    public GameObject displayName;
 
     void Start()
     {
         triggerStatus = false;
+        displayName.SetActive(false);
     }
 
 
@@ -20,11 +22,13 @@ public class MinigameTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         triggerStatus = true;
+        displayName.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
 
         triggerStatus = false;
+        displayName.SetActive(false);
     }
 }

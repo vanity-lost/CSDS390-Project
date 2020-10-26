@@ -11,6 +11,7 @@ public class Password : MonoBehaviour
     public GameObject Panel;
     public GameObject ProgressBar;
     public GameObject BarFiller;
+    public GameObject WrenchPanel;
     public string correctPIN = "eurydice";//the correct password
     public char inputChar;//the inputing character
     public int numClicked;//the number of btns being clicked so far
@@ -19,6 +20,7 @@ public class Password : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        WrenchPanel.SetActive(false);
         numClicked = 0;
         newinputdetected = false;
         ProgressBar.GetComponent<Slider>().value = 0;
@@ -42,6 +44,7 @@ public class Password : MonoBehaviour
                 {
                     //Debug.Log("correctPW[i]: " + correctNum[numClicked-1]);
                     //Debug.Log("inputPW: " + inputNum);
+                    Panel.GetComponent<AudioSource>().Play();
                     if (inputChar == correctPIN[numClicked - 1])//if current input is correct
                     {
 
@@ -50,6 +53,10 @@ public class Password : MonoBehaviour
                     }
                     else
                     {
+                        Panel.GetComponent<AudioSource>().pitch = 2.83f;
+                        Panel.GetComponent<AudioSource>().Play();
+                        Panel.GetComponent<AudioSource>().Play();
+                        //Panel.GetComponent<AudioSource>().pitch = 1f;
                         //progress bar +1 and turn red
                         ProgressBar.GetComponent<Slider>().value++;//progress bar +1
                         BarFiller.GetComponent<Image>().color = new Color32(246, 59, 82, 255);
@@ -79,9 +86,11 @@ public class Password : MonoBehaviour
 
     IEnumerator EndTask()
     {
-        yield return new WaitForSeconds(0.5f);
+        WrenchPanel.SetActive(true);
+        yield return new WaitForSeconds(1f);
         Debug.Log("Correct Password");
         GlobalData.storageLocked = false;
+        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 

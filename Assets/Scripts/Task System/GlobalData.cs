@@ -11,7 +11,9 @@ public class GlobalData : MonoBehaviour
     [SerializeField] static public bool wiresBroken = false;
     [SerializeField] static public bool hullBroken = false;
     [SerializeField] static public bool fires = false;
-    [SerializeField] static public bool fuseBroken = true;
+    [SerializeField] static public bool fuseBroken = false;
+    [SerializeField] static public bool engineOn = true;
+    [SerializeField] static public bool radarOn = true;
 
     [SerializeField] static public bool updateEngine = false;
     [SerializeField] static public bool updateFire = false;
