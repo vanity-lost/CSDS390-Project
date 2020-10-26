@@ -41,6 +41,7 @@ public class MoveSlab : MonoBehaviour
         }
         if ((transform.position.y <= 0.4) && check)
         {
+            GetComponent<AudioSource>().Play();
             check = false;
             foreach (LeakCovered leak in leaks)
             {
