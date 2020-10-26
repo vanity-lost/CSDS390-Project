@@ -86,6 +86,7 @@ public class LeakTracker : MonoBehaviour
         if (numLeaks == 0)
         {
             GlobalData.hullBroken = false;
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
     }
@@ -96,6 +97,7 @@ public class LeakTracker : MonoBehaviour
         if (numSlabs == 0 && numLeaks != 0)
         {
             Debug.Log("Out of Slabs");
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
     }

@@ -63,6 +63,7 @@ public class Creator : MonoBehaviour
         fuseCover.GetComponent<Animator>().SetBool("Done", true);
         yield return new WaitForSeconds(1.2f);
         GlobalData.fuseBroken = false;
+        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 }

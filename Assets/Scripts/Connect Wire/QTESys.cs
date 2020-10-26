@@ -42,6 +42,7 @@ public class QTESys : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
 
@@ -209,6 +210,7 @@ public class QTESys : MonoBehaviour
         Debug.Log("Main");
         GlobalData.wiresBroken = false;
         //GlobalData.updateWires = false;
+        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 
