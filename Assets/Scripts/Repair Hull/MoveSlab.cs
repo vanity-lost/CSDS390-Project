@@ -11,6 +11,7 @@ public class MoveSlab : MonoBehaviour
     bool check = true;
     [SerializeField] private float holdHeight = 7f;
     [SerializeField] private float dropSpeed = 0.009f;
+    //[SerializeField] private float deltaTimeCancel = 2f;
     LeakCovered[] leaks;
 
 
@@ -25,11 +26,13 @@ public class MoveSlab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(Time.deltaTime);
         if((Input.GetKeyDown("q") || down) && held)             // if q down or not up, and slab in held
         {
             down = true;
-            holdHeight -= dropSpeed;
-            transform.localScale = transform.localScale * 0.999f;
+            holdHeight -= dropSpeed;// * Time.deltaTime * deltaTimeCancel;
+            //transform.localScale = Vector3.Lerp(transform.localScale, targetScale, speed * Time.deltaTime);
+            transform.localScale = transform.localScale * 0.999f;//* Time.deltaTime * deltaTimeCancel;
             //Debug.Log("Down");
         }
         if(Input.GetKeyUp("q"))
@@ -38,6 +41,7 @@ public class MoveSlab : MonoBehaviour
         }
         if ((transform.position.y <= 0.4) && check)
         {
+            GetComponent<AudioSource>().Play(); 
             check = false;
             foreach (LeakCovered leak in leaks)
             {
@@ -54,7 +58,7 @@ public class MoveSlab : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        if (transform.position.y > 0.4)              //slab close enough to leak
+        if (transform.position.y > 0.4)              //slab low enough in Y
         {
             held = true;
             Camera.main.WorldToScreenPoint(transform.position);
@@ -67,7 +71,6 @@ public class MoveSlab : MonoBehaviour
                 mousePosition.y = holdHeight;
             }
             transform.position = mousePosition;
-            //OnDrawGizmos();
         }
         else
         {
@@ -78,12 +81,5 @@ public class MoveSlab : MonoBehaviour
     public void OnMouseUp()
     {
         held = false;
-    }
-
-    void OnDrawGizmos()
-    {
-        // Draw a yellow sphere at the transform's position
-        //Gizmos.color = Color.yellow;
-        //Gizmos.DrawSphere(actualPosition, 1);
     }
 }

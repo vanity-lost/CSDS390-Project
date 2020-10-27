@@ -42,6 +42,7 @@ public class QTESys : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
 
@@ -149,6 +150,7 @@ public class QTESys : MonoBehaviour
             LetterBoxOuter.GetComponent<Image>().color = new Color32(215, 215, 215, 255);//pressed effect
             //BoxCover.GetComponent<Animator>().Play("BoxCoverSliding");
             LetterBoxOuter.GetComponent<Animator>().Play("ButtonShifting");
+            LetterBoxOuter.GetComponent<AudioSource>().Play();
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
             PassBox.GetComponent<Text>().text = "";
@@ -207,7 +209,8 @@ public class QTESys : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("Main");
         GlobalData.wiresBroken = false;
-        GlobalData.updateWires = false;
+        //GlobalData.updateWires = false;
+        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 

@@ -10,10 +10,12 @@ public class Creator : MonoBehaviour
     private int number = 0;
     private GameObject fuse;
     private GameObject spotHolder;
+    [SerializeField] private GameObject fuseCover;
+    public static bool finished = false;
 
-    // Start is called before the first frame update
     void Start()
     {
+        finished = false;
         fuseHolder = GameObject.FindGameObjectsWithTag("FuseHolder");
         float randNum;
         foreach (GameObject holder in fuseHolder) {
@@ -33,6 +35,8 @@ public class Creator : MonoBehaviour
     }
 
 
+
+
     public void Complete()
     {
         bool done = true;
@@ -48,7 +52,19 @@ public class Creator : MonoBehaviour
         if (done)
         {
             GlobalData.fuseBroken = false;
-            SceneManager.LoadScene("Main");
+            finished = true;
+            StartCoroutine(EndTask());
         }
+    }
+
+    IEnumerator EndTask()
+    {
+        Debug.Log("Task Ending");
+        yield return new WaitForSeconds(0.1f);
+        fuseCover.GetComponent<Animator>().SetBool("Done", true);
+        yield return new WaitForSeconds(1.2f);
+        GlobalData.fuseBroken = false;
+        ESCDectect.gameIsPaused = false;
+        SceneManager.LoadScene("Main");
     }
 }

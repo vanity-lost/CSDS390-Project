@@ -16,6 +16,7 @@ public class TaskDone : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
 
@@ -31,7 +32,8 @@ public class TaskDone : MonoBehaviour
         yield return new WaitForSeconds(1f);
         Debug.Log("all fire are put down");
         GlobalData.fires = false;
-        GlobalData.updateFire = false;
+        //GlobalData.updateFire = false;
+        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 }
