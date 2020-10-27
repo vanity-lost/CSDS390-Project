@@ -3,7 +3,11 @@ using UnityEngine.AI;
 
 public class indoorCreatureBehaviorTemp : MonoBehaviour
 {
-    public Transform goal;
+    //const Transform[] SUB_ROOMS = [];
+
+    public GameObject player;
+    public GameObject[] minigameTriggerLocations;
+    private Transform goal;
     private NavMeshAgent agent;
 
     void Start()
@@ -13,6 +17,20 @@ public class indoorCreatureBehaviorTemp : MonoBehaviour
 
     void Update()
     {
-        agent.destination = goal.position;
+        runFromPlayer();
+    }
+
+    // To be called in an update
+    // Creature moves towards player
+    private void moveToPlayer()
+    {
+        //TODO: Animation will be triggered here
+        //GetComponent<Animator>().Play("...");
+        agent.destination = player.transform.position;
+    }
+
+    private void runFromPlayer()
+    {
+        agent.destination = -1 * player.transform.position;
     }
 }

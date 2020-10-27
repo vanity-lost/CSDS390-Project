@@ -29,7 +29,7 @@ public class indoorCreatureBehavior : MonoBehaviour
             }
             else
             {
-                if (isWithingFuseBoxRange(getCreatureLocation())) {
+                if (isWithinFuseBoxRange(getCreatureLocation())) {
                     breakFuseBox();
                 }
                 else
@@ -85,7 +85,7 @@ public class indoorCreatureBehavior : MonoBehaviour
         }
 
         // True if creature is within range to sabatage fuse box; false otherwise
-        private bool isWithingFuseBoxRange(Vector3 creatureLocation) 
+        private bool isWithinFuseBoxRange(Vector3 creatureLocation) 
         { 
             if ((creatureLocation - _fuseBox.transform.position).magnitude <= _ATTACK_RANGE)
             {
