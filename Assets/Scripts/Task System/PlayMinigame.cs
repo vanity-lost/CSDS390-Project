@@ -41,6 +41,7 @@ public class PlayMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ESCDectect.gameIsPaused = false;
         //Debug.Log(wirebox.GetComponent<WireBoxTrigger>().getStatus());
         if (!dialogueUpdate.locked) {
             if (Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken)
