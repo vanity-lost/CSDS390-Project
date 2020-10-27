@@ -59,7 +59,7 @@ public class IndoorCreatureBehaviorTemp : MonoBehaviour
 
     void Update()
     {
-        runFromPlayer();
+        nextMinitaskSabatageLocation();
     }
 
     #endregion
@@ -86,7 +86,7 @@ public class IndoorCreatureBehaviorTemp : MonoBehaviour
     // Next sabatage location is found
     private void nextMinitaskSabatageLocation()
     {
-        List<MinigameModel> locationsAwayFromPlayer = new List<MinigameModel>;
+        List<MinigameModel> locationsAwayFromPlayer = new List<MinigameModel>();
 
         foreach(GameObject minigameObject in minigameObjects)
         {
@@ -101,9 +101,10 @@ public class IndoorCreatureBehaviorTemp : MonoBehaviour
         }
 
         //Debug.Assert(locationsAwayFromPlayer.Count > 0);
-        int randomIndex = Random.Range(0, locationsAwayFromPlayer.Length - 1);
+        int randomIndex = UnityEngine.Random.Range(0, locationsAwayFromPlayer.Count - 1);
         nextMinigameSabatageLocation = locationsAwayFromPlayer[randomIndex];
 
+        UnityEngine.Debug.Log("potential locations: " + locationsAwayFromPlayer.ToArray());
     }
 
     #endregion
