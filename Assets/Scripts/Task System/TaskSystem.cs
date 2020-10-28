@@ -27,6 +27,12 @@ public class TaskSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GlobalData.fuseBroken = true;
+        GlobalData.fires = true;
+        GlobalData.hullBroken = true;
+        GlobalData.engineBroken = true;
+        GlobalData.storageLocked = true;
+        GlobalData.wiresBroken = true;
         title = "Tasks\n------------------------------\n";
         _dialogue.SetText(taskInfo);
         mixer.SetFloat("MusicVol", Mathf.Log10(0.5f)*20);

@@ -59,7 +59,8 @@ public class MiniTaskStarter : MonoBehaviour
                         ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Fix Engine");
                     }
-                 SceneManager.LoadScene("Fix Engine");
+                    ESCDectect.gameIsPaused = true;
+                    SceneManager.LoadScene("Fix Engine");
                 } 
             } else {
                 EngineRoomSpotter.SetActive(false);
