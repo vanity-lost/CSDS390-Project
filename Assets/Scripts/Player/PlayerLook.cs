@@ -27,21 +27,21 @@ public Rotation rotation = Rotation.x;
     // Update is called once per frame
     void Update()
     {
-        /*if (ESCDectect.gameIsPaused)
+        if (ESCDectect.gameIsPaused)
             Screen.lockCursor = false;
          else
-            Screen.lockCursor = true; */
-        /*if (ESCDectect.gameIsPaused) {
+            Screen.lockCursor = true;
+        if (ESCDectect.gameIsPaused) {
             xSensitivity = 0.0f;
             ySensitivity = 0.0f;
             lowY = 0.0f;
             highY = 0.0f;
-        } else {*/
+        } else {
             xSensitivity = 4.0f;
             ySensitivity = 4.0f;
             lowY = -45.0f;
             highY = 45.0f;
-        //}
+        }
         
         if (rotation == Rotation.x)
         {

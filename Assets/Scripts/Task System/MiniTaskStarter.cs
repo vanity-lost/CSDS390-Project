@@ -51,14 +51,14 @@ public class MiniTaskStarter : MonoBehaviour
             if(GlobalData.engineBroken) {
                 EngineRoomSpotter.SetActive(true);
                 if(Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken) {
-                    /*if (GlobalData.storageLocked) {
+                    if (GlobalData.storageLocked) {
                         storageHint.SetActive(true);
                         TaskSystem.hint = true;
                     }
                     else{
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Fix Engine");
-                    }*/
+                    }
                  SceneManager.LoadScene("Fix Engine");
                 } 
             } else {
@@ -81,13 +81,13 @@ public class MiniTaskStarter : MonoBehaviour
                     }
 
                     if (wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Connect Wire");
                     } else if(wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Connect Wire");
                     } else if(wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Connect Wire");
                     }
                 } else {
@@ -104,7 +104,7 @@ public class MiniTaskStarter : MonoBehaviour
                 if (GlobalData.storageLocked ) {
                     StorageRoomSpotter.SetActive(true);
                     if(Input.GetKeyDown("e") & storage.GetComponent<MinigameTrigger>().getTriggerStatus()) {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Storage Room");
                     }
                 } else {
@@ -114,7 +114,7 @@ public class MiniTaskStarter : MonoBehaviour
                 if(GlobalData.hullBroken) {
                     HullSpotter.SetActive(true);
                     if (Input.GetKeyDown("e") && hull.GetComponent<MinigameTrigger>().getTriggerStatus()) {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Fix Hull");
                     }
                 } else {
@@ -125,7 +125,7 @@ public class MiniTaskStarter : MonoBehaviour
                     FireEffect.SetActive(true);
                     FireSpotter.SetActive(true);
                     if (Input.GetKeyDown("e") & fireExtinguisher.GetComponent<MinigameTrigger>().getTriggerStatus()) {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Fire Extinguish");
                     }
                 } else {
@@ -136,7 +136,7 @@ public class MiniTaskStarter : MonoBehaviour
                 if(GlobalData.fuseBroken) {
                     FuseSpotter.SetActive(true);
                     if (Input.GetKeyDown("e") & fuse.GetComponent<MinigameTrigger>().getTriggerStatus()) {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Repair Fuse");
                     }
                 } else {
@@ -146,7 +146,7 @@ public class MiniTaskStarter : MonoBehaviour
 
                 if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
                     {
-                        //ESCDectect.gameIsPaused = true;
+                        ESCDectect.gameIsPaused = true;
                         Debug.Log(GlobalData.lightSwitch);
                         GlobalData.lightSwitch = !GlobalData.lightSwitch;
                         Debug.Log("Lights Flipped");

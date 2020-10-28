@@ -11360,8 +11360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 903021600}
-  monsterAttack: 0
   hullBreach: 0
+  healthLeak: 2
 --- !u!114 &903021600
 MonoBehaviour:
   m_ObjectHideFlags: 0
