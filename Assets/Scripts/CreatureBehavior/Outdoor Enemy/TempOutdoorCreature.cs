@@ -44,7 +44,7 @@ public class TempOutdoorCreature : MonoBehaviour
 
         GetSubDistance();
         //Debug.Log(subDistance);
-        if (subDistance == 0.0f)
+        if (subDistance == 50.0f)
         {
             monster.SetActive(true);
             FindMonster();
