@@ -80,7 +80,7 @@ public class GameEventController : MonoBehaviour
             GlobalData.engineBroken = true;
             break;
         case 1:
-            //GlobalData.storageLocked = true;
+            GlobalData.storageLocked = true;
             break;
         case 0:
             GlobalData.wiresBroken = true;
