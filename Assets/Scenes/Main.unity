@@ -31991,7 +31991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogue: {fileID: 1091633384}
   newTaskHint: {fileID: 587140553}
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: a8efdd2f683e23b4f85b51e8d2591ac6, type: 2}
 --- !u!1 &1564841129
 GameObject:
   m_ObjectHideFlags: 0
