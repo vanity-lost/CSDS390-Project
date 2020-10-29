@@ -59,8 +59,7 @@ public class MiniTaskStarter : MonoBehaviour
                         ESCDectect.gameIsPaused = true;
                         SceneManager.LoadScene("Fix Engine");
                     }
-                    ESCDectect.gameIsPaused = true;
-                    SceneManager.LoadScene("Fix Engine");
+                 SceneManager.LoadScene("Fix Engine");
                 } 
             } else {
                 EngineRoomSpotter.SetActive(false);
@@ -147,6 +146,7 @@ public class MiniTaskStarter : MonoBehaviour
 
                 if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
                     {
+                        ESCDectect.gameIsPaused = true;
                         Debug.Log(GlobalData.lightSwitch);
                         GlobalData.lightSwitch = !GlobalData.lightSwitch;
                         Debug.Log("Lights Flipped");
@@ -158,7 +158,7 @@ public class MiniTaskStarter : MonoBehaviour
         {
             GlobalData.lightsOn = !GlobalData.lightsOn;
         }
-        if (GlobalData.lightsOn != (GlobalData.lightSwitch && !GlobalData.wiresBroken && !GlobalData.fuseBroken))
+            if (GlobalData.lightsOn != (GlobalData.lightSwitch && !GlobalData.wiresBroken && !GlobalData.fuseBroken))
         {
                 Debug.Log("In Here");
                 GlobalData.lightsOn = !GlobalData.lightsOn;

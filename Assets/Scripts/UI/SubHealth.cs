@@ -7,9 +7,8 @@ public class SubHealth : MonoBehaviour
 {
     public static float healthNum = 100;
     public Text healthText;
-    public static int monsterAttack = 0;
+    public int monsterAttack = 0;
     public int hullBreach = 0;
-    public int healthLeak = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +27,7 @@ public class SubHealth : MonoBehaviour
 
        if (hullBreach > 0)
         {
-            healthNum -= 2;
+            healthNum -= 5;
         }
 
         healthText.text = "Health: " + (int)healthNum + "%";

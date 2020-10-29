@@ -9,7 +9,7 @@ public class SubDistanceTracker : MonoBehaviour
     public Slider DistanceMeter;
     public bool engineRun = true;
     public static float traveledDistance = 0f;
-    private float move = 1.0f;
+    private float move = 2.0f;
     public static float maxDistance = 500.0f;
     private float elapsedTime = 0f;
     public static bool isMoving = true;
@@ -21,7 +21,7 @@ public class SubDistanceTracker : MonoBehaviour
     }
     
     void Update()
-    { 
+    {
         if (!ESCDectect.gameIsPaused && isMoving)
         //if (!ESCDectect.gameIsPaused)
         {

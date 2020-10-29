@@ -19,7 +19,7 @@ public class energy : MonoBehaviour
     void Update()
     {
         if (!ESCDectect.gameIsPaused) {
-            energyNum -= Time.deltaTime * 0.1f;
+            energyNum -= Time.deltaTime * 0.2f;
             energyText.text = "Energy: " + (int)energyNum + "%";
         }
     }

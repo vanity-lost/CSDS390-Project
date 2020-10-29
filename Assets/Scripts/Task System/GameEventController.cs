@@ -9,19 +9,13 @@ public class GameEventController : MonoBehaviour
 
     void Start() {
         menaceMeter = MENACE_START;
-        //GlobalData.fuseBroken = true;
-        //GlobalData.fires = true;
-        //GlobalData.hullBroken = true;
-        //GlobalData.engineBroken = true;
-        //GlobalData.storageLocked = true;
-        //GlobalData.wiresBroken = true;
     }
     // Update is called once per frame
     void Update()
     {
         menaceMeter -= Time.deltaTime;
         int miniTask = Random.Range(0, (int)menaceMeter);
-        //Debug.Log(miniTask);
+        Debug.Log(miniTask);
         // if(miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
         //     setTask(miniTask);
         // }
@@ -80,7 +74,7 @@ public class GameEventController : MonoBehaviour
             GlobalData.engineBroken = true;
             break;
         case 1:
-            GlobalData.storageLocked = true;
+            //GlobalData.storageLocked = true;
             break;
         case 0:
             GlobalData.wiresBroken = true;
