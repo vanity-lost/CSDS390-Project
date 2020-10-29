@@ -147,7 +147,6 @@ public class MiniTaskStarter : MonoBehaviour
 
                 if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
                     {
-                        ESCDectect.gameIsPaused = true;
                         Debug.Log(GlobalData.lightSwitch);
                         GlobalData.lightSwitch = !GlobalData.lightSwitch;
                         Debug.Log("Lights Flipped");
@@ -159,7 +158,7 @@ public class MiniTaskStarter : MonoBehaviour
         {
             GlobalData.lightsOn = !GlobalData.lightsOn;
         }
-            if (GlobalData.lightsOn != (GlobalData.lightSwitch && !GlobalData.wiresBroken && !GlobalData.fuseBroken))
+        if (GlobalData.lightsOn != (GlobalData.lightSwitch && !GlobalData.wiresBroken && !GlobalData.fuseBroken))
         {
                 Debug.Log("In Here");
                 GlobalData.lightsOn = !GlobalData.lightsOn;
