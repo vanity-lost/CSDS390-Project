@@ -12,6 +12,7 @@ public class MovableWrentch : MonoBehaviour
     [SerializeField] private float spinSpeed;
     [SerializeField] private bool notAssigned = true;
     float last = 0f;
+    private float timeBalance = 250f;
 
     // Start is called before the first frame update
     void Start()
@@ -72,14 +73,20 @@ public class MovableWrentch : MonoBehaviour
             //}
             //else
             //{
+            Debug.Log(Time.deltaTime);
             if (angle > angleWretch)
             {
                 //last = angle;
                 //Debug.Log(difference);
+                GetComponent<AudioSource>().Play();
                 Vector3 boltPosition = target.transform.position;
                 transform.RotateAround(boltPosition, Vector3.up, 200 * Time.deltaTime);
-                target.transform.position = new Vector3(boltPosition.x, boltPosition.y - 0.002f, boltPosition.z);
-                transform.position = new Vector3(transform.position.x, transform.position.y - 0.002f, transform.position.z);
+                target.transform.position = new Vector3(boltPosition.x, boltPosition.y - (0.002f * Time.deltaTime * timeBalance), boltPosition.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - (0.002f * Time.deltaTime * timeBalance), transform.position.z);
+            }
+            else
+            {
+                GetComponent<AudioSource>().Stop();
             }
             //last = angle;
             if (-1 < transform.rotation.y & transform.rotation.y < 0)
