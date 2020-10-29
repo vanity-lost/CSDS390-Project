@@ -12,7 +12,7 @@ public class ESCDectect : MonoBehaviour
     public static bool gameIsPaused = false;
 
     // Update is called once per frame
-    void Update()
+   void Update()
     {
         if (!dialogueUpdate.locked) {
             if (Input.GetKeyDown(KeyCode.Escape)) {

@@ -41,39 +41,39 @@ public class TaskSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (!GlobalData.hullBroken) {
-            timer2 = 0;
-            triggerFire = false;
-            triggerEngine = false;
-            triggerFuse = false;
-            triggerWire = false;
-            timer += Time.deltaTime;
-        }
-        if (timer >= 20) {
-            if (Random.Range(0,5) == 1) {
-                timer = 0;
-                GlobalData.hullBroken = true;
-            }
-        }
-        if (GlobalData.hullBroken) {
-            timer2 += Time.deltaTime;
-            if (timer2 > 10 && !triggerFire) {
-                triggerFire = true;
-                GlobalData.fires = true;
-            }
-            if (timer2 > 20 && Random.Range(0,10) == 1 && !triggerEngine) {
-                triggerEngine = true;
-                GlobalData.engineBroken = true;
-            }            
-            if (timer2 > 30 && Random.Range(0,10) == 1 && !triggerFuse) {
-                triggerFuse = true;
-                GlobalData.fuseBroken = true;
-            }
-            if (timer2 > 40 && Random.Range(0,10) == 1 && !triggerWire) {
-                triggerWire = true;
-                GlobalData.wiresBroken = true;
-            }
-        }
+        // if (!GlobalData.hullBroken) {
+        //     timer2 = 0;
+        //     triggerFire = false;
+        //     triggerEngine = false;
+        //     triggerFuse = false;
+        //     triggerWire = false;
+        //     timer += Time.deltaTime;
+        // }
+        // if (timer >= 20) {
+        //     if (Random.Range(0,5) == 1) {
+        //         timer = 0;
+        //         GlobalData.hullBroken = true;
+        //     }
+        // }
+        // if (GlobalData.hullBroken) {
+        //     timer2 += Time.deltaTime;
+        //     if (timer2 > 10 && !triggerFire) {
+        //         triggerFire = true;
+        //         GlobalData.fires = true;
+        //     }
+        //     if (timer2 > 20 && Random.Range(0,10) == 1 && !triggerEngine) {
+        //         triggerEngine = true;
+        //         GlobalData.engineBroken = true;
+        //     }            
+        //     if (timer2 > 30 && Random.Range(0,10) == 1 && !triggerFuse) {
+        //         triggerFuse = true;
+        //         GlobalData.fuseBroken = true;
+        //     }
+        //     if (timer2 > 40 && Random.Range(0,10) == 1 && !triggerWire) {
+        //         triggerWire = true;
+        //         GlobalData.wiresBroken = true;
+        //     }
+        // }
 
 
         taskInfo = title;

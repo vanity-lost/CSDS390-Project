@@ -30,9 +30,9 @@ public class PlayMinigame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // GlobalData.fuseBroken = true;
-        // GlobalData.lights = true;
-        // GlobalData.lightsOn = true;
+        //GlobalData.fuseBroken = true;
+        //GlobalData.lights = true;
+        //GlobalData.lightsOn = true;
         lights = lightHolder.GetComponentsInChildren<Light>();
         //Debug.Log(lights);
         //Debug.Log(lights.Length);
@@ -53,10 +53,10 @@ public class PlayMinigame : MonoBehaviour
                 else{
                     ESCDectect.gameIsPaused = true;
                     SceneManager.LoadScene("Fix Engine");
-                    //if (engineTrigger)
-                    //{
-                    //    SceneManager.LoadScene("Fix Engine");
-                    //}
+                    if (engineTrigger)
+                    {
+                       SceneManager.LoadScene("Fix Engine");
+                    }
 
                 }
             }
@@ -132,20 +132,20 @@ public class PlayMinigame : MonoBehaviour
             lightSwitch.transform.localRotation = new Quaternion(-0.166412354f, 0.106388971f, -0.82593739f, 0.528030097f);
         }
         //Engines breaks at 30 seconds
-        if (GlobalData.updateEngine == false) 
-        {
-            Debug.Log("Broke Engine");
-            GlobalData.updateEngine = true;
-            GlobalData.engineBroken = true;
-        }
-        //Fires occur at 60 seconds
-        if (GlobalData.updateFire == false)
-        {
-            Debug.Log("Fire");
-            //FireEffect.SetActive(true);
-            GlobalData.updateFire = true;
-            GlobalData.fires = true;
-        }
+        // if (timer >= 10 && GlobalData.   == false) 
+        // {
+        //     Debug.Log("Broke Engine");
+        //     GlobalData.updateEngine = true;
+        //     GlobalData.engineBroken = true;
+        // }
+        // //Fires occur at 60 seconds
+        // if (timer >= 30 && GlobalData.updateFire == false)
+        // {
+        //     Debug.Log("Fire");
+        //     //FireEffect.SetActive(true);
+        //     GlobalData.updateFire = true;
+        //     GlobalData.fires = true;
+        // }
         if (!GlobalData.fires) {
             FireEffect.SetActive(false);
         }
@@ -162,43 +162,43 @@ public class PlayMinigame : MonoBehaviour
             hull.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         }
         //Wires break at 90 seconds
-        if ((GlobalData.updateWires == false) || GlobalData.wiresBroken)
-        {
-            Debug.Log("Broke Wires");
-            GlobalData.updateWires= true;
-            GlobalData.wiresBroken = true;
-            //int ranNum = UnityEngine.Random.Range(1, 4);
-            //GlobalData.brokenWireboxLoc = ranNum;
-            Debug.Log("global datat brokwn wire box loc = " + GlobalData.brokenWireboxLoc);
-            if (GlobalData.brokenWireboxLoc == 1)
-            {
-                wireboxhead.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
-                Debug.Log("head one broken");
-            }
-            if (GlobalData.brokenWireboxLoc == 2)
-            {
-                wireboxmid.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
-                Debug.Log("mid one broken");
-            }
-            if (GlobalData.brokenWireboxLoc == 3)
-            {
-                wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
-                Debug.Log("tail one broken");
-            }
-            if(GlobalData.brokenWireboxLoc == 4)
-            {
-                Debug.Log("Wire broken with ranNum 4");
-            }
+        // if (timer >= 40 && (GlobalData.updateWires == false) || GlobalData.wiresBroken)
+        // {
+        //     Debug.Log("Broke Wires");
+        //     GlobalData.updateWires= true;
+        //     GlobalData.wiresBroken = true;
+        //     //int ranNum = UnityEngine.Random.Range(1, 4);
+        //     //GlobalData.brokenWireboxLoc = ranNum;
+        //     Debug.Log("global datat brokwn wire box loc = " + GlobalData.brokenWireboxLoc);
+        //     if (GlobalData.brokenWireboxLoc == 1)
+        //     {
+        //         wireboxhead.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
+        //         Debug.Log("head one broken");
+        //     }
+        //     if (GlobalData.brokenWireboxLoc == 2)
+        //     {
+        //         wireboxmid.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
+        //         Debug.Log("mid one broken");
+        //     }
+        //     if (GlobalData.brokenWireboxLoc == 3)
+        //     {
+        //         wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
+        //         Debug.Log("tail one broken");
+        //     }
+        //     if(GlobalData.brokenWireboxLoc == 4)
+        //     {
+        //         Debug.Log("Wire broken with ranNum 4");
+        //     }
 
 
-        }
-        //Hull break at 120 seconds
-        if (GlobalData.updateHull == false)
-        {
-            Debug.Log("Broke Hull");
-            GlobalData.updateHull = true;
-            GlobalData.hullBroken = true;
-        }
+        // }
+        // Hull break at 120 seconds
+        // if (timer >= 50 && GlobalData.updateHull == false)
+        // {
+        //     Debug.Log("Broke Hull");
+        //     GlobalData.updateHull = true;
+        //     GlobalData.hullBroken = true;
+        // }
 
     }
     

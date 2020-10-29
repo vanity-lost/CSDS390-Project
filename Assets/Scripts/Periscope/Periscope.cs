@@ -14,21 +14,27 @@ public class Periscope : MonoBehaviour
     void Update()
     {
         bool status = closeness();
-        if (Input.GetMouseButtonDown(1) && status == true)
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //if (Input.GetMouseButtonDown(1) && status == true)
+        //{
+        //    RaycastHit hit;
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.name == "periscope")
-                {
-                    Debug.Log("Periscope Hit");
-                    SceneManager.LoadScene("Periscope View");
-                    // GetComponent("Dialogue Controller").enabled = false;
-                    Debug.Log("Loading Environment Scene");
-                }
-            }
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        if (hit.transform.name == "periscope")
+        //        {
+        //            Debug.Log("Periscope Hit");
+        //            SceneManager.LoadScene("Periscope View");
+        //            // GetComponent("Dialogue Controller").enabled = false;
+        //            Debug.Log("Loading Environment Scene");
+        //        }
+        //    }
+        //}
+
+        if (Input.GetKey("e") && status == true)
+        {
+            SceneManager.LoadScene("Periscope View");
+            //Debug.Log("Loading Environment Scene");
         }
     }
 
@@ -41,6 +47,7 @@ public class Periscope : MonoBehaviour
 
         if (distance <= 2)
         {
+
             status = true;
         }
 

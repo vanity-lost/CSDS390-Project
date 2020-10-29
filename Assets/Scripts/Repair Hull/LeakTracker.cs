@@ -85,8 +85,8 @@ public class LeakTracker : MonoBehaviour
         numLeaks = numLeaks - 1;
         if (numLeaks == 0)
         {
-            GlobalData.hullBroken = false;
             ESCDectect.gameIsPaused = false;
+            GlobalData.hullBroken = false;
             SceneManager.LoadScene("Main");
         }
     }
