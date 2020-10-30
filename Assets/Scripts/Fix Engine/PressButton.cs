@@ -9,17 +9,6 @@ public class PressButton : MonoBehaviour
     [SerializeField] private int numBolts = 3;
 
     int boltsDone = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("Button is " + buttonPressed);
-    }
 
     public void BoltDone()
     {
@@ -30,10 +19,17 @@ public class PressButton : MonoBehaviour
     {
         if (boltsDone == numBolts)
         {
+            GetComponent<AudioSource>().Play();
             buttonPressed = true;
             GlobalData.engineBroken = false;
             ESCDectect.gameIsPaused = false;
-            SceneManager.LoadScene("Main");
+            StartCoroutine(End());
         }
+    }
+
+    IEnumerator End()
+    {
+        yield return new WaitForSeconds(0.4f);
+        SceneManager.LoadScene("Main");
     }
 }
