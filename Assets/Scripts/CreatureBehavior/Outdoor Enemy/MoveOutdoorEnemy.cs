@@ -10,11 +10,9 @@ public class MoveOutdoorEnemy : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, step);
-        if (Vector3.Distance(monster, target) < 6.0f)
+        if (Vector3.Distance(transform.position, target) < 10.0f)
         {
             attack = true;
-            //TempOutdoorCreature.monsterStop = true;
-            //TempOutdoorCreature.Attack();
         }
         yield return 0;
     }

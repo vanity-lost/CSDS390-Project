@@ -10,7 +10,7 @@ public class SubDistanceTracker : MonoBehaviour
     public bool engineRun = true;
     public static float traveledDistance = 0f;
     private float move = 1.0f;
-    public static float maxDistance = 500.0f;
+    public static float maxDistance = 200.0f;
     private float elapsedTime = 0f;
     public static bool isMoving = true;
 
