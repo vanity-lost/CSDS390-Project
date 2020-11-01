@@ -181,10 +181,9 @@ public class MiniTaskStarter : MonoBehaviour
 
             if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
             {
-                Debug.Log(GlobalData.lightSwitch);
+                lightSwitch.GetComponent<AudioSource>().time = 0.5f;
+                lightSwitch.GetComponent<AudioSource>().Play();
                 GlobalData.lightSwitch = !GlobalData.lightSwitch;
-                Debug.Log("Lights Flipped");
-                Debug.Log(GlobalData.lightSwitch);
             }
         }
 
