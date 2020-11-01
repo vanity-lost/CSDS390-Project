@@ -54,6 +54,7 @@ public class FuseHolder : MonoBehaviour
         if (condition)
         {
             GetComponent<AudioSource>().Stop();
+            GetComponents<AudioSource>()[1].Play();
             GameObject.FindObjectOfType<Creator>().Complete();
         }
     }
