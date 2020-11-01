@@ -27,7 +27,7 @@ public class MoveFuse : MonoBehaviour
         {
             if (slot != null)
             {
-                slot.GetComponent<FuseHolder>().InPlace(false);
+                slot.GetComponent<FuseHolder>().Removed();
                 GetComponent<AudioSource>().Play();
             }
             slot = null;
@@ -50,7 +50,7 @@ public class MoveFuse : MonoBehaviour
             foreach (GameObject fuse in fuses)
             {
                 float distance = Vector3.Distance(transform.position, fuse.transform.position);
-                if (distance < distanceLock)
+                if (distance < distanceLock && !fuse.GetComponent<FuseHolder>().InPlace())
                 {
                     slot = fuse;
                     fuse.GetComponent<FuseHolder>().InPlace(status);

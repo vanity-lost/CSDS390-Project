@@ -8,7 +8,7 @@ public class FuseHolder : MonoBehaviour
     private ParticleSystem bottomSparks;
     private Light status;
     private Light background;
-    [SerializeField] private bool satisfied = true;
+    [SerializeField] private bool satisfied;
     private bool on;
 
     void Start()
@@ -50,6 +50,20 @@ public class FuseHolder : MonoBehaviour
 
     public void InPlace(bool condition)
     {
+        if (!satisfied)
+        {
+            satisfied = condition;
+            if (condition)
+            {
+                GetComponent<AudioSource>().Stop();
+                GetComponents<AudioSource>()[1].Play();
+                GameObject.FindObjectOfType<Creator>().Complete();
+            }
+        }
+    }
+
+    public void Initial(bool condition)
+    {
         satisfied = condition;
         if (condition)
         {
@@ -57,6 +71,11 @@ public class FuseHolder : MonoBehaviour
             GetComponents<AudioSource>()[1].Play();
             GameObject.FindObjectOfType<Creator>().Complete();
         }
+    }
+
+    public void Removed()
+    {
+        satisfied = false;
     }
 
     public bool InPlace()

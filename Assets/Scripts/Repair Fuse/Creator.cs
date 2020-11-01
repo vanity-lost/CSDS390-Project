@@ -28,7 +28,7 @@ public class Creator : MonoBehaviour
                 fuse = holder.transform.GetChild(0).gameObject;
                 spotHolder = holder.transform.GetChild(1).gameObject;
                 fuse.GetComponent<MoveFuse>().Status(false);
-                spotHolder.GetComponent<FuseHolder>().InPlace(false);
+                spotHolder.GetComponent<FuseHolder>().Initial(false);
             }
         }
     }
