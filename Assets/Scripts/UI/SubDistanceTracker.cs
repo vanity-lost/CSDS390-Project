@@ -22,7 +22,7 @@ public class SubDistanceTracker : MonoBehaviour
     
     void Update()
     {
-        if (!ESCDectect.gameIsPaused && isMoving)
+        if (!dialogueUpdate.locked && isMoving)
         //if (!ESCDectect.gameIsPaused)
         {
             DistanceTracker(DistanceMeter);

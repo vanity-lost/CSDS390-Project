@@ -19,17 +19,19 @@ public class SubHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (monsterAttack > 0)
-        {
-            healthNum -= (monsterAttack * 20);
-            monsterAttack = 0;
-        }
+        if (!dialogueUpdate.locked) {
+            if (monsterAttack > 0)
+                {
+                    healthNum -= (monsterAttack * 20);
+                    monsterAttack = 0;
+                }
 
-       if (hullBreach > 0)
-        {
-            healthNum -= 5;
-        }
+            if (hullBreach > 0)
+                {
+                    healthNum -= 5;
+                }
 
-        healthText.text = "Health: " + (int)healthNum + "%";
+                healthText.text = "Health: " + (int)healthNum + "%";
+        }
     }
 }

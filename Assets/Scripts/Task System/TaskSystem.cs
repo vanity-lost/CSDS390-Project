@@ -36,29 +36,31 @@ public class TaskSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        timer += Time.deltaTime;
-        if (timer >= 1 && Random.Range(0,1000) == 1) {
-            timer = 0f;
-            int taskIndex = Random.Range(0,5);
-            switch (taskIndex)
-            {
-                case 4:
-                    GlobalData.fuseBroken = true;
-                    break;
-                case 3:
-                    GlobalData.fires = true;
-                    break;
-                case 2:
-                    GlobalData.hullBroken = true;
-                    break;
-                case 1:
-                    GlobalData.engineBroken = true;
-                    break;
-                case 0:
-                    GlobalData.wiresBroken = true;
-                    break;
-                default:
-                    break;
+        if (!dialogueUpdate.locked) {
+            timer += Time.deltaTime;
+            if (timer >= 1 && Random.Range(0,2000) == 1) {
+                timer = 0f;
+                int taskIndex = Random.Range(0,5);
+                switch (taskIndex)
+                {
+                    case 4:
+                        GlobalData.fuseBroken = true;
+                        break;
+                    case 3:
+                        GlobalData.fires = true;
+                        break;
+                    case 2:
+                        GlobalData.hullBroken = true;
+                        break;
+                    case 1:
+                        GlobalData.engineBroken = true;
+                        break;
+                    case 0:
+                        GlobalData.wiresBroken = true;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
 

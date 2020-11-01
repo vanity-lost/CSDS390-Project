@@ -18,7 +18,7 @@ public class energy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!ESCDectect.gameIsPaused) {
+        if (!dialogueUpdate.locked) {
             energyNum -= Time.deltaTime * 0.1f;
             energyText.text = "Energy: " + (int)energyNum + "%";
         }
