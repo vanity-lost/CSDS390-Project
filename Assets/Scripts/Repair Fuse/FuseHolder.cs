@@ -11,7 +11,6 @@ public class FuseHolder : MonoBehaviour
     [SerializeField] private bool satisfied = true;
     private bool on;
 
-    // Start is called before the first frame update
     void Start()
     {
         topSparks = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
@@ -22,12 +21,11 @@ public class FuseHolder : MonoBehaviour
         bottomSparks.Stop();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (satisfied)
+        if (satisfied)          //checks if good fuse in this slot
         {
-            if (on)
+            if (on)             //checks if holder already set to good, if not sets it to good
             {
                 on = false;
                 topSparks.Stop();
@@ -36,16 +34,16 @@ public class FuseHolder : MonoBehaviour
                 background.color = Color.green;
             }
         }
-        else
+        else                   //if good fuse is in this slot
         {
-            if (on == false)
+            if (on == false)    //checks if holder already set to bad, if not sets it to bad
             {
                 on = true;
-                //Debug.Log("Let there be music");
                 topSparks.Play();
                 bottomSparks.Play();
                 status.color = Color.red;
                 background.color = Color.red;
+                GetComponent<AudioSource>().Play();
             }
         }
     }
@@ -55,6 +53,7 @@ public class FuseHolder : MonoBehaviour
         satisfied = condition;
         if (condition)
         {
+            GetComponent<AudioSource>().Stop();
             GameObject.FindObjectOfType<Creator>().Complete();
         }
     }
