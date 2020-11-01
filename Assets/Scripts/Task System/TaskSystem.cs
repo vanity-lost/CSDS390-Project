@@ -16,8 +16,9 @@ public class TaskSystem : MonoBehaviour
 
     public AudioMixer mixer;
 
+    public GameObject panel;
+
     float timer = 0;
-    float timer2 = 0;
 
     bool triggerFire = false;
     bool triggerEngine = false;
@@ -35,41 +36,29 @@ public class TaskSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (!GlobalData.hullBroken) {
-            timer2 = 0;
-            triggerFire = false;
-            triggerEngine = false;
-            triggerFuse = false;
-            triggerWire = false;
-            timer += Time.deltaTime;
-        }
-        if (timer >= 20) {
-            if (Random.Range(0,5) == 1) {
-                timer = 0;
-                GlobalData.hullBroken = true;
-                GlobalData.updateHull = true;
-            }
-        }
-        if (GlobalData.hullBroken) {
-            timer2 += Time.deltaTime;
-            if (timer2 > 10 && !triggerFire) {
-                triggerFire = true;
-                GlobalData.fires = true;
-                GlobalData.updateFire = true;
-            }
-            if (timer2 > 15 && Random.Range(0,10) == 1 && !triggerEngine) {
-                triggerEngine = true;
-                GlobalData.engineBroken = true;
-                GlobalData.updateEngine = true;
-            }
-            if (timer2 > 30 && Random.Range(0,10) == 1 && !triggerFuse) {
-                triggerFuse = true;
-                GlobalData.fuseBroken = true;
-            }
-            if (timer2 > 30 && Random.Range(0,10) == 1 && !triggerWire) {
-                triggerWire = true;
-                GlobalData.wiresBroken = true;
-                GlobalData.updateWires = true;
+        timer += Time.deltaTime;
+        if (timer >= 1 && Random.Range(0,1000) == 1) {
+            timer = 0f;
+            int taskIndex = Random.Range(0,5);
+            switch (taskIndex)
+            {
+                case 4:
+                    GlobalData.fuseBroken = true;
+                    break;
+                case 3:
+                    GlobalData.fires = true;
+                    break;
+                case 2:
+                    GlobalData.hullBroken = true;
+                    break;
+                case 1:
+                    GlobalData.engineBroken = true;
+                    break;
+                case 0:
+                    GlobalData.wiresBroken = true;
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -127,12 +116,19 @@ public class TaskSystem : MonoBehaviour
 
         if (energy.energyNum <= 0 || SubHealth.healthNum <= 0) {
             ESCDectect.gameIsPaused = true;
-            SceneManager.LoadScene("Death Scene");
+            Screen.lockCursor = false;
+            StartCoroutine(transition("Death Scene"));
         }
-        if (SubDistanceTracker.traveledDistance == SubDistanceTracker.maxDistance) {
+        if (SubDistanceTracker.traveledDistance >= SubDistanceTracker.maxDistance) {
             ESCDectect.gameIsPaused = true;
-            SceneManager.LoadScene("End Scene");
+            Screen.lockCursor = false;
+            StartCoroutine(transition("End Scene"));
         }
     }
 
+    IEnumerator transition(string sceneName) {
+        panel.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(sceneName);
+    }
 }

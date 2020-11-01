@@ -5,14 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class nextScene : MonoBehaviour
 {
-    public Animator transitionAnim;
+    public GameObject panel;
+
     public void PlayGame () {
-        StartCoroutine(LoadScene());
+        StartCoroutine(transition());
     }
 
-    IEnumerator LoadScene(){
-        transitionAnim.SetTrigger("end");
+    IEnumerator transition(){
+        panel.SetActive(true);
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadScene("Main");
     }
 }
