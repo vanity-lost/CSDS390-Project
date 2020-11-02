@@ -15,9 +15,9 @@ public class GameEventController : MonoBehaviour
     {
         menaceMeter -= Time.deltaTime;
         int miniTask = Random.Range(0, (int)menaceMeter);
-        // if(miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
-        //     setTask(miniTask);
-        // }
+        if(miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
+             setTask(miniTask);
+        }
 
         if((int)menaceMeter == 5) {
             menaceMeter = MENACE_START;

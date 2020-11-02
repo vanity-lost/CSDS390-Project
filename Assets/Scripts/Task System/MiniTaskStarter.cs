@@ -27,12 +27,12 @@ public class MiniTaskStarter : MonoBehaviour
     public GameObject WireLowSpotter;
     public GameObject HullSpotter;
     public GameObject FuseSpotter;
+    public GameObject FireSpotter;
 
 
     public GameObject storageHint;
     public GameObject FireEffect;
     private bool engineUpdate = false;
-    public float timer = 0f;
     public static bool engineTrigger = false;
 
 
@@ -47,7 +47,8 @@ public class MiniTaskStarter : MonoBehaviour
         if(GlobalData.engineBroken) {
             EngineRoomSpotter.SetActive(true);
              if(Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken) {
-                    SceneManager.LoadScene("Fix Engine");
+                 ESCDectect.gameIsPaused = true;
+                 SceneManager.LoadScene("Fix Engine");
              }
         } else {
             EngineRoomSpotter.SetActive(false);
@@ -69,10 +70,13 @@ public class MiniTaskStarter : MonoBehaviour
             }
 
             if (wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
             } else if(wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
             } else if(wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
             }
         } else {
@@ -89,6 +93,7 @@ public class MiniTaskStarter : MonoBehaviour
         if (GlobalData.storageLocked ) {
             StorageRoomSpotter.SetActive(true);
             if(Input.GetKeyDown("e") & storage.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Storage Room");
             }
         } else {
@@ -98,6 +103,7 @@ public class MiniTaskStarter : MonoBehaviour
         if(GlobalData.hullBroken) {
             HullSpotter.SetActive(true);
             if (Input.GetKeyDown("e") && hull.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fix Hull");
             }
         } else {
@@ -106,16 +112,20 @@ public class MiniTaskStarter : MonoBehaviour
 
         if(GlobalData.fires) {
             FireEffect.SetActive(true);
+            FireSpotter.SetActive(true);
             if (Input.GetKeyDown("e") & fireExtinguisher.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fire Extinguish");
             }
         } else {
             FireEffect.SetActive(false);
+            FireSpotter.SetActive(false);
         }
 
         if(GlobalData.fuseBroken) {
             FuseSpotter.SetActive(true);
             if (Input.GetKeyDown("e") & fuse.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Repair Fuse");
             }
         } else {
