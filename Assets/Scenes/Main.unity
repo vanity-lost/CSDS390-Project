@@ -33523,7 +33523,7 @@ MonoBehaviour:
   Panel1: {fileID: 1961670846}
   Panel2: {fileID: 1611973445}
   Panel3: {fileID: 1592434777}
-  Panel4: {fileID: 0}
+  Panel4: {fileID: 2049266212}
 --- !u!1 &1919247526
 GameObject:
   m_ObjectHideFlags: 0
