@@ -10,8 +10,8 @@ public class MoveSlab : MonoBehaviour
     bool held = false;
     bool check = true;
     [SerializeField] private float holdHeight = 7f;
-    [SerializeField] private float dropSpeed = 0.009f;
-    //[SerializeField] private float deltaTimeCancel = 2f;
+    [SerializeField] private float dropSpeed = 0.013f;
+    //private float deltaTimeCancel = 209f;
     LeakCovered[] leaks;
 
 
@@ -32,7 +32,7 @@ public class MoveSlab : MonoBehaviour
             down = true;
             holdHeight -= dropSpeed;// * Time.deltaTime * deltaTimeCancel;
             //transform.localScale = Vector3.Lerp(transform.localScale, targetScale, speed * Time.deltaTime);
-            transform.localScale = transform.localScale * 0.999f;//* Time.deltaTime * deltaTimeCancel;
+            transform.localScale = transform.localScale * 0.9985f;//* Time.deltaTime * deltaTimeCancel;
             //Debug.Log("Down");
         }
         if(Input.GetKeyUp("q"))

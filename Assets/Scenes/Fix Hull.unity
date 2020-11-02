@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.009
+  dropSpeed: 0.013
 --- !u!82 &101438156
 AudioSource:
   m_ObjectHideFlags: 0
@@ -246,8 +246,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 918f83b22a83106499b56f98ef8934cc, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.273
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.009
+  dropSpeed: 0.013
 --- !u!64 &279454155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -454,8 +454,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 918f83b22a83106499b56f98ef8934cc, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.273
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.009
+  dropSpeed: 0.013
 --- !u!64 &602715673
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -793,8 +793,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 918f83b22a83106499b56f98ef8934cc, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.273
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.009
+  dropSpeed: 0.013
 --- !u!64 &764125253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1001,8 +1001,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 918f83b22a83106499b56f98ef8934cc, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.273
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1696,7 +1696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.009
+  dropSpeed: 0.013
 --- !u!64 &1864910826
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1771,8 +1771,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 918f83b22a83106499b56f98ef8934cc, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.273
   m_Pitch: 1
   Loop: 0
   Mute: 0

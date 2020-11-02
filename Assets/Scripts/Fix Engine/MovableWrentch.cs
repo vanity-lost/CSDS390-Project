@@ -7,32 +7,20 @@ public class MovableWrentch : MonoBehaviour
     Vector3 mousePosition;
     Vector3 offset;
     [SerializeField] private GameObject target;
-    private int targetNumber = 0;
     private bool lockPlace;
-    [SerializeField] private float spinSpeed;
-    [SerializeField] private bool notAssigned = true;
-    float last = 0f;
+    private float spinSpeed = 200f;
+    private float moveDownSpeed = 0.002f;
+    private float timeBalance = 250f;
 
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.visible = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(lockPlace);
-        //Debug.Log(Input.mousePosition);
-        //Debug.Log(Camera.main.WorldToScreenPoint(Input.mousePosition));
-        //transform.RotateAround(target.transform.position, Vector3.up, 20 * Time.deltaTime);
     }
 
     private void OnMouseDrag()
     {
         if (lockPlace == false)
         {
-            //Debug.Log("Dragging");
             Camera.main.WorldToScreenPoint(transform.position);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -41,12 +29,10 @@ public class MovableWrentch : MonoBehaviour
                 mousePosition = hit.point;
                 mousePosition.y = -8f;
             }
-            //Debug.Log(mousePosition);
             transform.position = mousePosition;
         }
         else
         {
-            //bool notAssigned = true;
             Camera.main.WorldToScreenPoint(transform.position);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -55,49 +41,29 @@ public class MovableWrentch : MonoBehaviour
                 mousePosition = hit.point;
                 mousePosition.y = -8f;
             }
-            //Debug.Log(mousePosition);
             Vector3 difference = mousePosition - target.transform.position;
             Vector3 differenceWretch = transform.position - target.transform.position;
             float angle = Vector3.Angle(difference, transform.forward);
             float angleWretch = Vector3.Angle(differenceWretch, transform.up);
             angle = -angle;
             angleWretch = -angleWretch;
-            //Debug.Log(angle);
-            //Debug.Log(angleWretch);
-            //Debug.Log(last);
-            //if (notAssigned)
-            //{
-            //  last = angle;
-            //   notAssigned = false;
-            //}
-            //else
-            //{
             if (angle > angleWretch)
             {
-                //last = angle;
-                //Debug.Log(difference);
+                GetComponent<AudioSource>().Play();
                 Vector3 boltPosition = target.transform.position;
-                transform.RotateAround(boltPosition, Vector3.up, 200 * Time.deltaTime);
-                target.transform.position = new Vector3(boltPosition.x, boltPosition.y - 0.002f, boltPosition.z);
-                transform.position = new Vector3(transform.position.x, transform.position.y - 0.002f, transform.position.z);
+                transform.RotateAround(boltPosition, Vector3.up, spinSpeed * Time.deltaTime);
+                target.transform.position = new Vector3(boltPosition.x, boltPosition.y - (moveDownSpeed * Time.deltaTime * timeBalance), boltPosition.z);
+                transform.position = new Vector3(transform.position.x, transform.position.y - (moveDownSpeed * Time.deltaTime * timeBalance), transform.position.z);
             }
-            //last = angle;
+            else
+            {
+                GetComponent<AudioSource>().Stop();
+            }
             if (-1 < transform.rotation.y & transform.rotation.y < 0)
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
                 lockPlace = false;
-                //targetNumber = targetNumber + 1;
             }
-            //}
-
-            /*transform.RotateAround(target.transform.position, Vector3.up, 80 * Time.deltaTime);
-            if (-1 < transform.rotation.y & transform.rotation.y < 0)
-            {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, 0, transform.eulerAngles.z);
-                lockPlace = false;
-                //targetNumber = targetNumber + 1;
-            }
-            */
         }
     }
 

@@ -133,13 +133,14 @@ public class MiniTaskStarter : MonoBehaviour
         }
 
         if (Input.GetKeyDown("e") & lightSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
-            {
-                Debug.Log(GlobalData.lightSwitch);
-                GlobalData.lightSwitch = !GlobalData.lightSwitch;
-                Debug.Log("Lights Flipped");
-                Debug.Log(GlobalData.lightSwitch);
-            }
-
+        {
+            lightSwitch.GetComponent<AudioSource>().time = 0.5f;
+            lightSwitch.GetComponent<AudioSource>().Play();
+            Debug.Log(GlobalData.lightSwitch);
+            GlobalData.lightSwitch = !GlobalData.lightSwitch;
+            Debug.Log("Lights Flipped");
+            Debug.Log(GlobalData.lightSwitch);
+        }
         if (GlobalData.lightsOn != lights[0].enabled)
         {
             GlobalData.lightsOn = !GlobalData.lightsOn;
@@ -160,6 +161,14 @@ public class MiniTaskStarter : MonoBehaviour
         {
             lightSwitch.transform.localPosition = new Vector3(0.3853737f, 1.660247f, 2.669332f);
             lightSwitch.transform.localRotation = new Quaternion(-0.166412354f, 0.106388971f, -0.82593739f, 0.528030097f);
+        }
+        if (!GlobalData.hullBroken)
+        {
+            hull.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
+        }
+        else
+        {
+            hull.transform.GetChild(0).GetComponent<Renderer>().enabled = true;
         }
     }  
 
