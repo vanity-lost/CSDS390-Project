@@ -7,6 +7,7 @@ using TMPro;
 public class dialogueUpdate : MonoBehaviour
 {
     public TextMeshProUGUI _dialogue;
+    public TextMeshProUGUI _continueHints;
     public GameObject tutorialCanvas;
     public GameObject UserCanvas;
 
@@ -65,6 +66,11 @@ public class dialogueUpdate : MonoBehaviour
                 checkAll = true;
             }
         }    
+
+        if(currentMessageIndex >= 8 && currentMessageIndex <= 10)
+        {
+            _continueHints.SetText("");
+        }
 
         if (currentMessageIndex == 8 && ImageW.active && Input.GetKeyDown(KeyCode.W)) {
             ImageW.SetActive(false);

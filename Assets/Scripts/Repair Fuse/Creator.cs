@@ -18,7 +18,8 @@ public class Creator : MonoBehaviour
         finished = false;
         fuseHolder = GameObject.FindGameObjectsWithTag("FuseHolder");
         float randNum;
-        foreach (GameObject holder in fuseHolder) {
+        foreach (GameObject holder in fuseHolder)
+        {
             randNum = Random.Range(-2, 5);
             Debug.Log(randNum);
             number++;
@@ -28,13 +29,10 @@ public class Creator : MonoBehaviour
                 fuse = holder.transform.GetChild(0).gameObject;
                 spotHolder = holder.transform.GetChild(1).gameObject;
                 fuse.GetComponent<MoveFuse>().Status(false);
-                spotHolder.GetComponent<FuseHolder>().InPlace(false);
-                //Debug.Log("Broke One");
+                spotHolder.GetComponent<FuseHolder>().Initial(false);
             }
         }
     }
-
-
 
 
     public void Complete()
@@ -43,8 +41,7 @@ public class Creator : MonoBehaviour
         foreach (GameObject holder in fuseHolder)
         {
             bool inPlace = holder.transform.GetChild(1).gameObject.GetComponent<FuseHolder>().InPlace();
-            //Debug.Log(inPlace);
-            if (holder.transform.GetChild(1).gameObject.GetComponent<FuseHolder>().InPlace() == false)
+            if (inPlace == false)
             {
                 done = false;
             }

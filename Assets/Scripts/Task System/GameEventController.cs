@@ -4,27 +4,20 @@ using UnityEngine;
 
 public class GameEventController : MonoBehaviour
 {
-    public float MENACE_START = 10000.0f;
-    [SerializeField] static public float menaceMeter = 10000.0f; 
+    public float MENACE_START = 100000.0f;
+    [SerializeField] static public float menaceMeter = 100000.0f; 
 
     void Start() {
         menaceMeter = MENACE_START;
-        //GlobalData.fuseBroken = true;
-        //GlobalData.fires = true;
-        //GlobalData.hullBroken = true;
-        //GlobalData.engineBroken = true;
-        //GlobalData.storageLocked = true;
-        //GlobalData.wiresBroken = true;
     }
     // Update is called once per frame
     void Update()
     {
         menaceMeter -= Time.deltaTime;
         int miniTask = Random.Range(0, (int)menaceMeter);
-        //Debug.Log(miniTask);
-        // if(miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
-        //     setTask(miniTask);
-        // }
+        if(miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
+             setTask(miniTask);
+        }
 
         if((int)menaceMeter == 5) {
             menaceMeter = MENACE_START;

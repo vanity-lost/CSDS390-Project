@@ -153,10 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 1460704976}
-  camera: {fileID: 603819727}
-  moveMonster: {fileID: 1460704981}
-  isAttacking: 0
-  monsterStop: 0
 --- !u!4 &43389589
 Transform:
   m_ObjectHideFlags: 0
@@ -395,7 +391,6 @@ GameObject:
   - component: {fileID: 603819726}
   - component: {fileID: 603819725}
   - component: {fileID: 603819724}
-  - component: {fileID: 603819727}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -468,18 +463,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &603819727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603819723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb7fd068c2c24234693a9b093e14cd2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &843900274
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,8 +499,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 46}
-  m_SizeDelta: {x: 120, y: 80}
+  m_AnchoredPosition: {x: 0, y: 36}
+  m_SizeDelta: {x: 90, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &843900276
 MonoBehaviour:
@@ -877,14 +860,13 @@ GameObject:
   - component: {fileID: 1460704979}
   - component: {fileID: 1460704978}
   - component: {fileID: 1460704977}
-  - component: {fileID: 1460704981}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &1460704977
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -961,19 +943,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1460704981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460704976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64cc99bbb1349a34198ec3ba5e92b4a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: 0
 --- !u!1001 &1553156145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1160,11 +1129,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 60
+    m_MinSize: 2
+    m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

@@ -37,7 +37,7 @@ EditorBuildSettings:
     guid: c884d6cf653b75b4fbc380484245818a
   - enabled: 1
     path: Assets/Scenes/Repair Fuse.unity
-    guid: 605fb669c10c6294a8f6c148b8ae3644
+    guid: 3cc1a335e2b203544995aea32ccbde8c
   - enabled: 1
     path: Assets/Scenes/SilenceEngine.unity
     guid: 861808f115209134ba1c29fb87c99f9a

@@ -6,7 +6,6 @@ public class MinigameTrigger : MonoBehaviour
 {
     public bool triggerStatus;
     public GameObject displayName;
-    //public GameObject displayLocNameList;
 
     void Start()
     {
@@ -24,8 +23,6 @@ public class MinigameTrigger : MonoBehaviour
     {
         triggerStatus = true;
         displayName.SetActive(true);
-        //displayName.SetActive(true);
-        //Debug.Log(displayName.activeSelf);
     }
 
     private void OnTriggerExit(Collider other)
