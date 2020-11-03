@@ -7,11 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Alarm Light UVD-lambert1
+  m_Name: Submarine Engine-lambert1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _DETAIL_MULX2 _METALLICGLOSSMAP _NORMALMAP
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 1
+  m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: c1a8888607092db459f6f9bcc261a1a3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5a30defab042a614595fda10ea207070, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
-        m_Texture: {fileID: 2800000, guid: d26b1bf213ef6ce4bb28252af825233b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8bd44295ec46b0c4f947f56eec39f5ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
-        m_Texture: {fileID: 2800000, guid: c1a8888607092db459f6f9bcc261a1a3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5a30defab042a614595fda10ea207070, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -40,11 +40,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 18fd97ffc5c092245a1418a9702276d8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 01f87dc9c0c113d45b4b26f4078be66d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 2a98a8d409d18474eb415be0d84fbfd5, type: 3}
+        m_Texture: {fileID: 2800000, guid: f464627ba94865545804ed9f2c09cfc9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
