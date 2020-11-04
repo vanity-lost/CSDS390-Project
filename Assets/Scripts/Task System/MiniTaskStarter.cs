@@ -69,13 +69,13 @@ public class MiniTaskStarter : MonoBehaviour
                 wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
             }
 
-            if (wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+            if (Input.GetKeyDown("e") && wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
-            } else if(wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+            } else if(Input.GetKeyDown("e") && wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
-            } else if(wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+            } else if(Input.GetKeyDown("e") && wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
             }
