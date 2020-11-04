@@ -22,7 +22,7 @@ public class SubHealth : MonoBehaviour
         if (!dialogueUpdate.locked) {
             if (monsterAttack > 0)
                 {
-                    healthNum -= (monsterAttack * 20);
+                    healthNum -= (monsterAttack * 15);
                     monsterAttack = 0;
                 }
 
