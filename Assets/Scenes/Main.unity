@@ -7275,6 +7275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrenchWallWIP (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
 --- !u!1 &391475213
@@ -8120,7 +8124,7 @@ GameObject:
   - component: {fileID: 496125975}
   - component: {fileID: 496125974}
   - component: {fileID: 496125973}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Submarine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8202,7 +8206,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &502328507
 PrefabInstance:
@@ -31177,7 +31181,7 @@ GameObject:
   - component: {fileID: 1531331799}
   - component: {fileID: 1531331798}
   - component: {fileID: 1531331797}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32772,7 +32776,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1640931034
 MonoBehaviour:
@@ -33269,7 +33273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
       propertyPath: m_RootOrder
-      value: 31
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -33306,6 +33310,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
       propertyPath: m_Name
       value: TrenchWallWIP
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
@@ -34267,6 +34275,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrenchWallWIP (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
 --- !u!1 &1804850696
@@ -34311,7 +34323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814117845}
   - component: {fileID: 1814117844}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Directional Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35144,6 +35156,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
       propertyPath: m_Name
       value: TrenchWallWIP (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae3efffe2eb4ce7459bba050936845b2, type: 3}
