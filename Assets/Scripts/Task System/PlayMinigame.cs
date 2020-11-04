@@ -41,7 +41,6 @@ public class PlayMinigame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(wirebox.GetComponent<WireBoxTrigger>().getStatus());
         if (!dialogueUpdate.locked) {
             if (Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken)
             {
@@ -68,8 +67,9 @@ public class PlayMinigame : MonoBehaviour
             {
                 SceneManager.LoadScene("Sonor On Off");
             }
-            if (Input.GetKeyDown("e") && GlobalData.wiresBroken)
+            if (Input.GetKeyDown("e") & GlobalData.wiresBroken)
             {
+                Debug.Log("e press detected and wiresBroken== true");
                 if ((wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus())
                     ||(wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus())
                     ||(wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()))
