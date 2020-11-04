@@ -10,6 +10,7 @@ public class Periscope : MonoBehaviour
         bool status = closeness();
         if (Input.GetKeyDown("e") && status == true)
         {
+            ESCDectect.gameIsPaused = true;
             SceneManager.LoadScene("Periscope View");
             Debug.Log("loading periscope view");
             Cursor.lockState = CursorLockMode.None;

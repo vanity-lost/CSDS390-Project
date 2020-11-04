@@ -167,7 +167,7 @@ public class PlayMinigame : MonoBehaviour
             GlobalData.updateWires= true;
             GlobalData.wiresBroken = true;
             //int ranNum = UnityEngine.Random.Range(1, 4);
-            //GlobalData.brokenWireboxLoc = ranNum;
+            GlobalData.brokenWireboxLoc = Random.Range(1, 4);
             Debug.Log("global datat brokwn wire box loc = " + GlobalData.brokenWireboxLoc);
             if (GlobalData.brokenWireboxLoc == 1)
             {
