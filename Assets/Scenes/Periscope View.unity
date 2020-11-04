@@ -149,10 +149,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 43389587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16ec66407ed644b49b82d8382eb74616, type: 3}
+  m_Script: {fileID: 11500000, guid: d050381d2ebc32a4fbf8ba9c2d2105c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 1460704976}
+  camera: {fileID: 603819727}
+  moveMonster: {fileID: 1460704981}
+  isAttacking: 0
+  monsterStop: 0
 --- !u!4 &43389589
 Transform:
   m_ObjectHideFlags: 0
@@ -390,6 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 603819726}
   - component: {fileID: 603819725}
+  - component: {fileID: 603819727}
   - component: {fileID: 603819724}
   m_Layer: 0
   m_Name: Main Camera
@@ -463,6 +468,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603819727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603819723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676220b42925e0949a79c1a22ba602b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &843900274
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +876,7 @@ GameObject:
   - component: {fileID: 1460704980}
   - component: {fileID: 1460704979}
   - component: {fileID: 1460704978}
+  - component: {fileID: 1460704981}
   - component: {fileID: 1460704977}
   m_Layer: 0
   m_Name: Monster
@@ -866,7 +884,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!135 &1460704977
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -943,6 +961,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460704981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460704976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e64b0d96193e9c48a1f0e47718a43ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: 0
 --- !u!1001 &1553156145
 PrefabInstance:
   m_ObjectHideFlags: 0

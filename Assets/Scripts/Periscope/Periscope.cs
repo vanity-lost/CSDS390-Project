@@ -5,31 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class Periscope : MonoBehaviour
 {
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         bool status = closeness();
-        if (Input.GetMouseButtonDown(1) && status == true)
+        if (Input.GetKeyDown("e") && status == true)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.name == "periscope")
-                {
-                    Debug.Log("Periscope Hit");
-                    SceneManager.LoadScene("Periscope View");
-                    // GetComponent("Dialogue Controller").enabled = false;
-                    Debug.Log("Loading Environment Scene");
-                }
-            }
+            SceneManager.LoadScene("Periscope View");
+            Debug.Log("loading periscope view");
+            Cursor.lockState = CursorLockMode.None;
         }
+        //if (Input.GetMouseButtonDown(1) && status == true)
+        //{
+        //    RaycastHit hit;
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        if (hit.transform.name == "periscope")
+        //        {
+        //            Debug.Log("Periscope Hit");
+        //            SceneManager.LoadScene("Periscope View");
+        //            // GetComponent("Dialogue Controller").enabled = false;
+        //            Debug.Log("Loading Environment Scene");
+        //        }
+        //    }
+        //}
     }
 
     private bool closeness()

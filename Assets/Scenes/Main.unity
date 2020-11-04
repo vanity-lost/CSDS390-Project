@@ -10320,7 +10320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 903021600}
-  monsterAttack: 0
   hullBreach: 0
 --- !u!114 &903021600
 MonoBehaviour:
@@ -19607,7 +19606,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -30706,9 +30705,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 620430424177408086, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620430424335440325, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620430424795329444, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620430424959418819, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620430424983355085, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 620430425973944723, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 620430425973944723, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 620430426138047439, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 620430426175240596, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30758,9 +30785,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: '----Minimap Spotters----- '
       objectReference: {fileID: 0}
+    - target: {fileID: 620430426175240599, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 620430426203519564, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 620430426203519564, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
