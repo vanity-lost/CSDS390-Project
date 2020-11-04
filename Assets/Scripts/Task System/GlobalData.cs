@@ -26,7 +26,6 @@ public class GlobalData : MonoBehaviour
 
     private void Start()
     {
-        fuseBroken = true;
         DontDestroyOnLoad(this.gameObject);
         brokenWireboxLoc = Random.Range(1, 4);
     }
