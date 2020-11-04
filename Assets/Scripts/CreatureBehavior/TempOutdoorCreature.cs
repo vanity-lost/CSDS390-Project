@@ -5,7 +5,8 @@ using UnityEngine;
 public class TempOutdoorCreature : MonoBehaviour
 {
     public GameObject monster;
-    public CameraShake camera;
+    public CameraShake periscopeCamera;
+    public CameraShake mainCamera;
     public MoveOutdoorEnemy moveMonster;
 
     public static Vector3 subVector = new Vector3(0.0f, 0.0f, 0.0f);
@@ -65,7 +66,8 @@ public class TempOutdoorCreature : MonoBehaviour
     void MonsterAppear()
     {
         GetSubDistance();
-        bool subMoving = CheckSubMovement();
+        //bool subMoving = CheckSubMovement();
+        //Debug.Log(subDistance);
         if (monster.activeSelf == false)
         {
             switch (subDistance)
@@ -113,8 +115,8 @@ public class TempOutdoorCreature : MonoBehaviour
 
     void SpawnMonster()
     {
-        int randX = random.Next(-10, 10);
-        int randY = random.Next(40, 55);
+        int randX = random.Next(-110, -90);
+        int randY = random.Next(40, 60);
         int randZ = random.Next(50, 75);
         monster.transform.position = new Vector3(randX, randY, randZ);
         monster.SetActive(true);
@@ -142,30 +144,34 @@ public class TempOutdoorCreature : MonoBehaviour
         float elapsedTime = 0.0f;
         bool lightsOn = CheckLights();
         int test = 0;
+        bool canAttack = true;
 
         isAttacking = true;
         SubHealth.monsterAttack++;
         numAttacks++;
         GlobalData.hullBroken = true;
-        StartCoroutine(camera.Shake(0.15f, 0.4f));
+        StartCoroutine(periscopeCamera.Shake(0.15f, 0.2f));
+        StartCoroutine(mainCamera.Shake(0.15f, 0.2f));
+        Debug.Log("number of attacks: " + numAttacks);
         //Debug.Log(elapsedTime);
         //Debug.Log(checkHull());
         Debug.Log("lights on: " + lightsOn);
-        //while (lightsOn && numAttacks < 3)
-        //{
-        //    elapsedTime += Time.deltaTime;
-        //    Debug.Log("elapsed time: " + elapsedTime);
-        //    if (elapsedTime >= 5.0f)
-        //    {
-        //        SubHealth.monsterAttack++;
-        //        numAttacks++;
-        //        Debug.Log("number of attacks: " + numAttacks);
-        //        StartCoroutine(camera.Shake(0.15f, 0.4f));
-        //        yield return new WaitForSeconds(15);
-        //        elapsedTime = 0;
-        //    }
-        //    lightsOn = checkLights();
-        //}
+        while (canAttack && numAttacks < 3)
+        {
+            elapsedTime += Time.deltaTime;
+            Debug.Log("elapsed time: " + elapsedTime);
+            if (elapsedTime >= 5.0f)
+            {
+                SubHealth.monsterAttack++;
+                numAttacks++;
+                Debug.Log("number of attacks: " + numAttacks);
+                StartCoroutine(periscopeCamera.Shake(0.15f, 0.2f));
+                StartCoroutine(mainCamera.Shake(0.15f, 0.2f));
+                yield return new WaitForSeconds(15);
+                elapsedTime = 0;
+            }
+            canAttack = MonsterCanAttack();
+        }
         numAttacks = 0;
         ResetMonster();
         yield return 0;

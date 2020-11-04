@@ -5,15 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class Periscope : MonoBehaviour
 {
+    public Camera periscope;
+    public Camera main;
+
+    public static bool periscopeView = false;
+
     void Update()
     {
-        bool status = closeness();
-        if (Input.GetKeyDown("e") && status == true)
+        bool close = closeness();
+        
+        if (Input.GetKeyDown("e") && close == true)
         {
-            ESCDectect.gameIsPaused = true;
-            SceneManager.LoadScene("Periscope View");
-            Debug.Log("loading periscope view");
-            Cursor.lockState = CursorLockMode.None;
+            if (!periscopeView)
+            {
+                Debug.Log("loading periscope view");
+                periscope.gameObject.SetActive(true);
+                main.gameObject.SetActive(false);
+                periscopeView = true;
+            }
+            else
+            {
+                Debug.Log("loading main scene");
+                main.gameObject.SetActive(true);
+                periscope.gameObject.SetActive(false);
+                periscopeView = false;
+            }
+
+            //SceneManager.LoadScene("Periscope View");
+            //Debug.Log("loading periscope view");
+            //Cursor.lockState = CursorLockMode.None;
+
+
+            //ESCDectect.gameIsPaused = true;
+            //SceneManager.LoadScene("Periscope View");
+            //Debug.Log("loading periscope view");
+            //Cursor.lockState = CursorLockMode.None;
         }
         //if (Input.GetMouseButtonDown(1) && status == true)
         //{
