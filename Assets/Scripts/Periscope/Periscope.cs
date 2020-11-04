@@ -34,6 +34,12 @@ public class Periscope : MonoBehaviour
             //SceneManager.LoadScene("Periscope View");
             //Debug.Log("loading periscope view");
             //Cursor.lockState = CursorLockMode.None;
+
+
+            //ESCDectect.gameIsPaused = true;
+            //SceneManager.LoadScene("Periscope View");
+            //Debug.Log("loading periscope view");
+            //Cursor.lockState = CursorLockMode.None;
         }
         //if (Input.GetMouseButtonDown(1) && status == true)
         //{

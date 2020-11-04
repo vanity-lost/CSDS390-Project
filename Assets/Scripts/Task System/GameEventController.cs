@@ -6,9 +6,11 @@ public class GameEventController : MonoBehaviour
 {
     public float MENACE_START = 5000.0f;
     [SerializeField] static public float menaceMeter = 5000.0f; 
+    float timer;
 
     void Start() {
         menaceMeter = MENACE_START;
+        timer = 0;
     }
     // Update is called once per frame
     void Update()
@@ -17,8 +19,12 @@ public class GameEventController : MonoBehaviour
             menaceMeter -= Time.deltaTime * 0.1f;
             int miniTask = Random.Range(0, (int)menaceMeter);
 
-            if(miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
-                setTask(miniTask);
+            timer += Time.deltaTime;
+            if (timer > 1) {
+                if (miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
+                    setTask(miniTask);
+                    timer = 0;
+                }
             }
 
             if((int)menaceMeter == 5) {

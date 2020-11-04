@@ -42,19 +42,19 @@ public class MiniTaskStarter : MonoBehaviour
         lights = lightHolder.GetComponentsInChildren<Light>();
     }
 
-  void Update()
+    void Update()
     {
         if(GlobalData.engineBroken) {
             EngineRoomSpotter.SetActive(true);
-             if(Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken) {
-                 ESCDectect.gameIsPaused = true;
-                 SceneManager.LoadScene("Fix Engine");
-             }
+            if(Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken) {
+                ESCDectect.gameIsPaused = true;
+                SceneManager.LoadScene("Fix Engine");
+            }
         } else {
             EngineRoomSpotter.SetActive(false);
         }
 
-       if(GlobalData.wiresBroken) {
+        if(GlobalData.wiresBroken) {
            //Set the WireBox;
             if (GlobalData.brokenWireboxLoc == 1) {
                 WireHeadSpotter.SetActive(true);
