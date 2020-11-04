@@ -52,7 +52,7 @@ public class TempOutdoorCreature : MonoBehaviour
         bool lights = CheckLights();
         bool radar = CheckRadar();
         bool status = false;
-        if (distance && lights && radar)
+        if (distance && lights)
         {
             status = true;
         }
@@ -77,22 +77,27 @@ public class TempOutdoorCreature : MonoBehaviour
                 //    FindMonster();
                 //    monsterStatus = true;
                 //    break;
-                case 10.0f:
+                //case 10.0f:
+                //    SpawnMonster();
+                //    FindMonster();
+                //    monsterStatus = true;
+                //    break;
+                case 100.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
                     break;
-                case 60.0f:
+                case 160.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
                     break;
-                case 120.0f:
+                case 330.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
                     break;
-                case 180.0f:
+                case 450.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
