@@ -52,7 +52,7 @@ public class TempOutdoorCreature : MonoBehaviour
         bool lights = CheckLights();
         bool radar = CheckRadar();
         bool status = false;
-        if (distance && lights && radar)
+        if (distance && lights)
         {
             status = true;
         }
@@ -72,22 +72,32 @@ public class TempOutdoorCreature : MonoBehaviour
         {
             switch (subDistance)
             {
-                case 0.0f:
+                //case 0.0f:
+                //    SpawnMonster();
+                //    FindMonster();
+                //    monsterStatus = true;
+                //    break;
+                //case 10.0f:
+                //    SpawnMonster();
+                //    FindMonster();
+                //    monsterStatus = true;
+                //    break;
+                case 100.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
                     break;
-                case 60.0f:
+                case 160.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
                     break;
-                case 120.0f:
+                case 330.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
                     break;
-                case 180.0f:
+                case 450.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
@@ -153,21 +163,19 @@ public class TempOutdoorCreature : MonoBehaviour
         StartCoroutine(periscopeCamera.Shake(0.15f, 0.2f));
         StartCoroutine(mainCamera.Shake(0.15f, 0.2f));
         Debug.Log("number of attacks: " + numAttacks);
-        //Debug.Log(elapsedTime);
-        //Debug.Log(checkHull());
         Debug.Log("lights on: " + lightsOn);
         while (canAttack && numAttacks < 3)
         {
             elapsedTime += Time.deltaTime;
             Debug.Log("elapsed time: " + elapsedTime);
-            if (elapsedTime >= 5.0f)
+            if (elapsedTime >= 10.0f)
             {
                 SubHealth.monsterAttack++;
                 numAttacks++;
                 Debug.Log("number of attacks: " + numAttacks);
                 StartCoroutine(periscopeCamera.Shake(0.15f, 0.2f));
                 StartCoroutine(mainCamera.Shake(0.15f, 0.2f));
-                yield return new WaitForSeconds(15);
+                yield return new WaitForSeconds(5);
                 elapsedTime = 0;
             }
             canAttack = MonsterCanAttack();
