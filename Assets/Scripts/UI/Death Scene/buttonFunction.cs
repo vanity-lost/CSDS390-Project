@@ -12,6 +12,7 @@ public class buttonFunction : MonoBehaviour
 
     public void loadMain()
     {
+        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 

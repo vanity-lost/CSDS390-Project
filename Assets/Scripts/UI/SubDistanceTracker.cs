@@ -13,11 +13,18 @@ public class SubDistanceTracker : MonoBehaviour
     public static float maxDistance = 500.0f;
     private float elapsedTime = 0f;
     public static bool isMoving = true;
+    public static bool checkPoint1 = false;
+    public static bool checkPoint2 = false;
+    public static float checkPoint1Distance;
+    public static float checkPoint2Distance;
+    public int NUM_CHECK_POINTS = 3;
 
     void Start()
     {
         DistanceMeter.maxValue = maxDistance;
         DistanceMeter.value = traveledDistance;
+        checkPoint1Distance = maxDistance/NUM_CHECK_POINTS;
+        checkPoint2Distance = 2*(maxDistance/NUM_CHECK_POINTS);
     }
     
     void Update()
@@ -27,6 +34,14 @@ public class SubDistanceTracker : MonoBehaviour
         {
             DistanceTracker(DistanceMeter);
         }
+
+        if(traveledDistance >= checkPoint1Distance && !checkPoint1) {
+            checkPoint1 = true;
+        }
+
+        if(traveledDistance >= checkPoint2Distance && !checkPoint2) {
+            checkPoint2 = true;
+        }
     }
 
     private void DistanceTracker(Slider slider)
@@ -35,7 +50,7 @@ public class SubDistanceTracker : MonoBehaviour
         if  (engineRun == true && elapsedTime >= 1.0f)
         {
             elapsedTime = elapsedTime % 1.0f;
-            traveledDistance += move;
+            traveledDistance += move*5;
             slider.value = traveledDistance;
             if (traveledDistance == maxDistance)
             {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SubHealth : MonoBehaviour
 {
-    public static float healthNum = 100;
+    public static float healthNum = 5;
     public Text healthText;
     public int monsterAttack = 0;
     public int hullBreach = 0;

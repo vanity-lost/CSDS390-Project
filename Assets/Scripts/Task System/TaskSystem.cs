@@ -36,34 +36,6 @@ public class TaskSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (!dialogueUpdate.locked) {
-            timer += Time.deltaTime;
-            if (timer >= 1 && Random.Range(0,2000) == 1) {
-                timer = 0f;
-                int taskIndex = Random.Range(0,5);
-                switch (taskIndex)
-                {
-                    case 4:
-                        GlobalData.fuseBroken = true;
-                        break;
-                    case 3:
-                        GlobalData.fires = true;
-                        break;
-                    case 2:
-                        GlobalData.hullBroken = true;
-                        break;
-                    case 1:
-                        GlobalData.engineBroken = true;
-                        break;
-                    case 0:
-                        GlobalData.wiresBroken = true;
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-
         taskInfo = title;
         SubDistanceTracker.isMoving = true;
         if (hint) {
@@ -119,8 +91,20 @@ public class TaskSystem : MonoBehaviour
         if (energy.energyNum <= 0 || SubHealth.healthNum <= 0) {
             ESCDectect.gameIsPaused = true;
             Screen.lockCursor = false;
+
+            if(SubDistanceTracker.checkPoint1 && !SubDistanceTracker.checkPoint2) {
+                SubDistanceTracker.traveledDistance = SubDistanceTracker.checkPoint1Distance;
+            } else if (SubDistanceTracker.checkPoint2) {
+                SubDistanceTracker.traveledDistance = SubDistanceTracker.checkPoint2Distance;
+            } else {
+                SubDistanceTracker.traveledDistance = 0;
+            }
+
+            energy.energyNum = 100;
+            SubHealth.healthNum = 100;
             StartCoroutine(transition("Death Scene"));
         }
+
         if (SubDistanceTracker.traveledDistance >= SubDistanceTracker.maxDistance) {
             ESCDectect.gameIsPaused = true;
             Screen.lockCursor = false;
