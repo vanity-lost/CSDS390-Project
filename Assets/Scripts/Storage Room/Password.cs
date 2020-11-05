@@ -32,6 +32,7 @@ public class Password : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            ESCDectect.gameIsPaused = false;
             SceneManager.LoadScene("Main");
         }
 
