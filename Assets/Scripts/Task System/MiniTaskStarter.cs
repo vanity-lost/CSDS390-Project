@@ -46,7 +46,7 @@ public class MiniTaskStarter : MonoBehaviour
     {
         if(GlobalData.engineBroken) {
             EngineRoomSpotter.SetActive(true);
-            if(Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken) {
+            if(Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken && GlobalData.storageLocked == false) {
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fix Engine");
             }
