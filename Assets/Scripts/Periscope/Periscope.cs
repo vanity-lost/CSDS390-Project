@@ -63,7 +63,7 @@ public class Periscope : MonoBehaviour
     {
         bool status = false;
         Vector3 playerVector = GameObject.Find("Player").transform.position;
-        Vector3 periscopeVector = GameObject.Find("periscope").transform.position;
+        Vector3 periscopeVector = GameObject.Find("Periscope").transform.position;
         float distance = Vector3.Distance(playerVector, periscopeVector);
 
         if (distance <= 2)
