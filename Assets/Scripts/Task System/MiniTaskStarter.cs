@@ -46,11 +46,17 @@ public class MiniTaskStarter : MonoBehaviour
     {
         if(GlobalData.engineBroken) {
             EngineRoomSpotter.SetActive(true);
-            if(Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken && GlobalData.storageLocked == false) {
+            engine.transform.GetComponent<AudioSource>().Stop();
+            if (Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken && GlobalData.storageLocked == false) {
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fix Engine");
             }
         } else {
+            if (engine.transform.GetComponent<AudioSource>().isPlaying == false)
+            {
+                engine.transform.GetComponent<AudioSource>().Play();
+                engine.transform.GetComponent<AudioSource>().loop = true;
+            }
             EngineRoomSpotter.SetActive(false);
         }
 
