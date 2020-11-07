@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.013
+  dropSpeed: 0.0156
 --- !u!82 &101438156
 AudioSource:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.013
+  dropSpeed: 0.0156
 --- !u!64 &279454155
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.013
+  dropSpeed: 0.0156
 --- !u!64 &602715673
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.013
+  dropSpeed: 0.0156
 --- !u!64 &764125253
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdHeight: 7
-  dropSpeed: 0.013
+  dropSpeed: 0.0156
 --- !u!64 &1864910826
 MeshCollider:
   m_ObjectHideFlags: 0
