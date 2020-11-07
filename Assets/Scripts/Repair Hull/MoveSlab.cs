@@ -10,29 +10,32 @@ public class MoveSlab : MonoBehaviour
     bool held = false;
     bool check = true;
     [SerializeField] private float holdHeight = 7f;
-    [SerializeField] private float dropSpeed = 0.013f;
+    [SerializeField] private float dropSpeed = 0.0156f;
     //private float deltaTimeCancel = 209f;
     LeakCovered[] leaks;
 
+    LeakTracker leakTracker;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         StartCoroutine(LateStart(0.5f));
+        leakTracker = FindObjectOfType<LeakTracker>().GetComponent<LeakTracker>();
         //leaks = GameObject.FindObjectsOfType<LeakCovered>();
         //Debug.Log(leaks[0].transform.position);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         //Debug.Log(Time.deltaTime);
         if((Input.GetKeyDown("q") || down) && held)             // if q down or not up, and slab in held
         {
+            Cursor.visible = false;
             down = true;
             holdHeight -= dropSpeed;// * Time.deltaTime * deltaTimeCancel;
             //transform.localScale = Vector3.Lerp(transform.localScale, targetScale, speed * Time.deltaTime);
-            transform.localScale = transform.localScale * 0.9985f;//* Time.deltaTime * deltaTimeCancel;
+            transform.localScale = transform.localScale * 0.9982f;//* Time.deltaTime * deltaTimeCancel;
             //Debug.Log("Down");
         }
         if(Input.GetKeyUp("q"))
@@ -41,8 +44,10 @@ public class MoveSlab : MonoBehaviour
         }
         if ((transform.position.y <= 0.4) && check)
         {
+            Cursor.visible = true;
             GetComponent<AudioSource>().Play(); 
             check = false;
+            leakTracker.OutofSlabs();
             foreach (LeakCovered leak in leaks)
             {
                 leak.GetComponent<LeakCovered>().CloseEnough(gameObject);

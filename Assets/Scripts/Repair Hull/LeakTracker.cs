@@ -40,14 +40,11 @@ public class LeakTracker : MonoBehaviour
                 {
                     newLeak = Instantiate(leak2);
                 }
-                //Debug.Log(newLeak);
                 var e = newLeak.GetComponent<ParticleSystem>().emission;
                 e.rateOverTime = Random.Range(0, 20);
                 newLeak.transform.position = position;
                 newLeak.transform.Rotate(0, Random.Range(0, 360), 0);
-                //Debug.Log(leaks);
                 leaks.Add(newLeak);
-                //Debug.Log(leaks);
             }
             else
             {
