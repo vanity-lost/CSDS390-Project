@@ -23,6 +23,8 @@ public class GlobalData : MonoBehaviour
 
     [SerializeField] static public bool storageLocked = true;
 
+    public static Vector3 position = new Vector3(0, 1.89999998f, 0);
+    public static Quaternion rotation = new Quaternion(0, 0, 0, 1);
 
     private void Start()
     {

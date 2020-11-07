@@ -39,6 +39,8 @@ public class MiniTaskStarter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = GlobalData.position;
+        transform.rotation = GlobalData.rotation;
         lights = lightHolder.GetComponentsInChildren<Light>();
     }
 
@@ -48,6 +50,8 @@ public class MiniTaskStarter : MonoBehaviour
             EngineRoomSpotter.SetActive(true);
             engine.transform.GetComponent<AudioSource>().Stop();
             if (Input.GetKeyDown("e") && engine.GetComponent<MinigameTrigger>().getTriggerStatus() && GlobalData.engineBroken && GlobalData.storageLocked == false) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fix Engine");
             }
@@ -76,12 +80,18 @@ public class MiniTaskStarter : MonoBehaviour
             }
 
             if (Input.GetKeyDown("e") && wireboxhead.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
             } else if(Input.GetKeyDown("e") && wireboxmid.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
             } else if(Input.GetKeyDown("e") && wireboxtail.GetComponent<WireBoxTrigger>().getTriggerStatus() && wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Connect Wire");
             }
@@ -99,6 +109,8 @@ public class MiniTaskStarter : MonoBehaviour
         if (GlobalData.storageLocked ) {
             StorageRoomSpotter.SetActive(true);
             if(Input.GetKeyDown("e") & storage.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Storage Room");
             }
@@ -109,6 +121,8 @@ public class MiniTaskStarter : MonoBehaviour
         if(GlobalData.hullBroken) {
             HullSpotter.SetActive(true);
             if (Input.GetKeyDown("e") && hull.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fix Hull");
             }
@@ -120,6 +134,8 @@ public class MiniTaskStarter : MonoBehaviour
             FireEffect.SetActive(true);
             FireSpotter.SetActive(true);
             if (Input.GetKeyDown("e") & fireExtinguisher.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Fire Extinguish");
             }
@@ -131,6 +147,8 @@ public class MiniTaskStarter : MonoBehaviour
         if(GlobalData.fuseBroken) {
             FuseSpotter.SetActive(true);
             if (Input.GetKeyDown("e") & fuse.GetComponent<MinigameTrigger>().getTriggerStatus()) {
+                GlobalData.position = transform.position;
+                GlobalData.rotation = transform.rotation;
                 ESCDectect.gameIsPaused = true;
                 SceneManager.LoadScene("Repair Fuse");
             }
