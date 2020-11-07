@@ -10,7 +10,8 @@ public class MoveOutdoorEnemy : MonoBehaviour
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target, step);
-        if (Vector3.Distance(transform.position, target) < 10.0f)
+        Debug.Log("monster moving");
+        if (Vector3.Distance(transform.position, target) < 30.0f)
         {
             attack = true;
         }

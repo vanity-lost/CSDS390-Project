@@ -21,8 +21,6 @@ public class TempOutdoorCreature : MonoBehaviour
     public bool monsterStop = false;
     private bool monsterStatus = false;
 
-    private int numAttacks = 0;
-
     System.Random random = new System.Random();
 
     void Awake()
@@ -77,16 +75,16 @@ public class TempOutdoorCreature : MonoBehaviour
                 //    FindMonster();
                 //    monsterStatus = true;
                 //    break;
-                //case 10.0f:
-                //    SpawnMonster();
-                //    FindMonster();
-                //    monsterStatus = true;
-                //    break;
-                case 100.0f:
+                case 10.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
                     break;
+                //case 100.0f:
+                //    SpawnMonster();
+                //    FindMonster();
+                //    monsterStatus = true;
+                //    break;
                 case 160.0f:
                     SpawnMonster();
                     FindMonster();
@@ -127,7 +125,7 @@ public class TempOutdoorCreature : MonoBehaviour
     {
         int randX = random.Next(-110, -90);
         int randY = random.Next(40, 60);
-        int randZ = random.Next(50, 75);
+        int randZ = random.Next(70, 100);
         monster.transform.position = new Vector3(randX, randY, randZ);
         monster.SetActive(true);
     }
@@ -155,31 +153,47 @@ public class TempOutdoorCreature : MonoBehaviour
         bool lightsOn = CheckLights();
         int test = 0;
         bool canAttack = true;
+        int numAttacks = 0;
 
         isAttacking = true;
-        SubHealth.monsterAttack++;
-        numAttacks++;
-        GlobalData.hullBroken = true;
-        StartCoroutine(periscopeCamera.Shake(0.15f, 0.2f));
-        StartCoroutine(mainCamera.Shake(0.15f, 0.2f));
-        Debug.Log("number of attacks: " + numAttacks);
-        Debug.Log("lights on: " + lightsOn);
         while (canAttack && numAttacks < 3)
         {
-            elapsedTime += Time.deltaTime;
-            Debug.Log("elapsed time: " + elapsedTime);
-            if (elapsedTime >= 10.0f)
+            SubHealth.monsterAttack++;
+            numAttacks++;
+            GlobalData.hullBroken = true;
+            StartCoroutine(periscopeCamera.Shake(0.15f, 0.4f));
+            StartCoroutine(mainCamera.Shake(0.15f, 0.4f));
+            Debug.Log("number of attacks: " + numAttacks);
+            if (numAttacks < 3)
             {
-                SubHealth.monsterAttack++;
-                numAttacks++;
-                Debug.Log("number of attacks: " + numAttacks);
-                StartCoroutine(periscopeCamera.Shake(0.15f, 0.2f));
-                StartCoroutine(mainCamera.Shake(0.15f, 0.2f));
                 yield return new WaitForSeconds(5);
-                elapsedTime = 0;
             }
             canAttack = MonsterCanAttack();
         }
+        //SubHealth.monsterAttack++;
+        //numAttacks++;
+        //GlobalData.hullBroken = true;
+        //StartCoroutine(periscopeCamera.Shake(0.15f, 0.4f));
+        //StartCoroutine(mainCamera.Shake(0.15f, 0.4f));
+        //Debug.Log("number of attacks: " + numAttacks);
+        //Debug.Log("lights on: " + lightsOn);
+        //while (canAttack && numAttacks < 3)
+        //{
+        //    elapsedTime += Time.deltaTime;
+        //    Debug.Log("elapsed time: " + elapsedTime);
+        //    if (elapsedTime >= 10.0f)
+        //    {
+        //        SubHealth.monsterAttack++;
+        //        numAttacks++;
+        //        Debug.Log("number of attacks: " + numAttacks);
+        //        StartCoroutine(periscopeCamera.Shake(0.15f, 0.4f));
+        //        StartCoroutine(mainCamera.Shake(0.15f, 0.4f));
+        //        yield return new WaitForSeconds(5);
+        //        Debug.Log("waited for 5 seconds");
+        //        elapsedTime = 0;
+        //    }
+        //    canAttack = MonsterCanAttack();
+        //}
         numAttacks = 0;
         ResetMonster();
         yield return 0;

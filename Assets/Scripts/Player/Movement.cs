@@ -19,7 +19,12 @@ public class Movement : MonoBehaviour
     {
         if (ESCDectect.gameIsPaused) {
             movespeed = 0.0f;
-        } else {
+        } 
+        else if (Periscope.periscopeView)
+        {
+            movespeed = 0.0f;
+        }
+        else {
             movespeed = 4.0f;
         }
         float xMovement = Input.GetAxis("Horizontal") * movespeed;
