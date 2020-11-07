@@ -22,6 +22,24 @@ public class narrativeDialogueUpdate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this will probably just need its own methods, rather than using Update
+        if (SubDistanceTracker.checkPoint1 && !SubDistanceTracker.checkPoint2)
+        {
+            currentMessageIndex = 3;
+            
+        }
+        else if (SubDistanceTracker.checkPoint2)
+        {
+            //play the second set
+            currentMessageIndex = 6;
+
+        }
+        else
+        {
+            //if at the end play the final lines
+            currentMessageIndex = 9;
+        }
+        _narrativeDialogue.SetText(messages[currentMessageIndex]);
         
     }
 }

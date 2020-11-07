@@ -37,10 +37,16 @@ public class SubDistanceTracker : MonoBehaviour
 
         if(traveledDistance >= checkPoint1Distance && !checkPoint1) {
             checkPoint1 = true;
+            // enable Narrative Dialogue at index 3
+            // in the narrativeDilogueUpdate:
+            //      allow player to click to continue through index 5
+            //      at which point it will disable itself.
+
         }
 
         if(traveledDistance >= checkPoint2Distance && !checkPoint2) {
             checkPoint2 = true;
+            // enable Narrative Dialogue at index 6
         }
     }
 
