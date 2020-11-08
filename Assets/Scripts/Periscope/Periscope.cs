@@ -7,6 +7,7 @@ public class Periscope : MonoBehaviour
 {
     public Camera periscope;
     public Camera main;
+    public GameObject label;
 
     public static bool periscopeView = false;
 
@@ -69,6 +70,11 @@ public class Periscope : MonoBehaviour
         if (distance <= 2)
         {
             status = true;
+            label.SetActive(true);
+        }
+        else
+        {
+            label.SetActive(false);
         }
 
         return status;
