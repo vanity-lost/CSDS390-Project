@@ -15,7 +15,7 @@ public class narrativeDialogueUpdate : MonoBehaviour
 
     public int currentMessageIndex;
 
-    flot timer = 0;
+    float timer = 0;
 
     // Start is called before the first frame update
     void Start()
