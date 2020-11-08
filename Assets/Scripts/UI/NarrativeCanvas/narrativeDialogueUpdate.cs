@@ -6,16 +6,17 @@ using TMPro;
 
 public class narrativeDialogueUpdate : MonoBehaviour
 {
+    public GameObject NarrativeDialogue;
     public TextMeshProUGUI _narrativeDialogue;
-    public TextMeshProUGUI _continueHints;
 
     public string[] messages;
 
-    public int currentMessageIndex = 0;
+    public int currentMessageIndex;
 
     // Start is called before the first frame update
     void Start()
     {
+        setMessageIndex(3);
         _narrativeDialogue.SetText(messages[currentMessageIndex]);
     }
 
@@ -23,23 +24,35 @@ public class narrativeDialogueUpdate : MonoBehaviour
     void Update()
     {
         //this will probably just need its own methods, rather than using Update
-        if (SubDistanceTracker.checkPoint1 && !SubDistanceTracker.checkPoint2)
+        if (currentMessageIndex > 5 && SubDistanceTracker.traveledDistance < SubDistanceTracker.checkPoint2Distance)
         {
-            currentMessageIndex = 3;
-            
+            NarrativeDialogue.SetActive(false);
         }
-        else if (SubDistanceTracker.checkPoint2)
+        else if (currentMessageIndex > 8 && (SubDistanceTracker.traveledDistance < SubDistanceTracker.maxDistance))
         {
-            //play the second set
-            currentMessageIndex = 6;
-
+            NarrativeDialogue.SetActive(false);
         }
         else
         {
-            //if at the end play the final lines
-            currentMessageIndex = 9;
+            
+        }
+
+        if (Input.anyKeyDown)
+        {
+            //make a timer for the sounds
+            setMessageIndex(currentMessageIndex + 1);
         }
         _narrativeDialogue.SetText(messages[currentMessageIndex]);
         
+    }
+
+    public int getMessageIndex()
+    {
+        return currentMessageIndex;
+    }
+
+    public void setMessageIndex(int i)
+    {
+        currentMessageIndex = i;
     }
 }
