@@ -39,8 +39,16 @@ public class MiniTaskStarter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = GlobalData.position;
-        transform.rotation = GlobalData.rotation;
+        if (GlobalData.position.Equals(new Vector3(0, -10f, 0))) {
+            GlobalData.position = transform.position;
+        } else {
+            transform.position = GlobalData.position;
+        }
+        if (GlobalData.rotation==(new Quaternion(1, 0, 0, 1))) {
+            GlobalData.rotation = transform.rotation;
+        } else {
+            transform.rotation = GlobalData.rotation;
+        }
         lights = lightHolder.GetComponentsInChildren<Light>();
     }
 
