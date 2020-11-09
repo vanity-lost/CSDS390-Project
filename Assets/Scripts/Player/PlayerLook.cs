@@ -36,7 +36,16 @@ public Rotation rotation = Rotation.x;
             ySensitivity = 0.0f;
             lowY = 0.0f;
             highY = 0.0f;
-        } else {
+        }
+        else if (Radar.radarOpen)
+        {
+            xSensitivity = 0.0f;
+            ySensitivity = 0.0f;
+            lowY = 0.0f;
+            highY = 0.0f;
+        }
+        else 
+        {
             xSensitivity = 4.0f;
             ySensitivity = 4.0f;
             lowY = -45.0f;

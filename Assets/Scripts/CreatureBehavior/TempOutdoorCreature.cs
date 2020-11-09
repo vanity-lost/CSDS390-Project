@@ -19,7 +19,7 @@ public class TempOutdoorCreature : MonoBehaviour
     private bool reset = false;
     public bool isAttacking = false;
     public bool monsterStop = false;
-    private bool monsterStatus = false;
+    public static bool monsterStatus = false;
 
     System.Random random = new System.Random();
 
@@ -40,6 +40,14 @@ public class TempOutdoorCreature : MonoBehaviour
                 monsterStop = true;
                 saveDistance = subDistance;
                 StartCoroutine(Attack());
+            }
+            else
+            {
+                FindMonster();
+                if (Vector3.Distance(monsterVector, subVector) < 5.0f)
+                {
+                    ResetMonster();
+                }
             }
         }
     }
@@ -116,7 +124,7 @@ public class TempOutdoorCreature : MonoBehaviour
 
     }
 
-    void FindMonster()
+    public void FindMonster()
     {
         monsterVector = monster.transform.position;
     }
@@ -241,6 +249,7 @@ public class TempOutdoorCreature : MonoBehaviour
     {
         reset = true;
         isAttacking = false;
+        monsterStatus = false;
         monster.SetActive(false);
     }
 
@@ -258,5 +267,10 @@ public class TempOutdoorCreature : MonoBehaviour
         }
         return status;
     }
+
+    //public static void GetMonsterLocation()
+    //{
+    //    monsterVector = monster.transform.position;
+    //}
 
 }
