@@ -16,14 +16,14 @@ public class GameEventController : MonoBehaviour
     void Update()
     {
         if(!dialogueUpdate.locked) {
-            menaceMeter -= Time.deltaTime * 0.1f;
+            menaceMeter -= Time.deltaTime * 0.1f; //0.1
             int miniTask = Random.Range(0, (int)menaceMeter);
 
             timer += Time.deltaTime;
             if (timer > 1) {
-                if (miniTask >= 0 && miniTask <= 5 && !getTask(miniTask)) {
+                if (miniTask >= 0 && miniTask <= 4 && !getTask(miniTask)) {
                     setTask(miniTask);
-                    timer = 0;
+                    timer = 0; //0
                 }
             }
 
@@ -36,22 +36,17 @@ public class GameEventController : MonoBehaviour
     public bool getTask(int index) {
         switch (index)
         {
-        case 6: 
-            break;
-        case 5:
+        case 4:
             return GlobalData.fuseBroken;
             break;
-        case 4:
+        case 3:
             return GlobalData.fires;
             break;
-        case 3:
+        case 2:
             return GlobalData.hullBroken;
             break;
-        case 2:
-            return GlobalData.engineBroken;
-            break;
         case 1:
-            return GlobalData.storageLocked;
+            return GlobalData.engineBroken;
             break;
         case 0:
             return GlobalData.wiresBroken;
@@ -67,24 +62,20 @@ public class GameEventController : MonoBehaviour
     public void setTask(int index) {
         switch (index)
         {
-        case 6: 
-            break;
-        case 5:
+        case 4:
             GlobalData.fuseBroken = true;
             break;
-        case 4:
+        case 3:
             GlobalData.fires = true;
             break;
-        case 3:
+        case 2:
             GlobalData.hullBroken = true;
             break;
-        case 2:
+        case 1:
             GlobalData.engineBroken = true;
             break;
-        case 1:
-            //GlobalData.storageLocked = true;
-            break;
         case 0:
+            GlobalData.brokenWireboxLoc = Random.Range(1, 4);
             GlobalData.wiresBroken = true;
             break;
         default:

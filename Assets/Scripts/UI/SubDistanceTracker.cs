@@ -55,7 +55,6 @@ public class SubDistanceTracker : MonoBehaviour
         {
             elapsedTime = elapsedTime % 1.0f;
             traveledDistance += move;
-            Debug.Log(traveledDistance);
             slider.value = traveledDistance;
             if (traveledDistance == maxDistance)
             {

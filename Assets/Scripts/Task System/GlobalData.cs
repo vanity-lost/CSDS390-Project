@@ -19,7 +19,7 @@ public class GlobalData : MonoBehaviour
     [SerializeField] static public bool updateFire = false;
     [SerializeField] static public bool updateWires = false;
     [SerializeField] static public bool updateHull = false;
-    [SerializeField] static public int brokenWireboxLoc = 1;
+    [SerializeField] static public int brokenWireboxLoc = -1;
 
     [SerializeField] static public bool storageLocked = true;
 
@@ -29,7 +29,6 @@ public class GlobalData : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        brokenWireboxLoc = Random.Range(1, 4);
     }
 
 }

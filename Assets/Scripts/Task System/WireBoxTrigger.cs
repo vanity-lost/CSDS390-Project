@@ -79,7 +79,6 @@ public class WireBoxTrigger : MonoBehaviour
     {
         triggerStatus = true;
         displayName.SetActive(true);
-        //Debug.Log("Is triggering with wire box");
     }
 
     private void OnTriggerExit(Collider other)
@@ -87,6 +86,5 @@ public class WireBoxTrigger : MonoBehaviour
 
         triggerStatus = false;
         displayName.SetActive(false);
-        //Debug.Log("Left wire box trigger area");
     }
 }
