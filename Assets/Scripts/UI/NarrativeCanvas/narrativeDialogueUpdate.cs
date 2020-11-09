@@ -9,7 +9,9 @@ public class narrativeDialogueUpdate : MonoBehaviour
     public GameObject NarrativeDialogue;
     public TextMeshProUGUI _narrativeDialogue;
 
-    public GameObject[] DialogueSounds;
+    public GameObject[] Lines;
+
+    bool playing = false;
 
     public string[] messages;
 
@@ -24,7 +26,6 @@ public class narrativeDialogueUpdate : MonoBehaviour
     {
         setMessageIndex(3);
         _narrativeDialogue.SetText(messages[currentMessageIndex]);
-        DialogueSounds = GetComponents<GameObject>();
     }
 
     // Update is called once per frame
@@ -33,7 +34,11 @@ public class narrativeDialogueUpdate : MonoBehaviour
 
        if(NarrativeDialogue.activeSelf && currentMessageIndex >= 3 && currentMessageIndex <= 5)
         {
-            DialogueSounds[0].SetActive(true);
+            if (!playing)
+            {
+                Lines[0].GetComponent<AudioSource>().Play();
+                playing = true;
+            }
             timer += Time.deltaTime;   
             if(timer > 0 && timer < 0.5)
             {
@@ -51,15 +56,19 @@ public class narrativeDialogueUpdate : MonoBehaviour
             }
             else if(timer >= timeStamps[2]) {
                 timer = 0;
-                DialogueSounds[0].SetActive(false);
                 setMessageIndex(6);
+                playing = false;
                 NarrativeDialogue.SetActive(false);
             }
             
         }
         if (NarrativeDialogue.activeSelf && currentMessageIndex >= 6 && currentMessageIndex <= 8)
         {
-            DialogueSounds[1].SetActive(true);
+            if (!playing)
+            {
+                Lines[1].GetComponent<AudioSource>().Play();
+                playing = true;
+            }
             timer += Time.deltaTime;
             if (timer > 0 && timer < 0.5)
             {
@@ -79,32 +88,12 @@ public class narrativeDialogueUpdate : MonoBehaviour
             else if (timer >= timeStamps[2])
             {
                 timer = 0;
-                DialogueSounds[1].SetActive(false);
                 setMessageIndex(9);
+                playing = false;
                 NarrativeDialogue.SetActive(false);
             }
 
         }
-
-        /* if (currentMessageIndex > 5 && SubDistanceTracker.traveledDistance < SubDistanceTracker.checkPoint2Distance)
-         {
-             NarrativeDialogue.SetActive(false);
-         }
-         else if (currentMessageIndex > 8 && (SubDistanceTracker.traveledDistance < SubDistanceTracker.maxDistance))
-         {
-             NarrativeDialogue.SetActive(false);
-         }
-         else
-         {
-
-         }*/
-
-
-        /* if (Input.anyKeyDown)
-         {
-             //make a timer for the sounds
-             setMessageIndex(currentMessageIndex + 1);
-         }*/
 
     }
 
