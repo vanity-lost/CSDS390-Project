@@ -16,8 +16,9 @@ public class PlayMinigame : MonoBehaviour
     [SerializeField] GameObject hull;
     [SerializeField] GameObject storage;
     [SerializeField] GameObject fireExtinguisher;
-
+    [SerializeField] GameObject radarSwitch;
     [SerializeField] GameObject radarConsole;
+
     [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
 
@@ -105,6 +106,13 @@ public class PlayMinigame : MonoBehaviour
                 GlobalData.lightSwitch = !GlobalData.lightSwitch;
                 Debug.Log("Lights Flipped");
                 Debug.Log(GlobalData.lightSwitch);
+            }
+            // radar console task
+            if (Input.GetKeyDown("e") & radarConsole.GetComponent<MinigameTrigger>().getTriggerStatus())
+            {
+                Debug.Log(GlobalData.radarOn);
+                ESCDectect.gameIsPaused = true;
+                SceneManager.LoadScene("Sonar On Off");
             }
         }
         timer += Time.deltaTime;
