@@ -6,6 +6,7 @@ public class RadarBtn : MonoBehaviour
 {
     public GameObject offBtn;
     public GameObject onBtn;
+    public GameObject radarSound;
 
     public static bool radarOn = true;
 
@@ -18,6 +19,8 @@ public class RadarBtn : MonoBehaviour
             offBtn.SetActive(true);
             onBtn.SetActive(false);
             Radar.sweeperOn = false;
+            GlobalData.radarOn = false;
+            radarSound.SetActive(false);
         }
         else
         {
@@ -26,6 +29,8 @@ public class RadarBtn : MonoBehaviour
             onBtn.SetActive(true);
             offBtn.SetActive(false);
             Radar.sweeperOn = true;
+            GlobalData.radarOn = true;
+            radarSound.SetActive(true);
         }
     }
 }

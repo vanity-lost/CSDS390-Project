@@ -12,7 +12,7 @@ public class TempOutdoorCreature : MonoBehaviour
     public static Vector3 subVector = new Vector3(0.0f, 0.0f, 0.0f);
     public static Vector3 monsterVector = new Vector3(0.0f, 0.0f, 0.0f);
 
-    private float speed = 8.0f;
+    private float speed = 6.0f;
     private float subDistance = 0.0f;
     private float saveDistance = 0.0f;
 
@@ -59,6 +59,10 @@ public class TempOutdoorCreature : MonoBehaviour
         bool radar = CheckRadar();
         bool status = false;
         if (distance && lights)
+        {
+            status = true;
+        }
+        else if (distance && radar)
         {
             status = true;
         }
@@ -131,9 +135,9 @@ public class TempOutdoorCreature : MonoBehaviour
 
     void SpawnMonster()
     {
-        int randX = random.Next(-110, -90);
+        int randX = random.Next(-120, -80);
         int randY = random.Next(40, 60);
-        int randZ = random.Next(70, 100);
+        int randZ = random.Next(100, 140);
         monster.transform.position = new Vector3(randX, randY, randZ);
         monster.SetActive(true);
     }

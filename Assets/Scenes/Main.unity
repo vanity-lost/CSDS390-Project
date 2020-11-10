@@ -9327,10 +9327,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 2.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1603622207}
-  - {fileID: 382596032}
-  - {fileID: 1530022533}
+  m_Children: [{fileID: 1603622207}, {fileID: 382596032}, {fileID: 1530022533}]
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15452,6 +15449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offBtn: {fileID: 2109609840}
   onBtn: {fileID: 1437099474}
+  radarSound: {fileID: 1713939389}
 --- !u!1 &703763583
 GameObject:
   m_ObjectHideFlags: 0
@@ -31077,8 +31075,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1973690016}
+  m_Children: [{fileID: 1973690016}]
   m_Father: {fileID: 1611973446}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47951,6 +47948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offBtn: {fileID: 2109609840}
   onBtn: {fileID: 1437099474}
+  radarSound: {fileID: 1713939389}
 --- !u!1001 &1892453836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49376,8 +49374,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 706379650}
+  m_Children: [{fileID: 706379650}]
   m_Father: {fileID: 1611973446}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

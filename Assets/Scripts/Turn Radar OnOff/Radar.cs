@@ -65,6 +65,8 @@ public class Radar : MonoBehaviour
         else
         {
             sweeperCanvas.SetActive(false);
+            enemyIcon.SetActive(false);
+            iconActive = false;
         }
 
         
@@ -96,8 +98,9 @@ public class Radar : MonoBehaviour
         {
             //TempOutdoorCreature.GetMonsterLocation();
             monsterVector = TempOutdoorCreature.monsterVector;
-            float x = (((-1f * monsterVector.x) - 100) * 10) + 475;
-            float y = (monsterVector.z * 1.2f) + 235;
+            Debug.Log("monster x: " + monsterVector.x + " monster y: " + monsterVector.y);
+            float x = (((-1 * monsterVector.x) - 100) * 10) + 785;
+            float y = (monsterVector.z * 1.2f) + 350;
             //Debug.Log("x: " + (x - 475) + " y: " + (y - 235));
             enemyIcon.transform.position = new Vector3(x, y, 0);
             if (!iconActive)
