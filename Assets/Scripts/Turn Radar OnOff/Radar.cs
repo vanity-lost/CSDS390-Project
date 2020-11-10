@@ -15,7 +15,7 @@ public class Radar : MonoBehaviour
     private float rotSpeed = 250f;
 
     public static bool radarOpen = false;
-    public static bool sweeperOn = false;
+    public static bool sweeperOn = true;
     private bool iconActive = false;
     public static bool radarOn = true;
 
@@ -31,7 +31,15 @@ public class Radar : MonoBehaviour
         bool close = Closeness();
 
         //sweeperTransform.eulerAngles += new Vector3(0,0,-rotSpeed * Time.deltaTime);
-        sweeper.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
+        if (RadarBtn.radarOn)
+        {
+            sweeper.SetActive(true);
+            sweeper.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
+        }
+        else
+        {
+            sweeper.SetActive(false);
+        }
 
         if (Input.GetKeyDown("e") && close == true)
         {
@@ -52,12 +60,13 @@ public class Radar : MonoBehaviour
             }
         }
 
-        if (sweeperOn)
+        if (sweeperOn && RadarBtn.radarOn)
         {
             sweeperCanvas.SetActive(true);
             float rotation = sweeper.transform.localEulerAngles.z;
             //Debug.Log("rotation angle: " + rotation);
             sweeperCanvas.transform.localEulerAngles = new Vector3(0f, 0f, rotation - 110f);
+            //sweeper.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
             //sweeperCanvas.transform.eulerAngles += new Vector3(0f, 0f, -rotSpeed * Time.deltaTime);
             //sweeperCanvas.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
             TrackMonster();
