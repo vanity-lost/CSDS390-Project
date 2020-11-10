@@ -6,114 +6,96 @@ using UnityEngine.UI;
 
 public class RadarFix : MonoBehaviour // TODO timer needs some work
 {
-    public List<Button> buttons = new List<Button>();
+    Dictionary<Button, string> buttons;
+    public Button buttonB;
+    public Button buttonY;
+    public Button buttonR;
     public GameObject Panel;
     //public RadarTimer Timer;
-    public int target;
+    public string correctCode = "afge";
     public string charClicked;
     public bool newInputDetected;
-    public char inputChar;
     public int numClicked; // can be randomly generated along w/ code
-    public int numLeft = 0;
-    float totalTime = 10f;
+    public int numLeft;
+    float totalTime = 15f;
     public GameObject TimerTextObject;
     Text timer;
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Button button in buttons)
-        {
-            Text displayText = button.GetComponentInChildren(typeof(Text)) as Text;
-            displayText.gameObject.SetActive(false);
-            int rand = RandomSign();
-            if (rand == 1 ) {
-               displayText.gameObject.SetActive(true);
-               numLeft++;
-            }
-
-        }
+    
+        buttonB.onClick.AddListener(TaskOnClick);
+        buttonY.onClick.AddListener(TaskOnClick);
+        buttonR.onClick.AddListener(TaskOnClick);
         TimerTextObject = GameObject.Find("TimerText");
         timer = TimerTextObject.GetComponent<Text>();
 
 
+        numLeft = 3;
         newInputDetected = false;
- 
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (numLeft == 0) 
-        {
-            StartCoroutine(EndTask());
-        }
-
-        totalTime -= Time.deltaTime;
-       UpdateLevelTimer(totalTime );
-
-        if (totalTime <= 0f)
-        {
-            StartCoroutine(EndTaskFail()); 
-        }
-                
         if (numLeft == 0) 
         {
             StartCoroutine(EndTask());
         }
 
-        //if (numClicked <= correctCode.Length) 
-        //{
-           // if (newInputDetected == true) 
-           // {
-           //     if(correctCode.Contains(charClicked)) 
-            //    {
-                    //TODO make input button disappear
-              //      Debug.Log("Correct character clicked");
-               //     numLeft--;
-              //  }
-              //  else
-              //  {
-              //       StartCoroutine(ReloadTask());
-              //  }
-              //  newInputDetected = false;
-           // }
-       // }
-       // if (numLeft == 0)//radar on or off
-        //{
+        totalTime -= Time.deltaTime;
+        UpdateLevelTimer(totalTime );
 
-        //    StartCoroutine(EndTask());
-       // }
+        if (totalTime <= 0f)
+            {
+                StartCoroutine(EndTaskFail());
+                //StartCoroutine(reload this scene); 
+            }
+                
+
+        if (numClicked <= correctCode.Length) 
+        {
+            if (newInputDetected == true) 
+            {
+                if(correctCode.Contains(charClicked)) 
+                {
+                    //TODO make input button disappear
+                    Debug.Log("Correct character clicked");
+                    numLeft--;
+                }
+                else
+                {
+                     StartCoroutine(ReloadTask());
+                }
+                newInputDetected = false;
+            }
+        }
+        if (numLeft == 0)//radar on or off
+        {
+
+            StartCoroutine(EndTask());
+        }
     }
 
-    public void btnClickDetected(Button clickedButton)
-    {
-        Text displayText = clickedButton.GetComponentInChildren(typeof(Text)) as Text;
-        if (displayText.gameObject.activeSelf) 
-        {
-            displayText.gameObject.SetActive(false);
-            numLeft--;
-        }
+    
 
-        //inputChar = btnNum[0];
-        newInputDetected = true;
-        //Debug.Log("button clicked:" + btnNum + "    numClicked:" + numClicked + "          inputChar:" + btnNum[0]);
+    public void TaskOnClick()
+    {
+        numLeft--;
     }
 
     IEnumerator EndTask()
     {
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Correct Characters");
-        GlobalData.radarOn = !GlobalData.radarOn;
         SceneManager.LoadScene("Main");
-        ESCDectect.gameIsPaused = false;
-        
     }
 
      IEnumerator EndTaskFail()
     {
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Correct Characters");
-        ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }
 
@@ -138,10 +120,5 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
              }
  
              timer.text = minutes.ToString("00") + ":" + seconds.ToString("00");
-    }
-
-    public static int RandomSign()
-    {
-         return UnityEngine.Random.value < 0.5f ? 1 : -1;
     }
 }
