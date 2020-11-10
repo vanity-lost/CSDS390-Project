@@ -29,7 +29,9 @@ public Rotation rotation = Rotation.x;
     {
         if (ESCDectect.gameIsPaused)
             Screen.lockCursor = false;
-         else
+        else if (Radar.radarOpen)
+            Screen.lockCursor = false;
+        else
             Screen.lockCursor = true;
         if (ESCDectect.gameIsPaused) {
             xSensitivity = 0.0f;

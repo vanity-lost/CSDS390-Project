@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class SonarButton : MonoBehaviour
 {
-    public GameObject thisButton;
-    public GameObject letter;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    //public GameObject thisButton;
+    //public GameObject letter;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
 }

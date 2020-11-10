@@ -9,13 +9,15 @@ public class Radar : MonoBehaviour
     public GameObject radarCanvas;
     public GameObject sweeperCanvas;
     public GameObject enemyIcon;
+    //public PowerBtn powerBtn;
 
     private Transform sweeperTransform;
-    private float rotSpeed = 300f;
+    private float rotSpeed = 250f;
 
     public static bool radarOpen = false;
-    private bool sweeperOn = false;
+    public static bool sweeperOn = false;
     private bool iconActive = false;
+    public static bool radarOn = true;
 
     private Vector3 monsterVector = new Vector3();
 
@@ -33,28 +35,39 @@ public class Radar : MonoBehaviour
 
         if (Input.GetKeyDown("e") && close == true)
         {
-            Debug.Log("this is working");
+            //Debug.Log("this is working");
             if (!radarOpen)
             {
                 radarCanvas.SetActive(true);
                 radarOpen = true;
                 sweeperOn = true;
+                //Screen.lockCursor = false;
             }
             else
             {
                 radarCanvas.SetActive(false);
                 radarOpen = false;
                 sweeperOn = false;
+                //Screen.lockCursor = true;
             }
         }
 
         if (sweeperOn)
         {
+            sweeperCanvas.SetActive(true);
+            float rotation = sweeper.transform.localEulerAngles.z;
+            //Debug.Log("rotation angle: " + rotation);
+            sweeperCanvas.transform.localEulerAngles = new Vector3(0f, 0f, rotation - 110f);
             //sweeperCanvas.transform.eulerAngles += new Vector3(0f, 0f, -rotSpeed * Time.deltaTime);
-            sweeperCanvas.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
+            //sweeperCanvas.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
+            TrackMonster();
+        }
+        else
+        {
+            sweeperCanvas.SetActive(false);
         }
 
-        TrackMonster();
+        
     }
 
     private bool Closeness()
