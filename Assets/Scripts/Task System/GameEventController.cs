@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GameEventController : MonoBehaviour
 {
-    public float MENACE_START = 5000.0f;
-    [SerializeField] static public float menaceMeter = 5000.0f; 
+    public float MENACE_START = 10000.0f;
+    [SerializeField] static public float menaceMeter = 10000.0f; 
     float timer;
 
     void Start() {
@@ -16,7 +16,7 @@ public class GameEventController : MonoBehaviour
     void Update()
     {
         if(!dialogueUpdate.locked) {
-            menaceMeter -= Time.deltaTime * 0.1f; //0.1
+            menaceMeter -= Time.deltaTime * 0.2f; //0.1
             int miniTask = Random.Range(0, (int)menaceMeter);
 
             timer += Time.deltaTime;
