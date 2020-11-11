@@ -9,6 +9,7 @@ public class Radar : MonoBehaviour
     public GameObject radarCanvas;
     public GameObject sweeperCanvas;
     public GameObject enemyIcon;
+    public GameObject radarSound;
     //public PowerBtn powerBtn;
 
     private Transform sweeperTransform;
@@ -35,10 +36,12 @@ public class Radar : MonoBehaviour
         {
             sweeper.SetActive(true);
             sweeper.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
+            radarSound.SetActive(true);
         }
         else
         {
             sweeper.SetActive(false);
+            radarSound.SetActive(false);
         }
 
         if (Input.GetKeyDown("e") && close == true)

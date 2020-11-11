@@ -88,7 +88,8 @@ public class TaskSystem : MonoBehaviour
         
         _dialogue.SetText(taskInfo);
 
-        if (energy.energyNum <= 0 || SubHealth.healthNum <= 0) {
+        //if (energy.energyNum <= 0 || SubHealth.healthNum <= 0) {
+        if (SubHealth.healthNum <= 0) {
             ESCDectect.gameIsPaused = true;
             Screen.lockCursor = false;
 
@@ -109,6 +110,7 @@ public class TaskSystem : MonoBehaviour
             ESCDectect.gameIsPaused = true;
             Screen.lockCursor = false;
             StartCoroutine(transition("End Scene"));
+            SubDistanceTracker.traveledDistance = 0f;
         }
     }
 

@@ -7284,7 +7284,7 @@ Transform:
   m_GameObject: {fileID: 357967276}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 1347143525}
   m_Father: {fileID: 0}
@@ -7489,6 +7489,7 @@ MonoBehaviour:
   radarCanvas: {fileID: 1932789511}
   sweeperCanvas: {fileID: 39290451}
   enemyIcon: {fileID: 2123897042}
+  radarSound: {fileID: 1713939389}
 --- !u!1 &382596031
 GameObject:
   m_ObjectHideFlags: 0
@@ -9187,7 +9188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &536872035
 GameObject:
@@ -31730,7 +31731,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347143524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 357967282}
@@ -43857,7 +43858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 620430426175240596, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 620430426175240596, guid: 63059ef6ef58b4bfcb50e420e2b50b70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -44252,6 +44253,7 @@ MonoBehaviour:
   radarCanvas: {fileID: 0}
   sweeperCanvas: {fileID: 0}
   enemyIcon: {fileID: 0}
+  radarSound: {fileID: 0}
 --- !u!114 &1564841132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46569,7 +46571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb724038ec132774b8623fec4eb545f7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1542649068637609973, guid: cb724038ec132774b8623fec4eb545f7, type: 3}
       propertyPath: m_Layer
@@ -47362,7 +47364,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &1786352739
 MonoBehaviour:
@@ -51565,7 +51567,7 @@ GameObject:
   - component: {fileID: 152623066879760932}
   - component: {fileID: 152623066879760934}
   m_Layer: 0
-  m_Name: pCylinder12
+  m_Name: light switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52681,7 +52683,7 @@ GameObject:
   - component: {fileID: 9059264237012793273}
   - component: {fileID: 8896462937841528890}
   - component: {fileID: 2203104289909747231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55167,7 +55169,7 @@ GameObject:
   - component: {fileID: 1854327802747079994}
   - component: {fileID: 3020552158918547405}
   - component: {fileID: 4841655226346246493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
