@@ -56,10 +56,10 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
             StartCoroutine(EndTaskFail()); 
         }
                 
-        if (numLeft == 0) 
-        {
-            StartCoroutine(EndTask());
-        }
+        //if (numLeft == 0) 
+        //{
+        //    StartCoroutine(EndTask());
+        //}
 
         //if (numClicked <= correctCode.Length) 
         //{
@@ -104,6 +104,7 @@ public class RadarFix : MonoBehaviour // TODO timer needs some work
         yield return new WaitForSeconds(0.5f);
         Debug.Log("Correct Characters");
         GlobalData.radarOn = !GlobalData.radarOn;
+        Debug.Log("radar on: " + GlobalData.radarOn);
         SceneManager.LoadScene("Main");
         ESCDectect.gameIsPaused = false;
         
