@@ -31,7 +31,7 @@ public class Radar : MonoBehaviour
         bool close = Closeness();
 
         //sweeperTransform.eulerAngles += new Vector3(0,0,-rotSpeed * Time.deltaTime);
-        if (RadarBtn.radarOn)
+        if (GlobalData.radarOn)
         {
             sweeper.SetActive(true);
             sweeper.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
@@ -60,7 +60,7 @@ public class Radar : MonoBehaviour
             }
         }
 
-        if (sweeperOn && RadarBtn.radarOn)
+        if (sweeperOn && GlobalData.radarOn)
         {
             sweeperCanvas.SetActive(true);
             float rotation = sweeper.transform.localEulerAngles.z;
@@ -108,10 +108,12 @@ public class Radar : MonoBehaviour
             //TempOutdoorCreature.GetMonsterLocation();
             monsterVector = TempOutdoorCreature.monsterVector;
             Debug.Log("monster x: " + monsterVector.x + " monster y: " + monsterVector.y);
-            float x = (((-1 * monsterVector.x) - 100) * 10) + 785;
-            float y = (monsterVector.z * 1.2f) + 350;
+            //float x = (((-1 * monsterVector.x) - 100) * 10) + 785;
+            //float y = (monsterVector.z * 1.2f) + 350;
+            float x = (((-1 * monsterVector.x) - 100) * 10);
+            float y = (monsterVector.z * 1.2f);
             //Debug.Log("x: " + (x - 475) + " y: " + (y - 235));
-            enemyIcon.transform.position = new Vector3(x, y, 0);
+            enemyIcon.transform.localPosition = new Vector3(x, y, 0);
             if (!iconActive)
             {
                 enemyIcon.SetActive(true);
