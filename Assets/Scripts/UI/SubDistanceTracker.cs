@@ -18,7 +18,9 @@ public class SubDistanceTracker : MonoBehaviour
     public static float checkPoint1Distance;
     public static float checkPoint2Distance;
     public int NUM_CHECK_POINTS = 3;
-    
+
+    public GameObject NarrativeDialogue;
+
     void Start()
     {
         DistanceMeter.maxValue = maxDistance;
@@ -37,16 +39,12 @@ public class SubDistanceTracker : MonoBehaviour
 
         if(traveledDistance >= checkPoint1Distance && !checkPoint1) {
             checkPoint1 = true;
-            // enable Narrative Dialogue at index 3
-            // in the narrativeDilogueUpdate:
-            //      allow player to click to continue through index 5
-            //      at which point it will disable itself.
-
+            NarrativeDialogue.SetActive(true);
         }
 
         if(traveledDistance >= checkPoint2Distance && !checkPoint2) {
             checkPoint2 = true;
-            // enable Narrative Dialogue at index 6
+            NarrativeDialogue.SetActive(true);
         }
     }
 
@@ -57,7 +55,6 @@ public class SubDistanceTracker : MonoBehaviour
         {
             elapsedTime = elapsedTime % 1.0f;
             traveledDistance += move;
-            Debug.Log(traveledDistance);
             slider.value = traveledDistance;
             if (traveledDistance == maxDistance)
             {

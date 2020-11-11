@@ -17,8 +17,8 @@ TagManager:
   - 
   - 
   - HideObjects
-  - 
-  - 
+  - Under
+  - HideFromMiniMapCam
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Radar
     uniqueID: 389960065
+    locked: 0
+  - name: Under
+    uniqueID: 3608264967
     locked: 0

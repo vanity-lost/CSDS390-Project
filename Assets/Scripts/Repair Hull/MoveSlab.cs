@@ -85,6 +85,7 @@ public class MoveSlab : MonoBehaviour
 
     public void OnMouseUp()
     {
+        Cursor.visible = true;
         held = false;
     }
 }

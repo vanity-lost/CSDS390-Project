@@ -16,6 +16,7 @@ public class MiniTaskStarter : MonoBehaviour
     [SerializeField] GameObject hull;
     [SerializeField] GameObject storage;
     [SerializeField] GameObject fireExtinguisher;
+    [SerializeField] GameObject radarSwitch;
 
     [SerializeField] Light[] lights;
     [SerializeField] float distance = 5f;
@@ -73,17 +74,16 @@ public class MiniTaskStarter : MonoBehaviour
         }
 
         if(GlobalData.wiresBroken) {
-           //Set the WireBox;
-            if (GlobalData.brokenWireboxLoc == 1) {
-                WireHeadSpotter.SetActive(true);
+            if (GlobalData.brokenWireboxLoc == 1  && !wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus() && !wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                setWireBoxSpotter(1);
                 wireboxhead.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
             }
-            else if (GlobalData.brokenWireboxLoc == 2) {
-                WireMidSpotter.SetActive(true);
+            else if (GlobalData.brokenWireboxLoc == 2 && !wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus() && !wireboxtail.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                setWireBoxSpotter(2);
                 wireboxmid.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
             }
-            else if (GlobalData.brokenWireboxLoc == 3) {
-                WireLowSpotter.SetActive(true);
+            else if (GlobalData.brokenWireboxLoc == 3 && !wireboxhead.GetComponent<WireBoxTrigger>().getBrokenStatus() && !wireboxmid.GetComponent<WireBoxTrigger>().getBrokenStatus()) {
+                setWireBoxSpotter(3);
                 wireboxtail.GetComponent<WireBoxTrigger>().setBrokenStatus(true);
             }
 
@@ -159,6 +159,12 @@ public class MiniTaskStarter : MonoBehaviour
             Debug.Log("Lights Flipped");
             Debug.Log(GlobalData.lightSwitch);
         }
+        if (Input.GetKeyDown("e") & radarSwitch.GetComponent<MinigameTrigger>().getTriggerStatus())
+        {
+            ESCDectect.gameIsPaused = true;
+            Debug.Log("Radar switch");
+            SceneManager.LoadScene("Sonor On Off");
+        }
         if (GlobalData.lightsOn != lights[0].enabled)
         {
             GlobalData.lightsOn = !GlobalData.lightsOn;
@@ -196,6 +202,26 @@ public class MiniTaskStarter : MonoBehaviour
         {
             Light light = child.GetComponent<Light>();
             light.enabled = !light.enabled;
+        }
+    }
+
+    public void setWireBoxSpotter(int index) {
+        switch(index) {
+            case 1:
+            WireHeadSpotter.SetActive(true);
+            WireMidSpotter.SetActive(false);
+            WireLowSpotter.SetActive(false);
+            break;
+            case 2:
+            WireHeadSpotter.SetActive(false);
+            WireMidSpotter.SetActive(true);
+            WireLowSpotter.SetActive(false);
+            break;
+            case 3:
+            WireHeadSpotter.SetActive(false);
+            WireMidSpotter.SetActive(false);
+            WireLowSpotter.SetActive(true);
+            break;
         }
     }
 }

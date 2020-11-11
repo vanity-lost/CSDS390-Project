@@ -6,40 +6,104 @@ using TMPro;
 
 public class narrativeDialogueUpdate : MonoBehaviour
 {
+    public GameObject NarrativeDialogue;
     public TextMeshProUGUI _narrativeDialogue;
-    public TextMeshProUGUI _continueHints;
+
+    public GameObject[] Lines;
+
+    bool playing = false;
 
     public string[] messages;
 
-    public int currentMessageIndex = 0;
+    public int currentMessageIndex;
+
+    float timer = 0;
+
+    float[] timeStamps = {10,17,25};
 
     // Start is called before the first frame update
     void Start()
     {
+        setMessageIndex(3);
         _narrativeDialogue.SetText(messages[currentMessageIndex]);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //this will probably just need its own methods, rather than using Update
-        if (SubDistanceTracker.checkPoint1 && !SubDistanceTracker.checkPoint2)
+
+       if(NarrativeDialogue.activeSelf && currentMessageIndex >= 3 && currentMessageIndex <= 5)
         {
-            currentMessageIndex = 3;
+            if (!playing)
+            {
+                Lines[0].GetComponent<AudioSource>().Play();
+                playing = true;
+            }
+            timer += Time.deltaTime;   
+            if(timer > 0 && timer < 0.5)
+            {
+                setMessageIndex(3);
+                _narrativeDialogue.SetText(messages[currentMessageIndex]);
+            }
+            if (timer >= timeStamps[0] && timer <= timeStamps[0]+0.1) {
+                setMessageIndex(4);
+                _narrativeDialogue.SetText(messages[currentMessageIndex]);
+            }
+            else if (timer >= timeStamps[1] && timer <= timeStamps[1] + 0.1)
+            {
+                setMessageIndex(5);
+                _narrativeDialogue.SetText(messages[currentMessageIndex]);
+            }
+            else if(timer >= timeStamps[2]) {
+                timer = 0;
+                setMessageIndex(6);
+                playing = false;
+                NarrativeDialogue.SetActive(false);
+            }
             
         }
-        else if (SubDistanceTracker.checkPoint2)
+        if (NarrativeDialogue.activeSelf && currentMessageIndex >= 6 && currentMessageIndex <= 8)
         {
-            //play the second set
-            currentMessageIndex = 6;
+            if (!playing)
+            {
+                Lines[1].GetComponent<AudioSource>().Play();
+                playing = true;
+            }
+            timer += Time.deltaTime;
+            if (timer > 0 && timer < 0.5)
+            {
+                setMessageIndex(6);
+                _narrativeDialogue.SetText(messages[currentMessageIndex]);
+            }
+            if (timer >= timeStamps[0] && timer <= timeStamps[0] + 0.1)
+            {
+                setMessageIndex(7);
+                _narrativeDialogue.SetText(messages[currentMessageIndex]);
+            }
+            else if (timer >= timeStamps[1] && timer <= timeStamps[1] + 0.1)
+            {
+                setMessageIndex(8);
+                _narrativeDialogue.SetText(messages[currentMessageIndex]);
+            }
+            else if (timer >= timeStamps[2])
+            {
+                timer = 0;
+                setMessageIndex(9);
+                playing = false;
+                NarrativeDialogue.SetActive(false);
+            }
 
         }
-        else
-        {
-            //if at the end play the final lines
-            currentMessageIndex = 9;
-        }
-        _narrativeDialogue.SetText(messages[currentMessageIndex]);
-        
+
+    }
+
+    public int getMessageIndex()
+    {
+        return currentMessageIndex;
+    }
+
+    public void setMessageIndex(int i)
+    {
+        currentMessageIndex = i;
     }
 }

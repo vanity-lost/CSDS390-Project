@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class TempOutdoorCreature : MonoBehaviour
 {
-    public GameObject monster;
-    public CameraShake periscopeCamera;
-    public CameraShake mainCamera;
-    public MoveOutdoorEnemy moveMonster;
+    [SerializeField] public GameObject monster;
+    [SerializeField] public CameraShake periscopeCamera;
+    [SerializeField] public CameraShake mainCamera;
+    [SerializeField] public MoveOutdoorEnemy moveMonster;
+    [SerializeField] public GameObject boom1;
+    [SerializeField] public GameObject boom2;
+    [SerializeField] public GameObject boom3;
 
     public static Vector3 subVector = new Vector3(0.0f, 0.0f, 0.0f);
     public static Vector3 monsterVector = new Vector3(0.0f, 0.0f, 0.0f);
 
-    private float speed = 8.0f;
+    private float speed = 6.0f;
     private float subDistance = 0.0f;
     private float saveDistance = 0.0f;
 
     private bool reset = false;
     public bool isAttacking = false;
     public bool monsterStop = false;
-    private bool monsterStatus = false;
+    public static bool monsterStatus = false;
 
     System.Random random = new System.Random();
 
@@ -41,6 +44,14 @@ public class TempOutdoorCreature : MonoBehaviour
                 saveDistance = subDistance;
                 StartCoroutine(Attack());
             }
+            else
+            {
+                FindMonster();
+                if (Vector3.Distance(monsterVector, subVector) < 5.0f)
+                {
+                    ResetMonster();
+                }
+            }
         }
     }
 
@@ -51,6 +62,10 @@ public class TempOutdoorCreature : MonoBehaviour
         bool radar = CheckRadar();
         bool status = false;
         if (distance && lights)
+        {
+            status = true;
+        }
+        else if (distance && radar)
         {
             status = true;
         }
@@ -116,16 +131,16 @@ public class TempOutdoorCreature : MonoBehaviour
 
     }
 
-    void FindMonster()
+    public void FindMonster()
     {
         monsterVector = monster.transform.position;
     }
 
     void SpawnMonster()
     {
-        int randX = random.Next(-110, -90);
+        int randX = random.Next(-120, -80);
         int randY = random.Next(40, 60);
-        int randZ = random.Next(70, 100);
+        int randZ = random.Next(100, 140);
         monster.transform.position = new Vector3(randX, randY, randZ);
         monster.SetActive(true);
     }
@@ -154,6 +169,7 @@ public class TempOutdoorCreature : MonoBehaviour
         int test = 0;
         bool canAttack = true;
         int numAttacks = 0;
+        int soundIndex = 0;
 
         isAttacking = true;
         while (canAttack && numAttacks < 3)
@@ -164,10 +180,31 @@ public class TempOutdoorCreature : MonoBehaviour
             StartCoroutine(periscopeCamera.Shake(0.15f, 0.4f));
             StartCoroutine(mainCamera.Shake(0.15f, 0.4f));
             Debug.Log("number of attacks: " + numAttacks);
+            soundIndex++;
+            switch (soundIndex)
+            {
+                case 1:
+                    boom1.SetActive(true);
+                    break;
+                case 2:
+                    boom2.SetActive(true);
+                    break;
+                case 3:
+                    boom3.SetActive(true);
+                    break;
+            }
+
             if (numAttacks < 3)
             {
                 yield return new WaitForSeconds(5);
             }
+            if (numAttacks == 3)
+            {
+                yield return new WaitForSeconds(2);
+            }
+            boom1.SetActive(false);
+            boom2.SetActive(false);
+            boom3.SetActive(false);
             canAttack = MonsterCanAttack();
         }
         //SubHealth.monsterAttack++;
@@ -194,6 +231,7 @@ public class TempOutdoorCreature : MonoBehaviour
         //    }
         //    canAttack = MonsterCanAttack();
         //}
+        soundIndex = 0;
         numAttacks = 0;
         ResetMonster();
         yield return 0;
@@ -241,6 +279,7 @@ public class TempOutdoorCreature : MonoBehaviour
     {
         reset = true;
         isAttacking = false;
+        monsterStatus = false;
         monster.SetActive(false);
     }
 
@@ -258,5 +297,10 @@ public class TempOutdoorCreature : MonoBehaviour
         }
         return status;
     }
+
+    //public static void GetMonsterLocation()
+    //{
+    //    monsterVector = monster.transform.position;
+    //}
 
 }

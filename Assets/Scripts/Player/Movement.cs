@@ -24,6 +24,10 @@ public class Movement : MonoBehaviour
         {
             movespeed = 0.0f;
         }
+        else if (Radar.radarOpen)
+        {
+            movespeed = 0.0f;
+        }
         else {
             movespeed = 4.0f;
         }
