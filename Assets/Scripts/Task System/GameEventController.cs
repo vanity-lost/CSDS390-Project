@@ -69,7 +69,7 @@ public class GameEventController : MonoBehaviour
             GlobalData.fires = true;
             break;
         case 2:
-            GlobalData.hullBroken = true;
+            //GlobalData.hullBroken = true;
             break;
         case 1:
             GlobalData.engineBroken = true;
