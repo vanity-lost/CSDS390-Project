@@ -45868,7 +45868,7 @@ GameObject:
   - component: {fileID: 1733892839}
   - component: {fileID: 1733892838}
   m_Layer: 5
-  m_Name: Radar_switch_text
+  m_Name: Light_switch_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45881,16 +45881,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733892836}
-  m_LocalRotation: {x: 0.0031642097, y: -0.39608616, z: 0.007335037, w: 0.91817856}
-  m_LocalPosition: {x: 0, y: 0, z: -834}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.07791554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1775887445}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.666, y: -46.665, z: 0.628}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1851, y: 71}
+  m_AnchoredPosition: {x: 0.003614361, y: 0}
   m_SizeDelta: {x: 349.6, y: 137.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1733892838
@@ -45926,7 +45926,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Radar Switch
+  m_Text: "Light\n Switch"
 --- !u!222 &1733892839
 CanvasRenderer:
   m_ObjectHideFlags: 0
