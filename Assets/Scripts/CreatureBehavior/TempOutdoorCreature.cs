@@ -90,17 +90,22 @@ public class TempOutdoorCreature : MonoBehaviour
                 //    FindMonster();
                 //    monsterStatus = true;
                 //    break;
-                case 10.0f:
-                    SpawnMonster();
-                    FindMonster();
-                    monsterStatus = true;
-                    break;
+                //case 10.0f:
+                //    SpawnMonster();
+                //    FindMonster();
+                //    monsterStatus = true;
+                //    break;
                 //case 100.0f:
                 //    SpawnMonster();
                 //    FindMonster();
                 //    monsterStatus = true;
                 //    break;
-                case 160.0f:
+                case 170.0f:
+                    SpawnMonster();
+                    FindMonster();
+                    monsterStatus = true;
+                    break;
+                case 250.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
@@ -110,7 +115,7 @@ public class TempOutdoorCreature : MonoBehaviour
                     FindMonster();
                     monsterStatus = true;
                     break;
-                case 450.0f:
+                case 420.0f:
                     SpawnMonster();
                     FindMonster();
                     monsterStatus = true;
