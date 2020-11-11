@@ -16,7 +16,7 @@ public class GameEventController : MonoBehaviour
     void Update()
     {
         if(!dialogueUpdate.locked) {
-            menaceMeter -= Time.deltaTime * 0.2f; //0.1
+            menaceMeter -= Time.deltaTime * 0.1f; //0.1
             int miniTask = Random.Range(0, (int)menaceMeter);
 
             timer += Time.deltaTime;

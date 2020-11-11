@@ -50652,7 +50652,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NarrativeDialogue: {fileID: 1246271985}
   _narrativeDialogue: {fileID: 2105070264}
-  Lines: []
+  Lines:
+  - {fileID: 1603622206}
+  - {fileID: 382596031}
+  - {fileID: 1530022532}
   messages:
   - 'MISSION CONTROL: D-35 Daedalus, we have lost connection with the research base
     at the bottom of the trench. We need you to scout there to assess the situation,
