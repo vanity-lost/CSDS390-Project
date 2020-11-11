@@ -2259,7 +2259,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: d7232e6ef36fe944dbb9fd6c97d7000a, type: 3}
-    m_FontSize: 48
+    m_FontSize: 46
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2277,8 +2277,13 @@ MonoBehaviour:
 
     Remember,
     the sub will lose health when its hull is cracked or is on fire. Check on the
-    wire boxes and fuses to ensure there is no extra lose of energy. The sub can''t
-    continue its trip with a broken engine, or an empty energy bar.'
+    wire boxes and fuses to ensure the lights stay on. The sub can''t continue its
+    trip with a broken engine.
+
+
+    Becareful of the creatures lurking around in
+    the ocean depths. If one appears,  make sure to turn off the lights and sonar
+    so they cannot deteect you.'
 --- !u!222 &1677744410
 CanvasRenderer:
   m_ObjectHideFlags: 0
