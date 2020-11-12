@@ -36223,6 +36223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4708537819511826177}
   - component: {fileID: 5337828372616510908}
+  - component: {fileID: 5337828372616510909}
   m_Layer: 0
   m_Name: FuseBoxUVD
   m_TagString: Untagged
@@ -36243,6 +36244,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuseCover: {fileID: 2688695534641328582}
+--- !u!114 &5337828372616510909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337828372616510907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda18b1cf976160489e5167f866e8587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5391153052084656700
 GameObject:
   m_ObjectHideFlags: 0

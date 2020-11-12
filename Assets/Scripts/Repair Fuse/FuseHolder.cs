@@ -9,10 +9,12 @@ public class FuseHolder : MonoBehaviour
     private Light status;
     private Light background;
     [SerializeField] private bool satisfied;
+    private bool full;
     private bool on;
 
     void Start()
     {
+        full = true;
         topSparks = transform.GetChild(0).gameObject.GetComponent<ParticleSystem>();
         bottomSparks = transform.GetChild(1).gameObject.GetComponent<ParticleSystem>();
         status = transform.GetChild(2).gameObject.GetComponent<Light>();
@@ -50,7 +52,8 @@ public class FuseHolder : MonoBehaviour
 
     public void InPlace(bool condition)
     {
-        if (!satisfied)
+        Debug.Log(full);
+        if ((satisfied || full) != true)
         {
             satisfied = condition;
             if (condition)
@@ -75,6 +78,7 @@ public class FuseHolder : MonoBehaviour
 
     public void Removed()
     {
+        full = false;
         satisfied = false;
     }
 
