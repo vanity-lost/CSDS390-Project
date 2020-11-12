@@ -22,9 +22,10 @@ public class GlobalData : MonoBehaviour
     [SerializeField] static public int brokenWireboxLoc = -1;
 
     [SerializeField] static public bool storageLocked = true;
-
+    static public int numTasksFinished = 0;
     public static Vector3 position = new Vector3(0, -10f, 0);
     public static Quaternion rotation = new Quaternion(1, 0, 0, 1);
+
 
     private void Start()
     {

@@ -171,7 +171,6 @@ public class MiniTaskStarter : MonoBehaviour
         }
             if (GlobalData.lightsOn != (GlobalData.lightSwitch && !GlobalData.wiresBroken && !GlobalData.fuseBroken))
         {
-                Debug.Log("In Here");
                 GlobalData.lightsOn = !GlobalData.lightsOn;
                 LightsFlip();
         }

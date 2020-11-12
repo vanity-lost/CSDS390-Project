@@ -30,10 +30,12 @@ public class TaskDone : MonoBehaviour
     IEnumerator EndTask()
     {
         yield return new WaitForSeconds(1f);
-        Debug.Log("all fire are put down");
+        //Debug.Log("all fire are put down");
         GlobalData.fires = false;
+        GlobalData.numTasksFinished++;
         //GlobalData.updateFire = false;
         ESCDectect.gameIsPaused = false;
+        
         SceneManager.LoadScene("Main");
     }
 }

@@ -7835,7 +7835,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7604f05656dbd405b882bab9883728f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MENACE_START: 2200
+  MENACE_START: 3000
+  NUM_TASKS: 4
 --- !u!1 &367942434
 GameObject:
   m_ObjectHideFlags: 0

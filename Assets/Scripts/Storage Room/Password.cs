@@ -50,7 +50,7 @@ public class Password : MonoBehaviour
                     {
 
                         ProgressBar.GetComponent<Slider>().value++;//progress bar +1
-                        Debug.Log("Correct Input +1");
+                        //Debug.Log("Correct Input +1");
                     }
                     else
                     {
@@ -81,7 +81,7 @@ public class Password : MonoBehaviour
         numClicked++;
         inputChar = btnNum[0];
         newinputdetected = true;
-        Debug.Log("button clicked:" + btnNum + "    numClicked:" + numClicked + "          inputChar:" + btnNum[0]);
+        //Debug.Log("button clicked:" + btnNum + "    numClicked:" + numClicked + "          inputChar:" + btnNum[0]);
     }
 
 
@@ -89,7 +89,7 @@ public class Password : MonoBehaviour
     {
         WrenchPanel.SetActive(true);
         yield return new WaitForSeconds(1f);
-        Debug.Log("Correct Password");
+        //Debug.Log("Correct Password");
         GlobalData.storageLocked = false;
         ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
@@ -98,7 +98,7 @@ public class Password : MonoBehaviour
     IEnumerator ReloadTask()
     {
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Wrong Input!!!!");
+        //Debug.Log("Wrong Input!!!!");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

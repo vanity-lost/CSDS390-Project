@@ -32,7 +32,7 @@ public class QTESys : MonoBehaviour
     {
         NumSuccess.GetComponent<Text>().text = "0";
         numofcorrect = Int32.Parse(NumSuccess.GetComponent<Text>().text);
-        Debug.Log(NumSuccess.GetComponent<Text>().text);
+        //Debug.Log(NumSuccess.GetComponent<Text>().text);
         Bar.GetComponent<Slider>().value = 0;
         CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 0);//transparent
         LetterBoxOuter.GetComponent<Image>().sprite = EmptyKey;
@@ -131,7 +131,7 @@ public class QTESys : MonoBehaviour
         {
             PassBox.GetComponent<Text>().text = "Connected!";
             CheckFiller.GetComponent<Image>().color = new Color32(20, 210, 0, 255);//turn green
-            Debug.Log("Connected");
+            //Debug.Log("Connected");
             StartCoroutine(EndWireConnection());
         }
     }
@@ -146,7 +146,7 @@ public class QTESys : MonoBehaviour
             NumSuccess.GetComponent<Text>().text = "" + numofcorrect + "";
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "PASS!";
-            Debug.Log("PASS");
+            //Debug.Log("PASS");
             LetterBoxOuter.GetComponent<Image>().color = new Color32(215, 215, 215, 255);//pressed effect
             //BoxCover.GetComponent<Animator>().Play("BoxCoverSliding");
             LetterBoxOuter.GetComponent<Animator>().Play("ButtonShifting");
@@ -165,7 +165,7 @@ public class QTESys : MonoBehaviour
         {
             CountingDown = 2;
             //PassBox.GetComponent<Text>().text = "FAIL!";
-            Debug.Log("FAIL");
+            //Debug.Log("FAIL");
             CheckFiller.GetComponent<Image>().color = new Color32(210, 20, 0, 255);
             yield return new WaitForSeconds(1f);
             CorrectKey = 0;
@@ -204,12 +204,13 @@ public class QTESys : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Panel.SetActive(false);
-        Debug.Log("animation played");
+        //Debug.Log("animation played");
         BoxCover.GetComponent<Animator>().Play("BoxCoverSliding");
         yield return new WaitForSeconds(1f);
-        Debug.Log("Main");
+        //Debug.Log("Main");
         GlobalData.wiresBroken = false;
         //GlobalData.updateWires = false;
+        GlobalData.numTasksFinished++;
         ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
     }

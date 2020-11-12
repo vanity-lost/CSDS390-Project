@@ -6,44 +6,64 @@ public class GameEventController : MonoBehaviour
 {
     public float MENACE_START = 10000.0f;
     [SerializeField] static public float menaceMeter = 10000.0f; 
-    float timer;
+    static float timer = 0;
+    static List<int> shuffleList;
+    static bool shuffleTasks = true;
+    static int index = 0;
+    public int NUM_TASKS = 4;
 
     void Start() {
         menaceMeter = MENACE_START;
-        timer = 0;
+        if(dialogueUpdate.locked) shuffleList =  generateShuffleList(NUM_TASKS);
     }
     // Update is called once per frame
     void Update()
     {
-        if(!dialogueUpdate.locked) {
+        if(!dialogueUpdate.locked && !GlobalData.storageLocked) {
             menaceMeter -= Time.deltaTime * 0.1f; //0.1
             int miniTask = Random.Range(0, (int)menaceMeter);
 
             timer += Time.deltaTime;
-            if (timer > 1) {
-                if (miniTask >= 0 && miniTask <= 4 && !getTask(miniTask)) {
-                    setTask(miniTask);
+            if (timer > 5) {
+                if (miniTask >= 0 && miniTask <= NUM_TASKS && index < shuffleList.Count && !getTask(shuffleList[index]) && shuffleTasks) {
+                    setTask(shuffleList[index]);
+                    index++;
                     timer = 0; //0
                 }
             }
 
-            if((int)menaceMeter == 5) {
+            if(index == NUM_TASKS) {
+                //Debug.Log("current index just reached the list Size: " + index );
+                shuffleList = generateShuffleList(NUM_TASKS);
+                index = 0;
+                shuffleTasks = false;
+            }
+
+            if(GlobalData.numTasksFinished == NUM_TASKS) {
+                //Debug.Log("Max Tasks Reached");
+                shuffleTasks = true;
+                GlobalData.numTasksFinished = 0;
+            }
+
+            if((int)menaceMeter == NUM_TASKS) {
                 menaceMeter = MENACE_START;
             } 
         }    
+
+    //Debug.Log("Number of tasks done: " +  GlobalData.numTasksFinished);
+    //Debug.Log("current index: " + index );
+    //Debug.Log(string.Join("; ", shuffleList));
+        
     }
 
     public bool getTask(int index) {
         switch (index)
         {
-        case 4:
+        case 3:
             return GlobalData.fuseBroken;
             break;
-        case 3:
-            return GlobalData.fires;
-            break;
         case 2:
-            return GlobalData.hullBroken;
+            return GlobalData.fires;
             break;
         case 1:
             return GlobalData.engineBroken;
@@ -62,14 +82,11 @@ public class GameEventController : MonoBehaviour
     public void setTask(int index) {
         switch (index)
         {
-        case 4:
+        case 3:
             GlobalData.fuseBroken = true;
             break;
-        case 3:
-            GlobalData.fires = true;
-            break;
         case 2:
-            //GlobalData.hullBroken = true;
+            GlobalData.fires = true;
             break;
         case 1:
             GlobalData.engineBroken = true;
@@ -82,6 +99,21 @@ public class GameEventController : MonoBehaviour
             Debug.Log("Incorrect index");
             break;
         }
+    }
+
+    public List<int> generateShuffleList(int listSize) {
+        List<int> numberList = new List<int>();
+        int number;
+
+        for (int i = 0; i < listSize; i++)
+        {
+            do {
+                number = Random.Range(0, listSize);
+            } while (numberList.Contains(number));
+            numberList.Add(number);
+        }
+
+        return numberList;
     }
     
 }

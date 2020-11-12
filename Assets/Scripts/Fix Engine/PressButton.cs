@@ -22,7 +22,9 @@ public class PressButton : MonoBehaviour
             GetComponent<AudioSource>().Play();
             buttonPressed = true;
             GlobalData.engineBroken = false;
+            GlobalData.numTasksFinished++;
             ESCDectect.gameIsPaused = false;
+            
             StartCoroutine(End());
         }
     }

@@ -110,7 +110,7 @@ public class Radar : MonoBehaviour
         {
             //TempOutdoorCreature.GetMonsterLocation();
             monsterVector = TempOutdoorCreature.monsterVector;
-            Debug.Log("monster x: " + monsterVector.x + " monster y: " + monsterVector.y);
+            //Debug.Log("monster x: " + monsterVector.x + " monster y: " + monsterVector.y);
             //float x = (((-1 * monsterVector.x) - 100) * 10) + 785;
             //float y = (monsterVector.z * 1.2f) + 350;
             float x = (((-1 * monsterVector.x) - 100) * 10);
