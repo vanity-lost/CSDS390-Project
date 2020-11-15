@@ -20,6 +20,7 @@ public class GlobalData : MonoBehaviour
     [SerializeField] static public bool updateWires = false;
     [SerializeField] static public bool updateHull = false;
     [SerializeField] static public int brokenWireboxLoc = -1;
+    [SerializeField] static public float MENACE_METER = 2000;
 
     [SerializeField] static public bool storageLocked = true;
     static public int numTasksFinished = 0;

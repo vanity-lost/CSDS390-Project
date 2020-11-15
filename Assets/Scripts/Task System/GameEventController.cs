@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameEventController : MonoBehaviour
 {
-    public float MENACE_START = 10000.0f;
+    public float MENACE_START = 2000.0f;
     [SerializeField] static public float menaceMeter = 10000.0f; 
     static float timer = 0;
     static List<int> shuffleList;
@@ -13,7 +13,7 @@ public class GameEventController : MonoBehaviour
     public int NUM_TASKS = 4;
 
     void Start() {
-        menaceMeter = MENACE_START;
+        menaceMeter = GlobalData.MENACE_METER;
         if(dialogueUpdate.locked) shuffleList =  generateShuffleList(NUM_TASKS);
     }
     // Update is called once per frame
