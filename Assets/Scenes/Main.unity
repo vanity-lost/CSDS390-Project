@@ -7811,7 +7811,7 @@ MonoBehaviour:
   wireboxtail: {fileID: 974478709}
   engine: {fileID: 54455377}
   fuse: {fileID: 919132147993530893}
-  lightHolder: {fileID: 2123462930}
+  lightHolder: {fileID: 900131182}
   lightSwitch: {fileID: 152623066879760931}
   hull: {fileID: 1022466415}
   storage: {fileID: 683576021}
@@ -57775,7 +57775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2123462931
 Transform:
   m_ObjectHideFlags: 0
