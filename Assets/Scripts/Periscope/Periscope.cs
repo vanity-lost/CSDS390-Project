@@ -67,7 +67,7 @@ public class Periscope : MonoBehaviour
         Vector3 periscopeVector = GameObject.Find("Periscope").transform.position;
         float distance = Vector3.Distance(playerVector, periscopeVector);
 
-        if (distance <= 2)
+        if (distance <= 1.8)
         {
             status = true;
             label.SetActive(true);
