@@ -83,7 +83,12 @@ public class GameEventController : MonoBehaviour
         switch (index)
         {
         case 3:
-            GlobalData.fuseBroken = true;
+            // so that the lights do not go out when the outside monster is spawned
+            Debug.Log("check if monster is spawned: " + TempOutdoorCreature.monsterStatus);
+            if (!TempOutdoorCreature.monsterStatus)
+            {
+                GlobalData.fuseBroken = true;
+            }
             break;
         case 2:
             GlobalData.fires = true;
@@ -92,8 +97,13 @@ public class GameEventController : MonoBehaviour
             GlobalData.engineBroken = true;
             break;
         case 0:
-            GlobalData.brokenWireboxLoc = Random.Range(1, 4);
-            GlobalData.wiresBroken = true;
+            // so that the lights do not go out when the outside monster is spawned
+            Debug.Log("check if monster is spawned: " + TempOutdoorCreature.monsterStatus);
+            if (!TempOutdoorCreature.monsterStatus)
+            {
+                GlobalData.brokenWireboxLoc = Random.Range(1, 4);
+                GlobalData.wiresBroken = true;
+            }
             break;
         default:
             Debug.Log("Incorrect index");

@@ -12,8 +12,8 @@ public class TempOutdoorCreature : MonoBehaviour
     [SerializeField] public GameObject boom2;
     [SerializeField] public GameObject boom3;
 
-    public static Vector3 subVector = new Vector3(0.0f, 0.0f, 0.0f);
-    public static Vector3 monsterVector = new Vector3(0.0f, 0.0f, 0.0f);
+    public static Vector3 subVector = new Vector3();
+    public static Vector3 monsterVector;
 
     private float speed = 6.0f;
     private float subDistance = 0.0f;
@@ -29,14 +29,30 @@ public class TempOutdoorCreature : MonoBehaviour
     void Awake()
     {
         subVector = GameObject.Find("Submarine").transform.position;
+        Debug.Log("monster status: " + monsterStatus);
+        if (monsterStatus)
+        {
+            monster.SetActive(true);
+            monster.transform.position = monsterVector;
+        }
     }
+
+    //void Start()
+    //{
+    //    monster.transform.position = monsterVector;
+    //}
 
     void Update()
     {
+        //if (!monsterStatus)
+        //{
+        //    MonsterAppear();
+        //}
         MonsterAppear();
         if (monsterStatus && !monsterStop)
         {
             StartCoroutine(moveMonster.Move(monsterVector, subVector, speed));
+            FindMonster();
             bool canAttack = MonsterCanAttack();
             if (canAttack)
             {
@@ -90,11 +106,11 @@ public class TempOutdoorCreature : MonoBehaviour
                 //    FindMonster();
                 //    monsterStatus = true;
                 //    break;
-                //case 10.0f:
-                //    SpawnMonster();
-                //    FindMonster();
-                //    monsterStatus = true;
-                //    break;
+                case 20.0f:
+                    SpawnMonster();
+                    FindMonster();
+                    monsterStatus = true;
+                    break;
                 //case 100.0f:
                 //    SpawnMonster();
                 //    FindMonster();

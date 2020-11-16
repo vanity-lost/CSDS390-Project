@@ -10,15 +10,17 @@ public class Radar : MonoBehaviour
     public GameObject sweeperCanvas;
     public GameObject enemyIcon;
     public GameObject radarSound;
+    public GameObject increasingRadarSound;
     //public PowerBtn powerBtn;
 
     private Transform sweeperTransform;
     private float rotSpeed = 250f;
 
     public static bool radarOpen = false;
-    public static bool sweeperOn = true;
+    //public static bool sweeperOn = true;
     private bool iconActive = false;
     public static bool radarOn = true;
+    private static bool soundSwitch = false;
 
     private Vector3 monsterVector = new Vector3();
 
@@ -31,12 +33,17 @@ public class Radar : MonoBehaviour
     {
         bool close = Closeness();
 
+        SonarSound();
+
         //sweeperTransform.eulerAngles += new Vector3(0,0,-rotSpeed * Time.deltaTime);
         if (GlobalData.radarOn)
         {
             sweeper.SetActive(true);
             sweeper.transform.Rotate(0f, 0f, -rotSpeed * Time.deltaTime, Space.Self);
-            radarSound.SetActive(true);
+            if (!soundSwitch)
+            {
+                radarSound.SetActive(true);
+            }
         }
         else
         {
@@ -51,19 +58,19 @@ public class Radar : MonoBehaviour
             {
                 radarCanvas.SetActive(true);
                 radarOpen = true;
-                sweeperOn = true;
+                //sweeperOn = true;
                 //Screen.lockCursor = false;
             }
             else
             {
                 radarCanvas.SetActive(false);
                 radarOpen = false;
-                sweeperOn = false;
+                //sweeperOn = false;
                 //Screen.lockCursor = true;
             }
         }
 
-        if (sweeperOn && GlobalData.radarOn)
+        if (radarOpen && GlobalData.radarOn)
         {
             sweeperCanvas.SetActive(true);
             float rotation = sweeper.transform.localEulerAngles.z;
@@ -129,5 +136,30 @@ public class Radar : MonoBehaviour
             iconActive = false;
         }
 
+    }
+
+    private void SonarSound()
+    {
+        if (GlobalData.radarOn && TempOutdoorCreature.monsterStatus)
+        {
+            if (!soundSwitch)
+            {
+                Debug.Log("sonar sound switched to increasing");
+                radarSound.SetActive(false);
+                increasingRadarSound.SetActive(true);
+                soundSwitch = true;
+            }
+        }
+        else
+        {
+            if (soundSwitch && !GlobalData.radarOn)
+            {
+                Debug.Log("sonar sound switched to normal");
+                increasingRadarSound.SetActive(false);
+                radarSound.SetActive(true);
+                soundSwitch = false;
+            }
+        
+        }
     }
 }
