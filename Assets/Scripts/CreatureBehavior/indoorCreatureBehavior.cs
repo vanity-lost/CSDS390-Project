@@ -129,7 +129,7 @@ public class IndoorCreatureBehavior : MonoBehaviour
 
     public IEnumerator delayedMove()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(8);
         pausedDecisions = false;
     }
 
@@ -170,6 +170,8 @@ public class IndoorCreatureBehavior : MonoBehaviour
             StartCoroutine(pauseDecisions(pause));
             return true;
         }
+        agent.destination = hideRoamPickNewDestination();
+        StartCoroutine(pauseDecisions(pause));
         return false;
     }
 
