@@ -35802,18 +35802,20 @@ MonoBehaviour:
   - "We need you to journey to the research station. The\u2026 hsss.... there is
     critical..."
   - Look at your interface. I sent you some information about this submarine.
-  - "Your submarine\u2019s energy and health percentages are in the top left. If
-    it is exhausted\u2026 hsssss...  right?"
+  - "Your submarine\u2019s health percentage is in the top left. If it is exhausted\u2026
+    hsssss...  right?"
   - You also have a minimap in the top right that shows the layout of the sub.
-  - "Any new tasks will appear in the left sidebar and you should check for tasks
-    often\u2026"
+  - "New tasks will appear in the left sidebar. Make sure to check for tasks often\u2026"
   - "The meter on the bottom will show how close you are to your destination\u2026
     hss\u2026"
   - Hold for further information...
   - "Let\u2019s make sure you can use your controls\u2026 [Press W,A,S,D] to move."
   - '[Press E] to interact with tasks and objects...'
   - '[Press Esc] to open the settings window and [Press Tab] to open the task panel.
-    Those should be all the tools you need, good luck...'
+    Those should be all the tools you need.'
+  - Make sure to check the periscope and sonar for any monsters lurking around...
+  - If one does appear, make sure to kill the lights and sonar...hss...Stay safe
+    and good luck...
   - 
   currentMessageIndex: 0
 --- !u!1 &1383665849

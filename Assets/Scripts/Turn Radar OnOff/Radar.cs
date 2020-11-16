@@ -152,7 +152,7 @@ public class Radar : MonoBehaviour
         }
         else
         {
-            if (soundSwitch && !GlobalData.radarOn)
+            if (soundSwitch && GlobalData.radarOn && !TempOutdoorCreature.monsterStatus)
             {
                 Debug.Log("sonar sound switched to normal");
                 increasingRadarSound.SetActive(false);

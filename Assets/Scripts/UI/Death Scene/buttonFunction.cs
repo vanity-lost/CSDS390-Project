@@ -14,6 +14,9 @@ public class buttonFunction : MonoBehaviour
     {
         ESCDectect.gameIsPaused = false;
         SceneManager.LoadScene("Main");
+        GameObject.Find("Player").transform.position = new Vector3(0, 1.68f, 0);
+        Screen.lockCursor = true;
+        SubHealth.healthNum = 100;
     }
 
     public void Quit()
