@@ -109,7 +109,7 @@ public class GameEventController : MonoBehaviour
             //break;
             GlobalData.brokenWireboxLoc = Random.Range(1, 4);
             GlobalData.wiresBroken = true;
-                break;
+            break;
         default:
             Debug.Log("Incorrect index");
             break;
