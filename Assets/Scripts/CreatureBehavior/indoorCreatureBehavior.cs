@@ -53,6 +53,7 @@ public class IndoorCreatureBehavior : MonoBehaviour
     private Transform goal;
     private NavMeshAgent agent;
     private bool pausedDecisions = true;
+    private AudioSource source;
     //private MinigameModel nextMinigameSabatageLocation;
 
     #endregion
@@ -63,6 +64,7 @@ public class IndoorCreatureBehavior : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
+        source = GetComponent<AudioSource>();
         minigameObjects = new List<GameObject>();
         findMinigameObjects();
         StartCoroutine(delayedMove());
@@ -73,21 +75,29 @@ public class IndoorCreatureBehavior : MonoBehaviour
         //UnityEngine.Debug.Log("Current Distance: " + (agent.transform.position - player.transform.position).magnitude);
         if (!pausedDecisions)
         {
-            if (GlobalData.wiresBroken || GlobalData.fuseBroken)
+            if (GlobalData.wiresBroken || GlobalData.fuseBroken || !GlobalData.lightsOn)
             {
-                agent.speed = 2;
-                if (huntRoam())
+                agent.speed = 3;
+                if (isWithinDistance(agent.transform.position, player.transform.position, HUNT_DISTANCE))
+                {
+                    attacked();
+                }
+
+                else if (huntRoam())
                 {
                     moveToPlayer();
                 }
             }
             else
             {
-                agent.speed = 5;
+                agent.speed = 8;
+                hideRoam(1);
+                /*
                 if (hideRoam())
                 {
                     runFromPlayer();
                 }
+                */
             }
         }
     }
@@ -95,6 +105,19 @@ public class IndoorCreatureBehavior : MonoBehaviour
     #endregion
 
     #region <-- Functions -->
+
+    private void attacked()
+    {
+        if (SubHealth.healthNum <= 15)
+        {
+            SubHealth.healthNum = 0;
+        }
+        else
+        {
+            SubHealth.healthNum -= 15;
+        }
+        hideRoam(5);
+    }
 
     private void findMinigameObjects()
     {
@@ -128,19 +151,24 @@ public class IndoorCreatureBehavior : MonoBehaviour
     // Creature runs away from player
     private void runFromPlayer()
     {
-        agent.destination = 2 * agent.transform.position - player.transform.position;
+        Vector3 direction = 2 * agent.transform.position - player.transform.position;
+        agent.destination = direction;
+        agent.speed = 20;
     }
 
-    private bool hideRoam()
+    private bool hideRoam(int pause)
     {
         if (isWithinDistance(player.transform.position, agent.transform.position, HIDE_DISTANCE))
         {
+            agent.destination = hideRoamPickNewDestination();
+            StartCoroutine(pauseDecisions(pause));
             return true;
         }
         else if (isWithinDistance(player.transform.position, agent.destination, HIDE_DISTANCE))
         {
             agent.destination = hideRoamPickNewDestination();
-            StartCoroutine(pauseDecisions(1));
+            StartCoroutine(pauseDecisions(pause));
+            return true;
         }
         return false;
     }
