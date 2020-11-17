@@ -54,6 +54,8 @@ public class indoorCreatureBehavior : MonoBehaviour
     private NavMeshAgent agent;
     private bool pausedDecisions = true;
     private AudioSource source;
+    private AudioSource attackSource1;
+    private AudioSource attackSource2;
     //private MinigameModel nextMinigameSabatageLocation;
 
     #endregion
@@ -65,6 +67,8 @@ public class indoorCreatureBehavior : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player");
         source = GetComponent<AudioSource>();
+        attackSource1 = GameObject.Find("HurtAudio").GetComponent<AudioSource>();
+        attackSource2 = GameObject.Find("AttackChitterAudio").GetComponent<AudioSource>();
         minigameObjects = new List<GameObject>();
         findMinigameObjects();
         StartCoroutine(delayedMove());
@@ -108,6 +112,8 @@ public class indoorCreatureBehavior : MonoBehaviour
 
     private void attacked()
     {
+        attackSource1.Play();
+        attackSource2.Play();
         if (SubHealth.healthNum <= 15)
         {
             SubHealth.healthNum = 0;
