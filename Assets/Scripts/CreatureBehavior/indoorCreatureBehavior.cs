@@ -38,7 +38,7 @@ public class MinigameModel
     }
 }*/
 
-public class IndoorCreatureBehavior : MonoBehaviour
+public class indoorCreatureBehavior : MonoBehaviour
 {
     private List<string> MINIGAME_GAMEOBJECT_NAMES = new List<string>() { "Control_ConsoleUVD", "Storage Closet", "Fire Extinguisher", "Engine_UV_V3", "WireHead W/ Sparks", "WireMid W/ Sparks", "WireTail W/ Sparks", "Fuse Box" };
     private float HIDE_DISTANCE = 6f;
